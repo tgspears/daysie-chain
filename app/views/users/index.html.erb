@@ -9,18 +9,11 @@
       </p>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
+  <%= render "layouts/flash" %>
 </div>
+
+
+<!-- Modals!!!!!!! -->
 
 
 <div class="modal fade" id="sign_up">
@@ -60,11 +53,16 @@
         <h4 class="modal-title">Sign In</h4>
       </div>
       <div class="modal-body">
+        <%= bootstrap_form_for :user, url: sessions_path do |f| %>
+          <%= f.text_field :email, placeholder: "E-mail" %>
+          <%= f.password_field :password, placeholder: "Password" %>
+
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= f.primary "Sign in" %>
+        <% end %>
       </div>
     </div>
   </div>
