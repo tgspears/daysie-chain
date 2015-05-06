@@ -28,6 +28,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+# gem 'omniauth-twitter'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
