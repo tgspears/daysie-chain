@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :users, :only => [:create, :destroy]
+
   resources :sessions, :only => [:create, :destroy]
+
+  get 'auth/logout' => 'auth#logout'
+  get 'auth/failure' => 'auth#failure'
+  get 'auth/:provider/callback' => 'auth#callback'
 
 
   # Example resource route with options:
