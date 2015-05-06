@@ -72,8 +72,9 @@ ActiveRecord::Schema.define(version: 20150506193925) do
     t.string   "lastname"
     t.string   "email"
     t.integer  "tel"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_foreign_key "attendances", "events"
