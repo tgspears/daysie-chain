@@ -4,7 +4,10 @@ class GroupsController < ApplicationController
     @user = current_user
     @group = Group.new
     @event = Event.new
-    @groups = @user.groups
+    unless @user.groups.empty?
+      @groups = @user.groups
+      puts @groups
+    end
   end
 
   def create
