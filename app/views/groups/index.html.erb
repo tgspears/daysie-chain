@@ -1,4 +1,4 @@
-
+<% group_arr = [] %>
 <%= render "layouts/navbar" %>
 <div class="row">
   <div class="col-md-4">
@@ -6,11 +6,14 @@
   <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
     <% if @current_user.groups %>
     <%@current_user.groups.each do |i| %>
+    <% idx = i.id %>
+    <% group_arr << idx %>
     <ul>
     <li><%= i.name %>
       <ul>
         <%i.events.each do |j| %>
-        <li> <a data-toggle="modal" href='#event_invite'> <%= j.name %></a> </li>
+        <% e_idx = j.id %>
+        <li> <a data-toggle="modal" class="event_invite" href='#event_invite' id="<%= idx %>" data="<%= e_idx %>" uid="<%= @current_user.id %>"> <%= j.name %></a> </li>
         <% end %>
         <a  data-toggle="modal" href='#create_event'>Add a new event for this group</a>
       </ul>
@@ -82,10 +85,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">Send out invitations to this event</h4>
       </div>
       <div class="modal-body">
-
+        <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
+        <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
+        <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
+        <%= f.form_group :status, label: { text: "Status" }, help: "Do you want this to be public or private" do %>
+          <%= f.radio_button :status, false, label: "Public", checked: true %>
+          <%= f.radio_button :status, true, label: "Private" %>
+        <%end %>
+        <%end%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
