@@ -15,7 +15,7 @@
         <% @e_idx = j.id %>
         <li> <a data-toggle="modal" class="event_invite" href='#event_invite' id="<%= @idx %>" data="<%= @e_idx %>" uid="<%= @current_user.id %>"> <%= j.name %></a> </li>
         <% end %>
-        <a  data-toggle="modal" href='#create_event'>Add a new event for this group</a>
+        <a  data-toggle="modal" href='#create_event' class="event_add" uid="<%= @current_user.id %>" id="<%= @idx %>">Add a new event for this group</a>
       </ul>
    </li>
    </ul>
@@ -115,7 +115,7 @@
         <h4 class="modal-title">Modal title</h4>
       </div>
       <div class="modal-body">
-       <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
+       <%= bootstrap_form_for :new_event, :html => { :class => "group_event_add_form" } do |f| %>
         <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
         <%= f.text_field :desc, placeholder: "Enter a description" %>
         <%= f.text_field :max, placeholder: "Enter the max size" %>
@@ -132,10 +132,12 @@
           <%end %>
         </span>
 
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= f.primary "Submit" %>
+        <% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
