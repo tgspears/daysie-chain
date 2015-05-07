@@ -79,34 +79,34 @@
   </div>
 </div>
 
-
-<div class="modal fade" id="event_invite">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <% group = @groups.find(@idx)%>
-        <% event = @groups.find(@idx).events.find(@e_idx) %>
-        <h4 class="modal-title">Send out invitations to  "<%= event.name %>"</h4>
-        <hr>
-        <h5 class="modal-desc"><%= event.desc %> | <%= event.loc %> </h5>
-      </div>
-      <div class="modal-body">
-        <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
-        <%= f.text_field :min, placeholder: "e.g. 1" %>
-        <%= f.text_field :max, placeholder: "e.g. #{group.memberships.length}" %>
-        <%= f.text_field :day, placeholder: "e.g. Thursday" %>
-        <%= f.text_field :time, placeholder: "e.g. 10pm" %>
-        <%end%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
+<% if @groups %>
+  <div class="modal fade" id="event_invite">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <% group = @groups.find(@idx)%>
+          <% event = @groups.find(@idx).events.find(@e_idx) %>
+          <h4 class="modal-title">Send out invitations to  "<%= event.name %>"</h4>
+          <hr>
+          <h5 class="modal-desc"><%= event.desc %> | <%= event.loc %> </h5>
+        </div>
+        <div class="modal-body">
+          <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
+          <%= f.text_field :min, placeholder: "e.g. 1" %>
+          <%= f.text_field :max, placeholder: "e.g. #{group.memberships.length}" %>
+          <%= f.text_field :day, placeholder: "e.g. Thursday" %>
+          <%= f.text_field :time, placeholder: "e.g. 10pm" %>
+          <%end%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+<% end %>
 <div class="modal fade" id="create_event">
   <div class="modal-dialog">
     <div class="modal-content">
