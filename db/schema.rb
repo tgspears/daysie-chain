@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506232720) do
+ActiveRecord::Schema.define(version: 20150507171239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,24 +33,26 @@ ActiveRecord::Schema.define(version: 20150506232720) do
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "desc"
-    t.string   "max"
+    t.integer  "max"
     t.string   "loc"
     t.string   "date"
     t.string   "time"
     t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "min"
   end
 
   add_index "events", ["group_id"], name: "index_events_on_group_id", using: :btree
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
-    t.string   "size"
-    t.string   "status"
+    t.integer  "size"
+    t.boolean  "status"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "image"
   end
 
   add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150506232720) do
     t.string   "provider_id"
     t.string   "provider"
     t.string   "provider_hash"
+    t.text     "image"
   end
 
   add_foreign_key "attendances", "events"
