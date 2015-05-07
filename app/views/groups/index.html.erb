@@ -1,12 +1,28 @@
 <div class="container">
 
 
+ <% if @current_user %>
+        <%= bootstrap_form_for :session, url: session_path(@current_user.id), :method => "DELETE" do |f| %>
+          <%= f.primary "Log Out" %>
+        <% end %>
+
+        <a class="btn btn-primary" href='<%auth_logout_path%>'>Sign out with facebook</a>
+        <% end %>
+
+
 <h1> Your Groups </h1>
 <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
 
-  <% if @current_user.groups %>
-  <%= @current_user.groups.first.name %>
+
+</div>
+
+<div class="col-md-4">
+<% if @current_user.groups %>
+  <%@current_user.groups.each do |i| %>
+  <%= i.name %>
   <% end %>
+<% end %>
+
 
 </div>
 
