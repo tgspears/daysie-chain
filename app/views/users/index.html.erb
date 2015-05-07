@@ -2,12 +2,15 @@
   <div class="jumbotron">
     <div class="container">
       <h1>Daysie Chain</h1>
-      <p>2chainxzzz</p>
+      <p>Hello <%= @current_user.firstname if @current_user%> </p>
       <p>
         <a class="btn btn-primary" data-toggle="modal" href='#sign_up'>Sign Up</a>
         <a class="btn btn-primary" data-toggle="modal" href='#sign_in'>Sign In</a>
         <hr>
         <a class="btn btn-primary" href="/auth/facebook"> Login With Facebook </a>
+        <hr>
+        <a class="btn btn-primary" href='sessions/<%=@current_user.id%>' method="DESTROY">Sign out</a>
+        <a class="btn btn-primary" href='<%auth_logout_path%>'>Sign out with facebook</a>
       </p>
     </div>
   </div>
