@@ -3,7 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name
       t.string :desc
-      t.string :max
+      t.integer :max
       t.string :loc
       t.string :date
       t.string :time
