@@ -11,13 +11,7 @@
         <hr>
 
 
-        <% if @current_user %>
-        <%= bootstrap_form_for :session, url: session_path(@current_user.id), :method => "DELETE" do |f| %>
-          <%= f.primary "Log Out" %>
-        <% end %>
 
-        <a class="btn btn-primary" href='<%auth_logout_path%>'>Sign out with facebook</a>
-        <% end %>
       </p>
     </div>
   </div>
