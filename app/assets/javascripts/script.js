@@ -6,4 +6,5 @@ $(function(){
     $("#event_form").trigger("submit");
   })
 
+
 });

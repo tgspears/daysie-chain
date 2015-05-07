@@ -17,7 +17,7 @@
 //   www.dynarch.com/projects/calendar
 //
 
-var Calendar = Class.create()
+var Calendar = Class.create();
 
 //------------------------------------------------------------------------------
 // Constants
@@ -41,7 +41,7 @@ Calendar.MONTH_NAMES = new Array(
 
 Calendar.SHORT_MONTH_NAMES = new Array(
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
-  'Dec' 
+  'Dec'
 )
 
 Calendar.NAV_PREVIOUS_YEAR  = -2
