@@ -6,9 +6,16 @@
   <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
     <% if @current_user.groups %>
     <%@current_user.groups.each do |i| %>
+    <ul>
     <li><%= i.name %>
-     <a href="#"> <%= i.events.first.name %> </a>
+      <ul>
+        <%i.events.each do |j| %>
+        <li> <a href="#"> <%= j.name %> </a> </li>
+        <% end %>
+        <li> <a href="#"> Add an event for this group </a> </li>
+      </ul>
    </li>
+   </ul>
    <% end %>
    <% end %>
   </div>
