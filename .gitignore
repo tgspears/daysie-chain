@@ -1,3 +1,5 @@
 .env
 log
 .DS_Store
+tmp/cache/assets/development/sprockets/v3.0
+db/schema.rb
