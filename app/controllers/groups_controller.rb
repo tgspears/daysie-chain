@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
     @user = current_user
     @group = Group.new
     @event = Event.new
+    @groups = @user.groups
   end
 
   def create
