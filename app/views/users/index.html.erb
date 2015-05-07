@@ -9,8 +9,10 @@
         <hr>
         <a class="btn btn-primary" href="/auth/facebook"> Login With Facebook </a>
         <hr>
-        <a class="btn btn-primary" href='sessions/<%=@current_user.id%>' method="DESTROY">Sign out</a>
+        <% if @current_user %>
+         <a class="btn btn-primary" href='sessions/<%=@current_user.id%>' method="DESTROY">Sign out</a>
         <a class="btn btn-primary" href='<%auth_logout_path%>'>Sign out with facebook</a>
+        <% end %>
       </p>
     </div>
   </div>
