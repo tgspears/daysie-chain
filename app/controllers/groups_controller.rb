@@ -17,7 +17,6 @@ class GroupsController < ApplicationController
     membership.user_id = user.id
     membership.admin = true
     membership.save
-
     redirect_to user_groups_path(@current_user.id)
   end
 
