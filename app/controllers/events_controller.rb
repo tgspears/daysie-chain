@@ -7,10 +7,16 @@ class EventsController < ApplicationController
 
   end
 
+  def update
+    render :json => params
+  end
 
   private
 
   def event_params
     params.require(:new_event).permit(:name, :desc, :max, :loc, :date)
   end
+
+
+
 end

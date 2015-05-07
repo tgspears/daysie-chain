@@ -18,9 +18,24 @@ $('.event_invite').on('click', function(e){
     console.log(groupId)
     $('.group_event_send_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events/'+eventId)
 
-    $('.event_invite').modal('show');
-
   });
+
+$('.group_event_send_form').on('submit', function(e){
+  e.preventDefault();
+  userId = $('.event_invite').attr('uid')
+  groupId = $('.event_invite').attr('id');
+  eventId = $('.event_invite').attr('data');
+  formData = $(this).serialize();
+  $.ajax({
+    method: "put",
+    url: '/users/'+userId+'/groups/'+groupId+'/events/'+eventId,
+    data: formData
+  }).done(function(data){
+    $('#event_invite').modal('hide');
+    $('.group_event_send_form')[0].reset();
+  })
+
+})
 
 $('.event_add').on('click', function(e){
     e.preventDefault()
