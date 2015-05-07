@@ -19,7 +19,9 @@
 <div class="col-md-4">
 <% if @current_user.groups %>
   <%@current_user.groups.each do |i| %>
-  <%= i.name %>
+  <li><%= i.name %>
+ <a href="#"> <%= i.events.first.name %> </a>
+ </li>
   <% end %>
 <% end %>
 
