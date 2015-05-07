@@ -59,7 +59,7 @@
         <h4 class="modal-title">Sign In</h4>
       </div>
       <div class="modal-body">
-        <%= bootstrap_form_for :user do |f| %>
+        <%= bootstrap_form_for :user, url: login_path do |f| %>
           <%= f.text_field :email, placeholder: "E-mail" %>
           <%= f.password_field :password, placeholder: "Password" %>
 
