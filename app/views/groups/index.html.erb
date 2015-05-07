@@ -19,11 +19,31 @@
         <h4 class="modal-title">Create a Group</h4>
       </div>
       <div class="modal-body">
+        <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
+          <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
+          <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
+          <%= f.form_group :skill_level, label: { text: "Status" }, help: "Do you want this to be public or private" do %>
+            <%= f.radio_button :status, false, label: "Public", checked: true %>
+            <%= f.radio_button :status, true, label: "Private" %>
+          <%end %>
 
+
+
+          <hr>
+        <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
+        <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
+        <%= f.text_field :desc, placeholder: "Enter a description" %>
+        <%= f.text_field :max, placeholder: "Enter the max size" %>
+        <%= f.text_field :loc, placeholder: "Enter the location" %>
+        <%= f.text_field :date, placeholder: "Enter the date" %>
+        <%= f.text_field :time, placeholder: "Enter the time" %>
+
+        <% end %>
+      <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
