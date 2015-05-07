@@ -4,4 +4,8 @@ class EventsController < ApplicationController
     render :json => params
   end
 
+  def update
+    render :json => params
+  end
+
 end
