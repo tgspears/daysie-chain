@@ -1,38 +1,27 @@
-<div class="container">
 
-
- <% if @current_user %>
-        <%= bootstrap_form_for :session, url: session_path(@current_user.id), :method => "DELETE" do |f| %>
-          <%= f.primary "Log Out" %>
-        <% end %>
-
-        <a class="btn btn-primary" href='<%auth_logout_path%>'>Sign out with facebook</a>
-        <% end %>
-
-
-<h1> Your Groups </h1>
-<a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
-
-
-</div>
-
-<div class="col-md-4">
-<% if @current_user.groups %>
-  <%@current_user.groups.each do |i| %>
-  <li><%= i.name %>
- <a href="#"> <%= i.events.first.name %> </a>
- </li>
-  <% end %>
-<% end %>
-
-
+<%= render "layouts/navbar" %>
+<div class="row">
+  <div class="col-md-4">
+  <h1> Your Groups </h1>
+  <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
+    <% if @current_user.groups %>
+    <%@current_user.groups.each do |i| %>
+    <li><%= i.name %>
+     <a href="#"> <%= i.events.first.name %> </a>
+   </li>
+   <% end %>
+   <% end %>
+  </div>
 </div>
 
 
-<!-- Below here be the realm of modals, ya hear? -->
 
 
-<div class="modal fade" id="create_group">
+
+ <!-- Below here be the realm of modals, ya hear? -->
+
+
+ <div class="modal fade" id="create_group">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -41,16 +30,16 @@
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
-          <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
-          <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
-          <%= f.form_group :status, label: { text: "Status" }, help: "Do you want this to be public or private" do %>
-            <%= f.radio_button :status, false, label: "Public", checked: true %>
-            <%= f.radio_button :status, true, label: "Private" %>
-          <%end %>
+        <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
+        <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
+        <%= f.form_group :status, label: { text: "Status" }, help: "Do you want this to be public or private" do %>
+        <%= f.radio_button :status, false, label: "Public", checked: true %>
+        <%= f.radio_button :status, true, label: "Private" %>
+        <%end %>
 
 
 
-          <hr>
+        <hr>
         <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
         <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
         <%= f.text_field :desc, placeholder: "Enter a description" %>
@@ -58,19 +47,19 @@
         <%= f.text_field :loc, placeholder: "Enter the location" %>
         <%= f.form_group :time, label: { text: "Does this event generally happen on a particular day of the week?" }, help: "optional" do  %>
         <span>
-            <%= f.radio_button :time, "0", label: "Mon" %>
-            <%= f.radio_button :time, "1", label: "Tues" %>
-            <%= f.radio_button :time, "2", label: "Wed" %>
-            <%= f.radio_button :time, "3", label: "Thu" %>
-            <%= f.radio_button :time, "4", label: "Fri" %>
-            <%= f.radio_button :time, "5", label: "Sat" %>
-            <%= f.radio_button :time, "6", label: "Sun" %>
+          <%= f.radio_button :time, "0", label: "Mon" %>
+          <%= f.radio_button :time, "1", label: "Tues" %>
+          <%= f.radio_button :time, "2", label: "Wed" %>
+          <%= f.radio_button :time, "3", label: "Thu" %>
+          <%= f.radio_button :time, "4", label: "Fri" %>
+          <%= f.radio_button :time, "5", label: "Sat" %>
+          <%= f.radio_button :time, "6", label: "Sun" %>
           <%end %>
         </span>
 
 
         <% end %>
-      <% end %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>

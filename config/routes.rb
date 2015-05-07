@@ -19,7 +19,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, :only => [:create, :destroy]
+  # resources :sessions, :only => [:create, :destroy]
+
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
 
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
