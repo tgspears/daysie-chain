@@ -11,21 +11,24 @@ $(function(){
   })
 
 $('.event_invite').on('click', function(e){
-    e.preventDefault()
-
-    userId = $(this).attr('uid')
-    groupId = $(this).attr('id');
-    eventId = $(this).attr('data');
-    console.log(groupId)
+    e.preventDefault();
+    var userId = $(this).attr('uid');
+    var groupId = $(this).attr('id');
+    var eventId = $(this).attr('data');
+    console.log('group id', groupId);
+    console.log('event id', eventId)
     $('.group_event_send_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events/'+eventId)
+    $('.event-modal').attr('id', groupId)
 
   });
 
 $('.group_event_send_form').on('submit', function(e){
   e.preventDefault();
-  userId = $('.event_invite').attr('uid')
-  groupId = $('.event_invite').attr('id');
-  eventId = $('.event_invite').attr('data');
+  var id = $(this).closest(".modal-body").attr("id")
+  var userId = $('#'+id).attr('uid')
+  var groupId = $('#'+id).attr('id');
+  var eventId = $('#'+id).attr('data');
+  console.log(userId, groupId, eventId)
   formData = $(this).serialize();
   $.ajax({
     method: "put",
