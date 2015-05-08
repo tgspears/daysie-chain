@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   end
 
   def update
-
     event = Event.find(params["id"])
     event.min = params['event_send']['min']
     event.max = params['event_send']['max']
@@ -24,7 +23,4 @@ class EventsController < ApplicationController
     params.require(:new_event).permit(:name, :desc, :max, :loc, :date)
   end
 
-
-
 end
-
