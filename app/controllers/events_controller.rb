@@ -8,12 +8,14 @@ class EventsController < ApplicationController
   end
 
   def update
+    user = current_user
     event = Event.find(params["id"])
     event.min = params['event_send']['min']
     event.max = params['event_send']['max']
     event.day = params['event_send']['day']
     event.time = params['event_send']['time']
     event.save
+    user.attendances << event.attendances.create(yes: false, no: false, maybe: false, count:0)
     render :json => params
   end
 

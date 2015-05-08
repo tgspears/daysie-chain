@@ -1,12 +1,16 @@
 class GroupsController < ApplicationController
 
   def index
-    @user = current_user
-    @group = Group.new
-    @event = Event.new
-    unless @user.groups.empty?
-      @groups = @user.groups
-      puts @groups
+    if current_user
+      @user = current_user
+      @group = Group.new
+      @event = Event.new
+      unless @user.groups.empty?
+        @groups = @user.groups
+        puts @groups
+      end
+    else
+      redirect_to root_path
     end
   end
 
