@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'users/:id' => 'users#show'
+
   # resources :sessions, :only => [:create, :destroy]
 
   post 'login' => 'sessions#create'
