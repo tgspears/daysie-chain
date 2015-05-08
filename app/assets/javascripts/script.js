@@ -1,6 +1,4 @@
 
-
-// This is all the standard jquery stuff
 $(function(){
   jQuery.noConflict();
 

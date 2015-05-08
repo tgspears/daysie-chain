@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.new
+   @user = User.new
+   if session[:user_id] != nil
+      redirect_to user_groups_path(@current_user.id)
+   end
   end
 
   def create
