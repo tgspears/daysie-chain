@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   def create
 
     unless User.find_by_email(params[:user][:email])
-      @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password]
+      uploaded_file = params[:user][:picture].path
+      cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+      @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file["public_id"]
        session[:user_id] = @user.id
     else
       render :plain => 'ERROR DICKHEAD'
