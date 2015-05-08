@@ -18,7 +18,7 @@
         <% @e_idx = j.id %>
         <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
         <% end %>
-        <a  data-toggle="modal" data-target='#create_event' class="event_add">Add a new event for this group</a>
+        <a  data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i)%>" class="event_add">Add a new event for this group</a>
       </ul>
    </li>
    </ul>
@@ -95,35 +95,7 @@
 <div class="modal fade" id="create_event">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-       <%= bootstrap_form_for :new_event, :html => { :class => "group_event_add_form" } do |f| %>
-        <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
-        <%= f.text_field :desc, placeholder: "Enter a description" %>
-        <%= f.text_field :max, placeholder: "Enter the max size" %>
-        <%= f.text_field :loc, placeholder: "Enter the location" %>
-        <%= f.form_group :time, label: { text: "Does this event generally happen on a particular day of the week?" }, help: "optional" do  %>
-        <span>
-          <%= f.radio_button :time, "0", label: "Mon" %>
-          <%= f.radio_button :time, "1", label: "Tues" %>
-          <%= f.radio_button :time, "2", label: "Wed" %>
-          <%= f.radio_button :time, "3", label: "Thu" %>
-          <%= f.radio_button :time, "4", label: "Fri" %>
-          <%= f.radio_button :time, "5", label: "Sat" %>
-          <%= f.radio_button :time, "6", label: "Sun" %>
-          <%end %>
-        </span>
 
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.primary "Submit" %>
-        <% end %>
-      </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

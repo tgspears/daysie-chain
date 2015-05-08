@@ -1,4 +1,7 @@
 $(function(){
+
+
+
   $("#group_submit").on("click", function(e){
     e.preventDefault();
     $("#group_form").trigger("submit");
@@ -7,22 +10,18 @@ $(function(){
 
 $('.event_invite').on('click', function(e){
     e.preventDefault();
-    console.log('this works')
-    $('#event_invite').modal('show')
   });
 
 $('.group_event_send_form').on('submit', function(e){
   e.preventDefault();
-  var eventmodal = $(this).parent()
-  formData = $(this).serialize();
+  var formData = $(this).serialize();
   var action = $(this).attr('action')
   url = action.substring(0, action.length-4)
   console.log('this is the url', action)
   $.ajax({
     method: "put",
     url: url,
-    data: formData,
-    async: true
+    data: formData
   }).done(function(data){
      jQuery.noConflict();
     $("#close_btn").trigger("click");
@@ -35,12 +34,29 @@ $('.group_event_send_form').on('submit', function(e){
 
 $('.event_add').on('click', function(e){
     e.preventDefault()
-    userId = $(this).attr('uid')
-    groupId = $(this).attr('id');
-    $('.group_event_add_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events')
-
-
   });
+
+$('.group_event_add_form').on('submit', function(e){
+  e.preventDefault();
+  alert('this works')
+  var formData = $(this).serialize();
+  var action = $(this).attr('action')
+  url = action.substring(0, action.length-3)
+  console.log('this is the url', action)
+  $.ajax({
+    method: "post",
+    url: url,
+    data: formData
+  }).done(function(data){
+    console.log(data)
+     jQuery.noConflict();
+    $("#other_close_btn").trigger("click");
+    $('.group_event_send_form')[0].reset();
+  }).error(function(err){
+
+  })
+
+})
 
 $('.group_user_add').on('click', function(e){
     e.preventDefault();

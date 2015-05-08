@@ -33,7 +33,7 @@ gem 'bootstrap_form'
 gem 'omniauth'
 gem 'omniauth-facebook'
 # gem 'omniauth-twitter'
-
+gem 'responders'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

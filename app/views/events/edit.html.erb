@@ -5,7 +5,7 @@
   <h5 class="modal-desc"><%= @event.desc %> | <%= @event.loc %> </h5>
 </div>
 <div class="modal-body event-modal" id="0">
-  <%= bootstrap_form_for :event_send, url: edit_user_group_event_path, :html => { :class => "group_event_send_form" } do |f| %>
+  <%= bootstrap_form_for [@user, @group, @event], :html => { :class => "group_event_send_form" } do |f| %>
   <%= f.text_field :min, placeholder: "e.g. 1" %>
   <%= f.text_field :max, placeholder: "e.g. somethin" %>
   <%= f.text_field :day, placeholder: "e.g. Thursday" %>
