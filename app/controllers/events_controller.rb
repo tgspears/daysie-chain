@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     p "This is the event: #{@event.inspect}"
     p "This is the group: #{@group.inspect}"
 
-    # render layout: false
+    render layout: false
   end
 
   def update
