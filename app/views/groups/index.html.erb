@@ -1,4 +1,3 @@
-<% group_arr = [] %>
 <%= render "layouts/navbar" %>
 <div class="row">
   <div class="col-md-4">
@@ -7,15 +6,15 @@
     <% if @current_user.groups %>
     <%@current_user.groups.each do |i| %>
     <% @idx = i.id %>
-    <% group_arr << @idx %>
     <ul>
-    <li><%= i.name %><i class="fa fa-user-plus"></i>
+    <li><%= i.name %>
+      <a data-toggle="modal" href="#group_users" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
       <ul>
         <%i.events.each do |j| %>
         <% @e_idx = j.id %>
-        <li> <a data-toggle="modal" class="event_invite" href='#event_invite' id="<%= @e_idx %>" data="<%= @idx %>" uid="<%= @current_user.id %>"> <%= j.name %></a> </li>
+        <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
         <% end %>
-        <a  data-toggle="modal" href='#create_event' class="event_add" uid="<%= @current_user.id %>" id="<%= @idx %>">Add a new event for this group</a>
+        <a  data-toggle="modal" data-target='#create_event' class="event_add">Add a new event for this group</a>
       </ul>
    </li>
    </ul>
@@ -83,28 +82,6 @@
   <div class="modal fade" id="event_invite">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <% group = @groups.find(@idx)%>
-          <% event = group.events.find(@e_idx) %>
-          <h4 class="modal-title">Send out invitations to  "<%= event.name %>"</h4>
-          <hr>
-          <h5 class="modal-desc"><%= event.desc %> | <%= event.loc %> </h5>
-        </div>
-
-        <div class="modal-body event-modal" id="0">
-          <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
-          <%= f.text_field :min, placeholder: "e.g. 1" %>
-          <%= f.text_field :max, placeholder: "e.g. #{group.memberships.length}" %>
-          <%= f.text_field :day, placeholder: "e.g. Thursday" %>
-          <%= f.text_field :time, placeholder: "e.g. 10pm" %>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit "Send out the invites!", :class => "btn btn-primary group_event_send_button"  %>
-          <%end%>
-        </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
