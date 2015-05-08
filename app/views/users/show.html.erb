@@ -25,6 +25,7 @@
 		<% @user.groups.each do |x| %>
 			<% if x.user_id == @current_user.id %>
 				<tr>Group: <%= x.name %> </tr>
+				<tr>Founder: <%= x.user %></tr>
 				<% x.events.each do |y| %>
 					<ul>
 					<li>Event: <%= y.name %></li>

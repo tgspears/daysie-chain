@@ -83,18 +83,20 @@ Membership.create(group_id: 6, user_id: 1, admin: false, block: false)
 
 ################## EVENTS ######################
 
-Event.create(name: "Trevor's Event", desc: 'An Event by Trevor', min: 5, max: 10, loc: "Trevor's Place", date: '1/2', day: 0, time: '1:30')
+Event.create(name: "Trevor's Event", desc: 'An Event by Trevor', min: 5, max: 10, loc: "Trevor's Place", date: '1/2', day: 0, time: '1:30', group_id: 1)
 
-Event.create(name: "Lauren's Event", desc: 'An Event by Lauren', min: 4, max: 11, loc: "Lauren's Place", date: '2/3', day: 1, time: '2:30')
+Event.create(name: "Trevor's Event 2", desc: 'An Event by Trevor 2', min: 5, max: 10, loc: "Trevor's Place", date: '2/1', day: 0, time: '2:30', group_id: 1)
 
-Event.create(name: "Dave's Event", desc: 'An Event by Dave', min: 6, max: nil, loc: "Dave's Place", date: '3/4', day: 2, time: '3:00')
+Event.create(name: "Lauren's Event", desc: 'An Event by Lauren', min: 4, max: 11, loc: "Lauren's Place", date: '2/3', day: 1, time: '2:30', group_id: 2)
 
-Event.create(name: "Alex's Event", desc: 'An Event by Alex', min: 2, max: 421, loc: "Alex's Place", date: '4/2', day: 3, time: '4:20')
+Event.create(name: "Dave's Event", desc: 'An Event by Dave', min: 6, max: nil, loc: "Dave's Place", date: '3/4', day: 2, time: '3:00', group_id: 3)
 
-Event.create(name: "Mark's Event", desc: 'An Event by Mark', min: 4, max: 8, loc: "Mark's Place", date: '4/2', day: 4, time: '4:20')
+Event.create(name: "Alex's Event", desc: 'An Event by Alex', min: 2, max: 421, loc: "Alex's Place", date: '4/2', day: 3, time: '4:20', group_id: 4)
+
+Event.create(name: "Mark's Event", desc: 'An Event by Mark', min: 4, max: 8, loc: "Mark's Place", date: '4/2', day: 4, time: '4:20', group_id: 5)
 ########### ^^^ TEST OF TWO IDENTICLE TIMES AND DATES
 
-Event.create(name: "Timon's Event", desc: 'An Event by Timon', min: 5, max: 10, loc: "Timon's Place", date: '3/14', day: 5, time: '6:28')
+Event.create(name: "Timon's Event", desc: 'An Event by Timon', min: 5, max: 10, loc: "Timon's Place", date: '3/14', day: 5, time: '6:28', group_id: 6)
 
 ################# ATTENDANCES ###################
 
