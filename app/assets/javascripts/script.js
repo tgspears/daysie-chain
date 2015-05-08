@@ -2,7 +2,8 @@
 
 // This is all the standard jquery stuff
 $(function(){
-jQuery.noConflict();
+  jQuery.noConflict();
+
   $("#group_submit").on("click", function(e){
     e.preventDefault();
     $("#group_form").trigger("submit");
