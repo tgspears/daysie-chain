@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'users/:id' => 'users#show'
+  get 'user' => 'users#show'
 
   # resources :sessions, :only => [:create, :destroy]
 
