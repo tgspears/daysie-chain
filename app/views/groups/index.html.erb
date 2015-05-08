@@ -86,11 +86,12 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <% group = @groups.find(@idx)%>
-          <% event = @groups.find(@idx).events.find(@e_idx) %>
+          <% event = group.events.find(@e_idx) %>
           <h4 class="modal-title">Send out invitations to  "<%= event.name %>"</h4>
           <hr>
           <h5 class="modal-desc"><%= event.desc %> | <%= event.loc %> </h5>
         </div>
+
         <div class="modal-body event-modal" id="0">
           <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
           <%= f.text_field :min, placeholder: "e.g. 1" %>

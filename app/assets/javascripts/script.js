@@ -35,6 +35,7 @@ $('.group_event_send_form').on('submit', function(e){
     url: '/users/'+userId+'/groups/'+groupId+'/events/'+eventId,
     data: formData
   }).done(function(data){
+    console.log(data)
     $('#event_invite').modal('hide');
     $('.group_event_send_form')[0].reset();
   })
