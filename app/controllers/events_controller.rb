@@ -19,10 +19,6 @@ class EventsController < ApplicationController
   def update
     user = current_user
     event = Event.find(params[:id])
-
-    p "This is the event: #{event.inspect}"
-
-    p "This is the user: #{user.inspect}"
     event.min = params[:event_send][:min]
     event.max = params[:event_send][:max]
     event.day = params[:event_send][:day]
