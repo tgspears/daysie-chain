@@ -26,7 +26,11 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">Daysie-Chain</a>
+	    <% if @current_user %>
+	    	<a class="navbar-brand" href="/user">Daysie-Chain</a>
+	    <% else %>
+	    	<a class="navbar-brnad" href="/">Daysie-Chain</a>
+	    <% end %>
 	  </div>
 
 	  <!-- Collect the nav links, forms, and other content for toggling -->
