@@ -4,17 +4,20 @@ class EventsController < ApplicationController
     user = User.find(params[:user_id])
     group = user.groups.find(params[:group_id])
     group.events << Event.create(event_params)
-
+    redirect_to user_groups_path
   end
 
   def update
-    event = Event.find(params["id"])
-    event.min = params['event_send']['min']
-    event.max = params['event_send']['max']
-    event.day = params['event_send']['day']
-    event.time = params['event_send']['time']
-    event.save
+    event = Event.find(params[:id])
+    p params
+    # event.min = params[:event_send][:min]
+    # event.max = params[:event_send][:max]
+    # event.day = params[:event_send][:day]
+    # event.time = params[:event_send][:time]
+    # event.save
+
     render :json => params
+
   end
 
   private

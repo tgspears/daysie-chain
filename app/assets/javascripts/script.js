@@ -16,7 +16,8 @@ $('.event_invite').on('click', function(e){
     userId = $(this).attr('uid')
     groupId = $(this).attr('id');
     eventId = $(this).attr('data');
-    console.log(groupId)
+    console.log("Group id", groupId)
+    console.log("Event id", eventId)
     $('.group_event_send_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events/'+eventId)
 
   });
