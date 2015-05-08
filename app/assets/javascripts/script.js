@@ -11,14 +11,14 @@ $(function(){
   })
 
 $('.event_invite').on('click', function(e){
-    e.preventDefault()
-
-    var userId = $(this).attr('uid')
+    e.preventDefault();
+    var userId = $(this).attr('uid');
     var groupId = $(this).attr('id');
     var eventId = $(this).attr('data');
-    console.log("Group id", groupId)
-    console.log("Event id", eventId)
+    console.log('group id', groupId);
+    console.log('event id', eventId)
     $('.group_event_send_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events/'+eventId)
+    $('.event-modal').attr('id', groupId)
 
   });
 

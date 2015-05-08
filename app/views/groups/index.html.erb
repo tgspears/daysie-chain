@@ -91,8 +91,9 @@
           <hr>
           <h5 class="modal-desc"><%= event.desc %> | <%= event.loc %> </h5>
         </div>
-        <div class="modal-body" id="<%= @idx %>">
-          <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" }, remote: true do |f| %>
+
+        <div class="modal-body event-modal" id="0">
+          <%= bootstrap_form_for :event_send, :html => { :class => "group_event_send_form" } do |f| %>
           <%= f.text_field :min, placeholder: "e.g. 1" %>
           <%= f.text_field :max, placeholder: "e.g. #{group.memberships.length}" %>
           <%= f.text_field :day, placeholder: "e.g. Thursday" %>
@@ -108,6 +109,8 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 <% end %>
+
+
 <div class="modal fade" id="create_event">
   <div class="modal-dialog">
     <div class="modal-content">
