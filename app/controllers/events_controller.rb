@@ -8,8 +8,13 @@ class EventsController < ApplicationController
   end
 
   def update
+    event = Event.find(params["id"])
+    event.min = params['event_send']['min']
+    event.max = params['event_send']['max']
+    event.day = params['event_send']['day']
+    event.time = params['event_send']['time']
+    event.save
     render :json => params
-    p params
   end
 
   private
@@ -21,3 +26,4 @@ class EventsController < ApplicationController
 
 
 end
+
