@@ -1,6 +1,4 @@
-
 $(function(){
-jQuery.noConflict();
   $("#group_submit").on("click", function(e){
     e.preventDefault();
     $("#group_form").trigger("submit");
@@ -26,9 +24,11 @@ $('.group_event_send_form').on('submit', function(e){
     data: formData,
     async: true
   }).done(function(data){
-    $('#event_invite').modal('hide');
-    console.log('data', data)
+     jQuery.noConflict();
+    $("#close_btn").trigger("click");
     $('.group_event_send_form')[0].reset();
+  }).error(function(err){
+
   })
 
 })
