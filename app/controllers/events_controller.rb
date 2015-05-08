@@ -1,6 +1,13 @@
 class EventsController < ApplicationController
+respond_to :html, :xml, :json
+
+  def new
+
+  end
+
 
   def create
+    # render :json => params
     user = User.find(params[:user_id])
     group = user.groups.find(params[:group_id])
     group.events << Event.create(event_params)
@@ -12,24 +19,19 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     p "This is the event: #{@event.inspect}"
     p "This is the group: #{@group.inspect}"
-
-    # render layout: false
+    render layout: false
   end
 
   def update
     user = current_user
-    event = Event.find(params[:id])
-
-    p "This is the event: #{event.inspect}"
-
-    p "This is the user: #{user.inspect}"
-    event.min = params[:event_send][:min]
-    event.max = params[:event_send][:max]
-    event.day = params[:event_send][:day]
-    event.time = params[:event_send][:time]
-    event.save
-    user.attendances << event.attendances.create(yes: false, no: false, maybe: false, count:0)
-    render :json => params
+    @event = Event.find(params[:id])
+    @event.min = params[:event][:min]
+    @event.max = params[:event][:max]
+    @event.day = params[:event][:day]
+    @event.time = params[:event][:time]
+    @event.save
+    user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
+    render :json => @event
   end
 
   private

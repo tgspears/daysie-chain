@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 class="modal-title">Modal title</h4>
+</div>
+<div class="modal-body">
+ <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_add_form" } do |f| %>
+  <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
+  <%= f.text_field :desc, placeholder: "Enter a description" %>
+  <%= f.text_field :max, placeholder: "Enter the max size" %>
+  <%= f.text_field :loc, placeholder: "Enter the location" %>
+  <%= f.form_group :time, label: { text: "Does this event generally happen on a particular day of the week?" }, help: "optional" do  %>
+  <span>
+    <%= f.radio_button :time, "0", label: "Mon" %>
+    <%= f.radio_button :time, "1", label: "Tues" %>
+    <%= f.radio_button :time, "2", label: "Wed" %>
+    <%= f.radio_button :time, "3", label: "Thu" %>
+    <%= f.radio_button :time, "4", label: "Fri" %>
+    <%= f.radio_button :time, "5", label: "Sat" %>
+    <%= f.radio_button :time, "6", label: "Sun" %>
+    <%end %>
+  </span>
+  <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
+  <%= f.primary "Submit" %>
+  <% end %>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default close_btn" data-dismiss="modal">Close</button>
+
+</div>
