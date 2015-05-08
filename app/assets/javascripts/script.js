@@ -2,6 +2,7 @@
 
 // This is all the standard jquery stuff
 $(function(){
+  jQuery.noConflict();
 
   $("#group_submit").on("click", function(e){
     e.preventDefault();
