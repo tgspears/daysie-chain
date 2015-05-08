@@ -4,7 +4,7 @@
   <div class="col-md-4">
   <h1> Your Groups </h1>
   <%= @user.firstname %>
-  <%= cl_image_tag(@user.image, :width => 600, :height => 500,
+  <%= cl_image_tag(@user.image, :width => 50, :height => 50,
       :crop => :fill, :gravity => :face) %>
   <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
     <% if @current_user.groups %>
