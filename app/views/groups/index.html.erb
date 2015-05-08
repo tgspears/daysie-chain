@@ -13,7 +13,7 @@
       <ul>
         <%i.events.each do |j| %>
         <% @e_idx = j.id %>
-        <li> <a data-toggle="modal" class="event_invite" href='#event_invite' id="<%= @idx %>" data="<%= @e_idx %>" uid="<%= @current_user.id %>"> <%= j.name %></a> </li>
+        <li> <a data-toggle="modal" class="event_invite" href='#event_invite' id="<%= @e_idx %>" data="<%= @idx %>" uid="<%= @current_user.id %>"> <%= j.name %></a> </li>
         <% end %>
         <a  data-toggle="modal" href='#create_event' class="event_add" uid="<%= @current_user.id %>" id="<%= @idx %>">Add a new event for this group</a>
       </ul>
