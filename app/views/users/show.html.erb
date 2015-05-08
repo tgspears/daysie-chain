@@ -1,0 +1,41 @@
+<div class="jumbotron">
+	<div class="container">
+		<h1><%= @user.firstname %> <%= @user.lastname %></h1>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-md-6">
+		<% @user.groups.each do |x| %>
+			<tr>Group: <%= x.name %> </tr>
+			<% x.events.each do |y| %>
+				<ul>
+				<li>Event: <%= y.name %></li>
+				<li>Time: <%= y.desc %> </li>
+				<li>Max: <%= y.max %></li>
+				<li>Location: <%= y.loc %></li>
+				<li>Date: <%= y.date %></li>
+				<li>Time: <%= y.time %></li>
+				</ul>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col-md-6">
+		<% @user.groups.each do |x| %>
+			<% if x.user_id == @current_user.id %>
+				<tr>Group: <%= x.name %> </tr>
+				<% x.events.each do |y| %>
+					<ul>
+					<li>Event: <%= y.name %></li>
+					<li>Time: <%= y.desc %> </li>
+					<li>Max: <%= y.max %></li>
+					<li>Location: <%= y.loc %></li>
+					<li>Date: <%= y.date %></li>
+					<li>Time: <%= y.time %></li>
+					</ul>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
