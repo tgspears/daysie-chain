@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    render :json => params
+    render :json => event_params
   end
 
   private
