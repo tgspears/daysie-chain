@@ -23,6 +23,7 @@ $('.event_invite').on('click', function(e){
 $('.group_event_send_form').on('submit', function(e){
   e.preventDefault();
   var id = $(this).closest(".modal-body").attr("id")
+  console.log("id: " + id + "***********")
   var userId = $('#'+id).attr('uid')
   var groupId = $('#'+id).attr('data');
   var eventId = $('#'+id).attr('id');
