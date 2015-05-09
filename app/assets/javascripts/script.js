@@ -1,6 +1,17 @@
 $(function(){
+  jQuery.noConflict();
 
+  $('#event_invite').on('hidden.bs.modal', function() {
+    $(this).removeData('bs.modal');
+  });
 
+  $('#group_users_show').on('hidden.bs.modal', function() {
+    $(this).removeData('bs.modal');
+  });
+
+  $('#create_event').on('hidden.bs.modal', function() {
+    $(this).removeData('bs.modal');
+  });
 
   $("#group_submit").on("click", function(e){
     e.preventDefault();
@@ -23,7 +34,6 @@ $('.group_event_send_form').on('submit', function(e){
     url: url,
     data: formData
   }).done(function(data){
-     jQuery.noConflict();
     $("#close_btn").trigger("click");
     $('.group_event_send_form')[0].reset();
   }).error(function(err){
@@ -49,7 +59,6 @@ $('.group_event_add_form').on('submit', function(e){
     data: formData
   }).done(function(data){
     console.log(data)
-     jQuery.noConflict();
     $("#other_close_btn").trigger("click");
     $('.group_event_send_form')[0].reset();
   }).error(function(err){

@@ -22,12 +22,11 @@ class GroupsController < ApplicationController
     user.groups.find(group.id).events << event
     user.memberships << group.memberships.create(admin:true)
     redirect_to user_groups_path(@current_user.id)
-    render :json => params
   end
 
   def show
     @user = current_user
-    @group = Group.find(params[:id])
+    @group = current_user.memberships.find_by_group_id(params[:id]).group
     @members = @group.memberships
     render layout: false
   end
