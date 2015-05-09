@@ -24,5 +24,12 @@ class GroupsController < ApplicationController
     redirect_to user_groups_path(@current_user.id)
   end
 
+  def show
+    @user = current_user
+    @group = current_user.memberships.find_by_group_id(params[:id]).group
+    @members = @group.memberships
+    render layout: false
+  end
+
 end
 
