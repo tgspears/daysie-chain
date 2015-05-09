@@ -18,7 +18,7 @@
         <% @e_idx = j.id %>
         <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
         <% end %>
-        <a  data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i)%>" class="event_add">Add a new event for this group</a>
+        <a data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i)%>" class="event_add">Add a new event for this group</a>
       </ul>
    </li>
    </ul>
