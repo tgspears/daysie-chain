@@ -25,5 +25,12 @@ class GroupsController < ApplicationController
     render :json => params
   end
 
+  def show
+    @user = current_user
+    @group = Group.find(params[:id])
+    @members = @group.memberships
+    render layout: false
+  end
+
 end
 

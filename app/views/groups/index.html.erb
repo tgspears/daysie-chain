@@ -11,10 +11,11 @@
     <%@current_user.groups.each do |i| %>
     <% @idx = i.id %>
     <ul>
-    <li><%= i.name %>
+    <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" data-target="#group_users_show"><%= i.name %></a>
       <a data-toggle="modal" href="#group_users" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
       <ul>
         <%i.events.each do |j| %>
+        <% @group_event = j %>
         <% @e_idx = j.id %>
         <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
         <% end %>
@@ -84,6 +85,13 @@
 
 <% if @groups %>
   <div class="modal fade" id="event_invite">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade" id="group_users_show">
     <div class="modal-dialog">
       <div class="modal-content">
       </div><!-- /.modal-content -->
