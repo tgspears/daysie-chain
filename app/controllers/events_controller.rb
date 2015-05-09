@@ -10,8 +10,8 @@ respond_to :html, :xml, :json
 
   def create
     # render :json => params
-    user = User.find(params[:user_id])
-    group = user.groups.find(params[:group_id])
+    @user = User.find(params[:user_id])
+    group = Group.find(params[:group_id])
     group.events << Event.create(event_params)
     redirect_to user_groups_path
   end
