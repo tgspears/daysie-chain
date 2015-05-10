@@ -1,11 +1,3 @@
-class PasswordValidator < ActiveModel::Validator
-  def validate(record)
-    if record.password == nil
-      record.errors[:base] << "You didn't enter a password"
-    end
-  end
-end
-
 
 class User < ActiveRecord::Base
 
@@ -20,7 +12,10 @@ class User < ActiveRecord::Base
     uniqueness: {case_sensitive: false},
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
-  validates_with PasswordValidator
+  validates :password,
+    presence: true,
+    length: {minimum: 8},
+    if: "session[:user_id] == nil"
 
   validates :firstname,
     presence: true,
