@@ -12,7 +12,7 @@
     <% @idx = i.id %>
     <ul>
     <li><%= i.name %>
-      <a data-toggle="modal" href="#group_users" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
+      <a data-toggle="modal" href="<%= new_user_path(i) %>" data-target="#add_user" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
       <ul>
         <%i.events.each do |j| %>
         <% @e_idx = j.id %>
@@ -93,6 +93,15 @@
 
 
 <div class="modal fade" id="create_event">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="add_user">
   <div class="modal-dialog">
     <div class="modal-content">
 
