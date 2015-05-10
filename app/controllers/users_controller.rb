@@ -15,12 +15,18 @@ class UsersController < ApplicationController
 
   def create
     if session[:user_id] != nil
-      user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => "hellojane"
-      p "yoooooooo #{user.inspect}"
-      group = Group.find(params[:user][:group_id])
-      user.memberships << group.memberships.create(admin:false)
-      redirect_to user_groups_path(@current_user.id)
-
+      unless User.find_by_email(params[:user][:email])
+        user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => "hellojane"
+        p "yoooooooo #{user.inspect}"
+        group = Group.find(params[:user][:group_id])
+        user.memberships << group.memberships.create(admin:false)
+        redirect_to user_groups_path(@current_user.id)
+      else
+        user = User.find_by_email(params[:user][:email])
+        group = Group.find(params[:user][:group_id])
+        user.memberships << group.memberships.create(admin:false)
+        redirect_to user_groups_path(@current_user.id)
+      end
     else
       unless User.find_by_email(params[:user][:email])
         # unless params[:user][:picture] == nil

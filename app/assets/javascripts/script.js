@@ -74,7 +74,7 @@ $('.group_user_add').on('click', function(e){
 })
 
 $("#add_user").on('click', function(e){
-    $("#group_id_field").attr("value", "7" )
+    $("#group_id_field").attr("value", group_id )
 })
 
 
