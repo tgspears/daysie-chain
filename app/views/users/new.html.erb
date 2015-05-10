@@ -4,11 +4,13 @@
 </div>
 <div class="modal-body">
 
-   <%= bootstrap_form_for @user do |f| %>
+   <%= bootstrap_form_for @user, :html => {:id => "new_user_form"} do |f| %>
           <%= f.text_field :firstname, placeholder: 'e.g. Barack' %>
           <%= f.text_field :lastname, placeholder: 'e.g. DiCaprio' %>
           <%= f.text_field :email, placeholder: 'e.g. barack.dicaprio@netscape.com' %>
           <%= f.text_field :tel, placeholder: 'e.g. (305) 867 - 5309' %>
+          <%= f.hidden_field :logged_in?, value: 'yes' %>
+          <%= f.hidden_field :group_id, value: "", id: "group_id_field" %>
 
 
   </span>

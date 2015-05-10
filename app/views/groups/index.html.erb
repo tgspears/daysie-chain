@@ -12,7 +12,7 @@
     <% @idx = i.id %>
     <ul>
     <li><%= i.name %>
-      <a data-toggle="modal" href="<%= new_user_path(i) %>" data-target="#add_user" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
+      <a data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
       <ul>
         <%i.events.each do |j| %>
         <% @e_idx = j.id %>

@@ -15,22 +15,23 @@ class UsersController < ApplicationController
 
   def create
     if session[:user_id] != nil
-                  # @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel]
-                  # @user.groups <<
-                  # user.memberships << group.memberships.create(admin:true)
-                  # redirect_to user_groups_path(@current_user.id)
-      render :json => params
+      user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => "hellojane"
+      p "yoooooooo #{user.inspect}"
+      group = Group.find(params[:user][:group_id])
+      user.memberships << group.memberships.create(admin:false)
+      redirect_to user_groups_path(@current_user.id)
+
     else
       unless User.find_by_email(params[:user][:email])
-                  # unless params[:user][:picture] == nil
+        # unless params[:user][:picture] == nil
         uploaded_file = params[:user][:picture].path
         cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
-        cloudinary_file = cloudinary_file["public_id"]
-                  # else
-                  # cloudinary_file = "assets/user_default.jpg"
-                  # cloudinary_file = Cloudinary::Uploader.upload(cloudinary_file)
-                  # end
-        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file
+        # else
+        # cloudinary_file = "assets/user_default.jpg"
+        # cloudinary_file = Cloudinary::Uploader.upload(cloudinary_file)
+        # end
+        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file["public_id"]
+
         if @user.id
         session[:user_id] = @user.id
         redirect_to user_groups_path(@user.id)
@@ -40,7 +41,6 @@ class UsersController < ApplicationController
       else
         render :plain => 'Deja Vu: That e-mail address looks familiar.'
       end
-
     end
     # render :json => @user
 
