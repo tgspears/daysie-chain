@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h4 class="modal-title">Modal title</h4>
+</div>
+<div class="modal-body">
+
+   <%= bootstrap_form_for @user, :html => {:id => "new_user_form"} do |f| %>
+          <%= f.text_field :firstname, placeholder: 'e.g. Barack' %>
+          <%= f.text_field :lastname, placeholder: 'e.g. DiCaprio' %>
+          <%= f.text_field :email, placeholder: 'e.g. barack.dicaprio@netscape.com' %>
+          <%= f.text_field :tel, placeholder: 'e.g. (305) 867 - 5309' %>
+          <%= f.hidden_field :logged_in?, value: 'yes' %>
+          <%= f.hidden_field :group_id, value: "", id: "group_id_field" %>
+
+
+  </span>
+  <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
+  <%= f.primary "Submit" %>
+  <% end %>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default close_btn" data-dismiss="modal">Close</button>
+
+</div>

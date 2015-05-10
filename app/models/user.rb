@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
 
   has_secure_password
@@ -13,9 +14,17 @@ class User < ActiveRecord::Base
 
   validates :password,
     presence: true,
-    :on => :create
+    length: {minimum: 8},
+    if: :there_is_session
+
+      def there_is_session
+        :logged_in? != 'yes'
+      end
 
   validates :firstname,
     presence: true,
     length: {maximum: 25}
+
+  validates :tel,
+    presence: true
 end

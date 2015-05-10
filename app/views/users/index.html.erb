@@ -39,6 +39,7 @@
           <%= f.password_field :password, placeholder: 'e.g. ••••••••••' %>
           <%= f.password_field :confirm_password, placeholder: 'e.g. ••••••••••' %>
           <%= f.file_field :picture %>
+          <%= f.hidden_field :logged_in?, value: 'no' %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
