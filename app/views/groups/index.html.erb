@@ -12,7 +12,7 @@
     <% @idx = i.id %>
     <ul>
 
-    <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" data-target="#group_users_show"><%= i.name %></a>
+    <div class="circle_div"> <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" data-target="#group_users_show"><%= i.name %></a>
       <a data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
 
       <ul>
@@ -23,7 +23,9 @@
         <% end %>
         <a data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i)%>" class="event_add">Add a new event for this group</a>
       </ul>
+
    </li>
+   </div>
    </ul>
    <% end %>
    <% end %>

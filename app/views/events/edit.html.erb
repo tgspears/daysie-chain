@@ -8,7 +8,7 @@
   <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_send_form" } do |f| %>
   <%= f.text_field :min, placeholder: "e.g. 1" %>
   <%= f.text_field :max, placeholder: "e.g. somethin" %>
-  <%= f.text_field :day, placeholder: "e.g. Thursday" %>
+  <%= f.text_field :day, id: "datepicker", placeholder: "e.g. Thursday" %>
   <%= f.text_field :time, placeholder: "e.g. 10pm" %>
   <button type="button" class="btn btn-default" id="close_btn" data-dismiss="modal">Close</button>
   <%= f.primary "Send out the invites!", :class => "btn btn-primary group_event_send_button"  %>

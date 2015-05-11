@@ -29,14 +29,14 @@ class UsersController < ApplicationController
       end
     else
       unless User.find_by_email(params[:user][:email])
-        # unless params[:user][:picture] == nil
+        unless params[:user][:picture] == nil
         uploaded_file = params[:user][:picture].path
         cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
-        # else
-        # cloudinary_file = "assets/user_default.jpg"
-        # cloudinary_file = Cloudinary::Uploader.upload(cloudinary_file)
-        # end
-        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file["public_id"]
+        cloudinary_file = cloudinary_file["public_id"];
+        else
+        cloudinary_file = User.default_picture
+        end
+        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file
 
         if @user.id
         session[:user_id] = @user.id

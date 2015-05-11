@@ -1,6 +1,13 @@
 
 class User < ActiveRecord::Base
 
+  @@default_picture = 'xgv0flbmmozhi3anjyd2'
+
+
+  def self.default_picture
+    @@default_picture
+  end
+
   has_secure_password
 
   has_many :groups
