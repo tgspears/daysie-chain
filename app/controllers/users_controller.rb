@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     if session[:user_id] != nil
       unless User.find_by_email(params[:user][:email])
-        user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => "hellojane"
+        user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :active => params[:user][:active]
         p "yoooooooo #{user.inspect}"
         group = Group.find(params[:user][:group_id])
         user.memberships << group.memberships.create(admin:false)
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
         else
         cloudinary_file = User.default_picture
         end
-        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file
+        @user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :password => params[:user][:password], :image => cloudinary_file, :active => params[:user][:active]
 
         if @user.id
         session[:user_id] = @user.id
