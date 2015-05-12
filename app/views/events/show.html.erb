@@ -1,0 +1,41 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= @event.name %></h1>
+    <p><div id="countdown"></div></p>
+    <p><div id="now"></div></p>
+  </div>
+</div>
+
+<% time = @event.time.split(":") %>
+<%= time %>
+<% total_time = (time[0].to_i*60) + (time[1].to_i) + (12 * 60) %>
+<%= total_time %>
+
+<%= @event.date %>
+
+
+<script>
+
+var countdown = d3.select("#countdown"),
+    today = d3.time.day(new Date),
+    format = d3.time.format("%Y-%m-%d"),
+    date = format.parse("<%= @event.date %>"),
+    num_days = Math.floor((+date - +today)/ 86400000),
+    formatTime = d3.time.format(num_days + "days-" + "%X")
+
+
+// 9 AM tomorrow
+var deadline = d3.time.day.offset(today, 1);
+deadline.setMinutes(<%= total_time %>);
+
+(function tick() {
+
+  var now = new Date;
+  countdown.text(formatTime(new Date(+today + +deadline - d3.time.second(now))));
+  setTimeout(tick, 1000 - now % 1000);
+  console.log(d3.time.second(now))
+})();
+
+
+</script>

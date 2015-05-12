@@ -6,3 +6,13 @@
 .circle_div > li {
  list-style-type: none;
 }
+
+
+#countdown {
+  background-color: rgb(255, 241, 187);
+  color: rgb(252, 196, 196);
+  font-size: 120px;
+  font-family: arial;
+  text-align: center;
+  width: 960px;
+}

@@ -19,9 +19,13 @@ respond_to :html, :xml, :json
   def edit
     @group = Group.find(params[:group_id])
     @event = Event.find(params[:id])
-    p "This is the event: #{@event.inspect}"
-    p "This is the group: #{@group.inspect}"
     render layout: false
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @group = Group.find(params[:group_id])
+    @event = Event.find(params[:id])
   end
 
   def update
@@ -29,11 +33,25 @@ respond_to :html, :xml, :json
     @event = Event.find(params[:id])
     @event.min = params[:event][:min]
     @event.max = params[:event][:max]
+    @event.date = params[:event][:date]
     @event.day = params[:event][:day]
     @event.time = params[:event][:time]
     @event.save
     user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
-    render :json => @event
+
+    # put your own credentials here
+    account_sid = ENV['TWILIO_KEY']
+    auth_token = ENV['TWILIO_SECRET']
+# set up a client to talk to the Twilio REST API
+    @client = Twilio::REST::Client.new account_sid, auth_token
+
+    @client.account.messages.create({
+      :from => '+12073583459',
+      :to => '+13056078974',
+      :body => 'yo dude how u doin',
+      :media_url => 'http://www.reddit.com',
+})
+    redirect_to user_groups_path
   end
 
   private

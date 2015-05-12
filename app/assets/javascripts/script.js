@@ -77,11 +77,8 @@ $("#add_user").on('click', function(e){
     $("#group_id_field").attr("value", group_id )
 })
 
-$.datepicker.setDefaults({
-        dateFormat: 'dd.mm.yy'
-    });
 
-$("#datepicker").datepicker();
+
 
 
 
@@ -96,5 +93,9 @@ $("#datepicker").datepicker();
 //     $('.event-modal').attr('id', eventId)
 
 //   });
+
 });
+
+
+
 
