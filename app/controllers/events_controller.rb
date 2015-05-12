@@ -58,15 +58,17 @@ respond_to :html, :xml, :json
     end
 
 
-    def response
-      puts "*"*20
-      p params
-      puts "*"*20
-
-    end
 
     redirect_to user_groups_path
   end
+
+
+    # def response
+    #   puts "*"*20
+    #   p params
+    #   puts "*"*20
+    #   render :json => params
+    # end
 
   private
 
