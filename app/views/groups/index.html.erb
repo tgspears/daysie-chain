@@ -1,5 +1,11 @@
 <%= render "layouts/nav" %>
 
+
+
+
+
+<img src="http://fc08.deviantart.net/fs22/i/2008/021/5/e/Happy_Daisy_by_venkman_project.jpg" id="daysie">
+
 <div class="row">
   <div class="col-md-4">
   <h1> Your Groups </h1>
@@ -10,67 +16,58 @@
     <% if @current_user.groups %>
     <%@current_user.groups.each do |i| %>
     <% @idx = i.id %>
-    <ul>
-
-    <div class="circle_div"> <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" data-target="#group_users_show"><%= i.name %></a>
-      <a data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
-
-      <ul>
-        <%i.events.each do |j| %>
-        <% @group_event = j %>
-        <% @e_idx = j.id %>
-        <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
-        <% end %>
-        <a data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i)%>" class="event_add">Add a new event for this group</a>
-      </ul>
-
-   </li>
-   </div>
-   </ul>
    <% end %>
    <% end %>
   </div>
 
-  <div class="col-md-4">
-  <h1> Groups you belong to</h1>
+
+<div class="sidebar">
+  <div id="buttoncontainer">
     <% if @current_user.memberships %>
-    <%@current_user.memberships.each do |i| %>
-
-
-    <% @idx = i.id %>
-    <ul>
-    <% if i.admin == true %>
-    <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" data-target="#group_users_show"><%= i.group.name %></a>
-      <a data-toggle="modal" href="#group_users" class= "group_user_add"> <i class="fa fa-user-plus"></i> </a>
-      <ul>
-        <%i.group.events.each do |j| %>
-        <% @e_idx = j.id %>
-
-        <li> <a data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'> <%= j.name %></a> </li>
-        <% end %>
-        <a data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="event_add">Add a new event for this group</a>
-      </ul>
-   </li>
-   </ul>
-   <% else %>
-    <li><%= i.group.name %>
-      <ul>
-        <%i.group.events.each do |j| %>
-        <% @e_idx = j.id %>
-
-        <li> <%= j.name %> </li>
-        <% end %>
-      </ul>
-   </li>
-   </ul>
-   <% end %>
-   <% end %>
-   <% end %>
+      <% @current_user.memberships.each do |i| %>
+        <% @idx = i.id %>
+        <div class="radial_button" id="<%= @idx %>">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="<%= i.group.image %>" class="group_image">
+            </div>
+            <div class="col-md-12">
+              <a><%= i.group.name %></a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
-
-
+<% if @current_user.memberships %>
+  <% @current_user.memberships.each do |i| %>
+    <% @idx = i.id %>
+      <div class="radmenu">
+        <a href="#" id="menu<%= @idx %>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
+        <ul>
+          <li>
+            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "not group_user_add"><i class="fa fa-user-plus"></i> </a>
+            <ul>
+            </ul>
+          </li>
+          <li>
+            <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="not event_add">Add an Event</a>
+            <ul>
+            </ul>
+          </li>
+          <% i.group.events.each do |j| %>
+          <li>
+            <a class="submenus" data-toggle="modal" class="not event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+            <ul>
+            </ul>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+<% end %>
 
 
  <!-- Below here be the realm of modals, ya hear? -->
