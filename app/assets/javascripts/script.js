@@ -1,5 +1,52 @@
 $(function(){
 
+  var buttons = document.querySelectorAll(".radmenu a");
+
+  for (var i=0, b=buttons.length; i<b; i++) {
+    var button = buttons[i];
+    button.onclick = setSelected;
+  }
+
+  function setSelected(e) {
+    if (this.classList.contains("not")){
+      return false;
+    }
+    else {
+      if (this.classList.contains("selected")) {
+        this.classList.remove("selected");
+        $(this).removeClass('.sneaky');
+        if (!this.parentNode.classList.contains("radmenu")) {
+          this.parentNode.parentNode.parentNode.querySelector("a").classList.add("selected")
+        } else {
+          this.classList.add("show");
+          this.style.visibility = 'hidden'
+        }
+      } else {
+        this.classList.add("selected");
+        $(this).addClass('sneaky');
+        if (!this.parentNode.classList.contains("radmenu")) {
+          this.parentNode.parentNode.parentNode.querySelector("a").classList.remove("selected")
+        } else {
+          this.classList.remove("show");
+          this.style.visibility = 'visible'
+        }
+      }
+      return false;
+    }
+  }
+
+  var buttonlistener = document.querySelector('#buttoncontainer');
+  buttonlistener.addEventListener('click', radialClick, false);
+
+  function radialClick(e){
+    if (e.target !== e.currentTarget) {
+      console.log(e.target.closest('.radial_button').id);
+      var clickedItem = e.target.closest(".radial_button").id;
+      $('#menu'+clickedItem).click();
+    }
+    e.stopPropagation();
+  }
+
   $('#event_invite').on('hidden.bs.modal', function() {
     $(this).removeData('bs.modal');
   });
