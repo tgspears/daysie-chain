@@ -61,7 +61,7 @@ $sub-menus :  11;
 	justify-content: center;
 	top: 50%;
 	left: 35%;
-  
+
   > a {
     top: calc(50% - 60px);
     left: calc(50% - 60px);
@@ -74,7 +74,7 @@ $sub-menus :  11;
   	list-style: none;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
-    transition: all 1s ease; 
+    transition: all 1s ease;
   }
   a {
     position: absolute;
@@ -118,5 +118,53 @@ $sub-menus :  11;
       }
     }
   }
-  
+
+}
+
+.btn-signup{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-signup:hover, .btn-signup:active {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-signin{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-signin:hover, .btn-signin:active {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-fb{
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-fb:hover, .btn-fb:active {
+  background-color: #fff;
+  color: #000;
 }
