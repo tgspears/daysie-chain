@@ -66,6 +66,7 @@ respond_to :html, :xml, :json
       reply = params["body"].downcase
       puts "*" *20
       puts reply
+      render :json => reply
   end
 
 
