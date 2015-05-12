@@ -53,7 +53,7 @@
    </li>
    </ul>
    <% else %>
-    <li><%= i.group.name %>
+    <li><a data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" data-target="#group_users_show"><%= i.group.name %></a>
       <ul>
         <%i.group.events.each do |j| %>
         <% @e_idx = j.id %>
