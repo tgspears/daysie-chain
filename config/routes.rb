@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
-  get '/textresponse' => 'events#response'
+  get 'textresponse' => 'events#response'
 
 
   # Example resource route with options:
