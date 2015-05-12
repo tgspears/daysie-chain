@@ -62,6 +62,24 @@ class UsersController < ApplicationController
     @user = @current_user
   end
 
+  def update
+    group_id = params[:groupId]
+    members = params[:members]
+    admins = params[:admins]
+    members.each do |id|
+      user = User.find(id)
+      user.memberships.find_by_group_id(group_id).update(admin: false)
+      user.save
+    end
+    admins.each do |id|
+      user = User.find(id)
+      user.memberships.find_by_group_id(group_id).update(admin:true)
+      user.save
+    end
+    render :json => params
+
+  end
+
   private
 
   def user_params

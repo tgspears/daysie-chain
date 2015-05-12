@@ -45,12 +45,19 @@ respond_to :html, :xml, :json
 # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
 
-    @client.account.messages.create({
+    @event.group.memberships.each do |member|
+      date = @event.date.split("-")
+      number = member.user.tel
+      name = member.user.firstname
+      @client.account.messages.create({
       :from => '+12073583459',
-      :to => '+13056078974',
-      :body => 'yo dude how u doin',
-      :media_url => 'http://www.reddit.com',
+      :to => number,
+      :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes' or 'no'"
+
 })
+    end
+
+
     redirect_to user_groups_path
   end
 

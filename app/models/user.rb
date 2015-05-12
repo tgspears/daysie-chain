@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   @@default_picture = 'xgv0flbmmozhi3anjyd2'
 
-  # attr_accessor :active
+
+  attr_accessor :active
 
   def self.default_picture
     @@default_picture
@@ -30,6 +31,7 @@ class User < ActiveRecord::Base
     length: {minimum: 8},
     on: :create,
     if: :is_active?
+
 
   validates :firstname,
     presence: true,
