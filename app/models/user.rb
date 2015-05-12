@@ -3,13 +3,15 @@ class User < ActiveRecord::Base
 
   @@default_picture = 'xgv0flbmmozhi3anjyd2'
 
+  attr_accessor :active
+
 
   def self.default_picture
     @@default_picture
   end
 
   def is_active?
-    return :active
+    self.active
   end
 
   has_secure_password
@@ -23,10 +25,11 @@ class User < ActiveRecord::Base
     uniqueness: {case_sensitive: false},
     format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 
-  with_options if: :is_active? do |user|
-    user.validates :password, length: {minimum: 8}
-    user.validates :password, presence: true
-  end
+  validates :password,
+    presence: true,
+    length: {minimum: 8},
+    unless: Proc.new {|u| u.is_active?},
+    :on => :create
 
   validates :firstname,
     presence: true,
