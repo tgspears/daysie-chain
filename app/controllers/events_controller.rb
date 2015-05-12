@@ -64,9 +64,9 @@ respond_to :html, :xml, :json
 
   def textmessage
       reply = params["body"].downcase
-      puts "*" *20
-      puts reply
-      render :json => reply
+      p "*" *20
+      p reply
+      render :json => params
   end
 
 
