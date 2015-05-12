@@ -2,8 +2,6 @@ class EventsController < ApplicationController
 respond_to :html, :xml, :json
 
 
-
-
   def new
     @group = Group.find(params[:group_id])
     @event = Event.new
@@ -63,9 +61,12 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
-      reply = params["body"].downcase
-      p "*" *20
-      p reply
+      p "*" * 20
+      print "*" * 20
+      puts "*" * 20
+      p params
+      print params
+      puts params
       render :json => params
   end
 
