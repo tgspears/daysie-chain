@@ -68,7 +68,6 @@ respond_to :html, :xml, :json
       p params
       puts "*"*20
       render :json => params
-
     end
 
   private
