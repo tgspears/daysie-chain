@@ -61,7 +61,7 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
-      reply = params["body"]
+      reply = params["Body"]
       p "*" * 20
       p params
       p "*" * 20
