@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
 respond_to :html, :xml, :json
 
+
+
+
   def new
     @group = Group.find(params[:group_id])
     @event = Event.new
@@ -56,19 +59,17 @@ respond_to :html, :xml, :json
 
 })
     end
-
-
-
     redirect_to user_groups_path
   end
 
-
-    def response
+  def textmessage
       puts "*"*20
       p params
       puts "*"*20
       render :json => params
-    end
+  end
+
+
 
   private
 
