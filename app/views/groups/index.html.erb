@@ -4,7 +4,7 @@
 
 
 
-<!-- <img src="http://fc08.deviantart.net/fs22/i/2008/021/5/e/Happy_Daisy_by_venkman_project.jpg" id="daysie"> -->
+<img src="http://fc08.deviantart.net/fs22/i/2008/021/5/e/Happy_Daisy_by_venkman_project.jpg" id="daysie">
 
 <div class="row">
   <div class="col-md-4">
@@ -20,43 +20,46 @@
    <% end %>
   </div>
 
-<div id="buttoncontainer">
-  <% if @current_user.memberships %>
-    <% @current_user.memberships.each do |i| %>
-      <% @idx = i.id %>
-      <div class="radial_button" id="<%= @idx %>">
-        <div class="row">
-          <div class="col-md-12">
-            <img src="<%= i.group.image %>" class="group_image">
-          </div>
-          <div class="col-md-12">
-            <a><%= i.group.name %></a>
+
+<div class="sidebar">
+  <div id="buttoncontainer">
+    <% if @current_user.memberships %>
+      <% @current_user.memberships.each do |i| %>
+        <% @idx = i.id %>
+        <div class="radial_button" id="<%= @idx %>">
+          <div class="row">
+            <div class="col-md-12">
+              <img src="<%= i.group.image %>" class="group_image">
+            </div>
+            <div class="col-md-12">
+              <a><%= i.group.name %></a>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 
 <% if @current_user.memberships %>
   <% @current_user.memberships.each do |i| %>
     <% @idx = i.id %>
       <div class="radmenu">
-        <a href="#" id="menu<%= @idx %>" class="show" ><img class="group_image" src="<%= i.group.image %>"></a>
+        <a href="#" id="menu<%= @idx %>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
         <ul>
           <li>
-            <a data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "not group_user_add"><i class="fa fa-user-plus"></i> </a>
+            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "not group_user_add"><i class="fa fa-user-plus"></i> </a>
             <ul>
             </ul>
           </li>
           <li>
-            <a data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="not event_add">Add an Event</a>
+            <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="not event_add">Add an Event</a>
             <ul>
             </ul>
           </li>
           <% i.group.events.each do |j| %>
           <li>
-            <a data-toggle="modal" class="not event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+            <a class="submenus" data-toggle="modal" class="not event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
             <ul>
             </ul>
           </li>

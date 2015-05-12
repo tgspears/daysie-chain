@@ -7,12 +7,21 @@
  list-style-type: none;
 }
 
+#buttoncontainer {
+	width: 150px;
+}
+
 .group_image {
 	width: 30%;
 	height: auto;
 	border-radius: 50%;
 }
 
+.sidebar {
+	left: 0%;
+	overflow-y: scroll;
+	width: 160px;
+}
 
 #daysie {
 	position: fixed;
