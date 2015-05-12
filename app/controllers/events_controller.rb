@@ -61,11 +61,11 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
+      reply = params["body"]
       p "*" * 20
-      print "*" * 20
-      puts "*" * 20
       p params
-
+      p "*" * 20
+      p reply
       render :json => params
   end
 
