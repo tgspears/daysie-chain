@@ -64,8 +64,7 @@ respond_to :html, :xml, :json
       p "*" * 20
       print "*" * 20
       puts "*" * 20
-      p params
-      print params
+
       puts params
       render :json => params
   end
