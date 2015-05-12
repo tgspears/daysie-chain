@@ -1,5 +1,47 @@
 $(function(){
 
+  var buttons = document.querySelectorAll(".radmenu a");
+
+  for (var i=0, l=buttons.length; i<l; i++) {
+    var button = buttons[i];
+    button.onclick = setSelected;
+  }
+
+  function setSelected(e) {
+    if (this.classList.contains("not")){
+      return false;
+    }
+    else {
+      if (this.classList.contains("selected")) {
+        this.classList.remove("selected");
+        if (!this.parentNode.classList.contains("radmenu")) {
+          this.parentNode.parentNode.parentNode.querySelector("a").classList.add("selected")
+        } else {
+          this.classList.add("show");
+        }
+      } else {
+        this.classList.add("selected");
+        if (!this.parentNode.classList.contains("radmenu")) {
+          this.parentNode.parentNode.parentNode.querySelector("a").classList.remove("selected")
+        } else {
+          this.classList.remove("show");
+        }
+      }
+      return false;
+    }
+  }
+
+  var buttonlistener = document.querySelector('#buttoncontainer');
+  buttonlistener.addEventListener('click', radialClick, false);
+
+  function radialClick(e){
+    if (e.target !== e.currentTarget) {
+      var clickedItem = e.target.id;
+      $('#menu'+clickedItem).click();
+    }
+    e.stopPropagation();
+  }
+
   $('#event_invite').on('hidden.bs.modal', function() {
     $(this).removeData('bs.modal');
   });
