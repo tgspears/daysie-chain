@@ -38,7 +38,10 @@ respond_to :html, :xml, :json
     @event.day = params[:event][:day]
     @event.time = params[:event][:time]
     @event.save
-    user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
+    @event.group.memberships.each do |member|
+      member.user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
+    end
+
 
     # put your own credentials here
     account_sid = ENV['TWILIO_KEY']

@@ -45,7 +45,7 @@
   <% @current_user.memberships.each do |i| %>
     <% @idx = i.id %>
       <div class="radmenu">
-        <a href="#" id="menu<%= @idx %>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
+        <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
         <ul>
           <li>
             <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "not group_user_add"><i class="fa fa-user-plus"></i> </a>

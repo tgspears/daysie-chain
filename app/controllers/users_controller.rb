@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     if session[:user_id] != nil
       unless User.find_by_email(params[:user][:email])
         user = User.create :firstname => params[:user][:firstname], :lastname => params[:user][:lastname], :email => params[:user][:email], :tel => params[:user][:tel], :active => params[:user][:active]
-        p "yoooooooo #{user.inspect}"
         group = Group.find(params[:user][:group_id])
         user.memberships << group.memberships.create(admin:false)
         redirect_to user_groups_path(@current_user.id)

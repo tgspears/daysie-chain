@@ -111,12 +111,14 @@ $(function(){
 
 
   var group_id;
-  $('.group_user_add').on('click', function(e){
-   group_id = $(this).attr('id');
+  $('.show').on('click', function(e){
+    console.log("some text")
+   group_id = $(this).attr('group-id');
   });
 
 
   $("#add_user").on('click', function(e){
+      console.log("some other text, or")
       $("#group_id_field").attr("value", group_id )
   });
 
