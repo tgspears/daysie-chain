@@ -31,7 +31,7 @@
 
 <script>
 <% membership = @current_user.memberships.find_by_group_id(params[:id]) %>
-<% if membership.admin == true %>
+<% if @current_user.id == membership.group.user_id %>
   $("#group_members, #group_admins").sortable({
     connectWith: ".group",
     receive: function(event, ui) {
