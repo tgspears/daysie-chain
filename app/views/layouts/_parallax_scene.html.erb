@@ -1,0 +1,12 @@
+<div class="row scene-container">
+  <% count = 0 %>
+  <ul id="scene">
+    <li class="layer" data-depth="0.20"><%= image_tag("daysie-foreground.png", :alt => "foreground", :class => "foreground") %></li>
+
+      <li class="layer" data-depth="0.20"><%= image_tag("daysie-foreground-grass-nubs.png", :alt => "grass", :class => "grass_#{count}")%></li>
+
+    <li class="layer" data-depth="0.10"><%=image_tag("daysie-foreground-tree.png", :alt => "tree", :class => "tree")%></li>
+    <li class="layer" data-depth="0.10"><%=image_tag("daysie-foreground-bush.png", :alt => "bush", :class => "bush")%></li>
+    <li class="layer" data-depth="0.20"><%= image_tag("daysie-chain-logo.png", :alt => "logo", :class => "logo")%></li>
+  </ul>
+</div>

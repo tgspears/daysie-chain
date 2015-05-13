@@ -22,5 +22,5 @@
 log
 .DS_Store
 db/schema.rb
-
+/app/assets/local_images/
 #what?

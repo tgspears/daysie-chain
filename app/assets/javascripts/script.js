@@ -121,24 +121,21 @@ $(function(){
   });
 
 
-
-// $.datepicker.setDefaults({
-//         dateFormat: 'dd.mm.yy'
-//     });
-
-// $("#datepicker").datepicker();
-
-// $('.group_user_add').on('click', function(e){
-//     e.preventDefault();
-//     var userId = $(this).attr('uid');
-//     var groupId = $(this).attr('data');
-//     var eventId = $(this).attr('id');
-//     console.log('group id', groupId);
-//     console.log('event id', eventId)
-//     $('.group_event_send_form').attr('action', '/users/'+userId+'/groups/'+groupId+'/events/'+eventId)
-//     $('.event-modal').attr('id', eventId)
-
-//   });
+  $('#scene').parallax({
+    calibrateX: false,
+    calibrateY: false,
+    invertX: true,
+    invertY: false,
+    limitX: false,
+    limitY: false,
+    scalarX: 6,
+    scalarY: 6,
+    frictionX: 1,
+    frictionY: 0.2,
+    originX: 0.0,
+    originY: 0.5
+  });
+})
 
 });
 
