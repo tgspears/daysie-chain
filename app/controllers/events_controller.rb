@@ -40,16 +40,16 @@ respond_to :html, :xml, :json
     @event.save
     @event.group.memberships.each do |member|
       member.user.attendances << @event.attendances.create(yes: false, no: false, maybe: true, invited: true)
+      p "i've gottne this far: 0"
     end
-
-
     # put your own credentials here
     account_sid = ENV['TWILIO_KEY']
     auth_token = ENV['TWILIO_SECRET']
-# set up a client to talk to the Twilio REST API
+    # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
-
+      p "i've gotten this far: 1"
     @event.group.memberships.each do |member|
+      p "i've gotten this far: 2"
       date = @event.date.split("-")
       number = member.user.tel
       name = member.user.firstname
