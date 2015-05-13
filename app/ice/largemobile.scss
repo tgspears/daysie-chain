@@ -1,60 +1,52 @@
 @media screen and (min-width:768px){
 
 
-  .circle_div{
-    text-align:center;
-    border: 1px solid black;
-    border-radius: 50%;
-  }
-  .circle_div > li {
-   list-style-type: none;
-  }
-
-  #buttoncontainer {
-    width: 150px;
+	  #buttoncontainer {
+  	width: 20%;
   }
 
   .group_image {
-    width: 30%;
-    height: auto;
-    border-radius: 50%;
+  	width: 250%;
+  	height: auto;
+  	border-radius: 50%;
+    box-shadow: 0 0 2% #222;
   }
 
   .submenus {
-    height: 50px !important;
-    width: 50px !important;
+    height: 25% !important;
+    width:  auto;
     border-radius: 50% !important;
   }
 
   .sidebar {
-    left: 0%;
-    overflow-y: scroll;
-    width: 160px;
-    height: 100%;
+    padding-top: 10px;
+  	left: 0%;
+    top: 250px;
+    position: fixed;
+    padding-left: 10px;
+  	overflow-y: scroll;
+  	width: 25%;
+    height: 50%;
+    word-wrap: normal;
   }
 
   #daysie {
-    position: fixed;
-    top: 40%;
-    left: 32.5%;
-    width: 35%;
-    z-index: 1;
+  	position: fixed;
+  	top: 50%;
+  	left: 37.5%;
+  	width: 30%;
     height: auto;
     border-radius: 50%;
+  	z-index: 1;
   }
 
-
-  #countdown {
-    background-color: rgb(255, 241, 187);
-    color: rgb(252, 196, 196);
-    font-size: 120px;
-    font-family: arial;
-    text-align: center;
-    width: 960px;
+  .daysie_image {
+    border-radius: 50%;
+    width: 70%;
+    height: auto;
   }
 
-
-  @import "compass/css3";
+@import "compass/css3";
 
   $sub-menus :  12;
 

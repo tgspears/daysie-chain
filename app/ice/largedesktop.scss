@@ -1,69 +1,50 @@
 @media screen and (min-width:1200px){
 
 
-  body {
-    background: #E5DCFE;
-  }
 
-  .circle_div{
-    text-align:center;
-    border: 1px solid black;
-    border-radius: 50%;
-  }
-  .circle_div > li {
-   list-style-type: none;
-  }
-
-  #buttoncontainer {
+	  #buttoncontainer {
   	width: 20%;
   }
 
   .group_image {
-  	width: 117.5px;
-  	height: 117.5px;
+  	width: 250%;
+  	height: auto;
   	border-radius: 50%;
-    box-shadow: 0 0 15px #222;
+    box-shadow: 0 0 2% #222;
   }
 
   .submenus {
-    height: 117.5px !important;
-    width: 117.5px !important;
+    height: 25% !important;
+    width:  auto;
     border-radius: 50% !important;
   }
 
   .sidebar {
+    padding-top: 10px;
   	left: 0%;
     top: 250px;
     position: fixed;
     padding-left: 10px;
   	overflow-y: scroll;
-  	width: 250px;
-    height: 300px;
+  	width: 25%;
+    height: 50%;
+    word-wrap: normal;
   }
 
   #daysie {
   	position: fixed;
-  	top: 30%;
+  	top: 50%;
   	left: 37.5%;
-  	width: 300px;
-    height: 300px;
+  	width: 30%;
+    height: auto;
     border-radius: 50%;
   	z-index: 1;
   }
 
   .daysie_image {
     border-radius: 50%;
-    width: 100%;
-    height: 100%;
-  }
-
-  #countdown {
-    background-color: rgb(255, 241, 187);
-    color: rgb(252, 196, 196);
-    font-size: 120px;
-    font-family: arial;
-    text-align: center;
-    width: 960px;
+    width: 70%;
+    height: auto;
   }
 
 
@@ -142,9 +123,6 @@
         }
       }
     }
-
   }
 }
-
-
 

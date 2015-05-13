@@ -1,5 +1,4 @@
 
-<img src="http://fc08.deviantart.net/fs22/i/2008/021/5/e/Happy_Daisy_by_venkman_project.jpg" id="daysie">
 
 <div class="row">
   <div class="col-md-4">
@@ -37,23 +36,24 @@
       <div class="radmenu">
         <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
         <ul>
-          <li>
+          <li class="subli">
             <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus"></i> </a>
             <ul>
             </ul>
           </li>
-          <li>
+          <li class="subli">
             <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="event_add">Add an Event</a>
             <ul>
             </ul>
           </li>
-          <li>
+          <li class="subli">
             <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" id="<%= i.group.id %>" data-target="#group_users_show">View Members</a>
+
             <ul>
             </ul>
           </li>
           <% i.group.events.each do |j| %>
-          <li>
+          <li class="subli">
             <a class="submenus" data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
             <ul>
             </ul>
