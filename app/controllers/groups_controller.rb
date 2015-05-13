@@ -16,8 +16,8 @@ class GroupsController < ApplicationController
 
   def create
     user = current_user
-    if params[:group][:size].is_a? Integer
-      group = Group.create(:name => params[:group][:name], :size => params[:group][:size], :status => params[:group][:status])
+    if params[:group][:size].to_i.is_a? Integer
+      group = Group.create(:name => params[:group][:name], :size => params[:group][:size].to_i, :status => params[:group][:status])
       if group
         user.groups << group
         event = Event.create(:name => params[:event][:name], :desc => params[:event][:desc], :max => params[:event][:max], :loc => params[:event][:loc], :date => params[:event][:date], :time => params[:event][:time])
