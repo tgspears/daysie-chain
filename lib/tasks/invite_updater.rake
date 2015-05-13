@@ -4,7 +4,7 @@ namespace :invite do
 
   task :update_invitations => :environment do
 
-    current_date = Date.today.strftime('%Q').to_i
+    current_date = (Time.new.strftime('%s').to_i) * 1000
     Event.where(:active => true).each do |event|
       event_date = Date.parse(event[:date]).strftime('%Q').to_i
 
