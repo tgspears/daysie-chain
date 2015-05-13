@@ -36,8 +36,6 @@ class GroupsController < ApplicationController
     @user = current_user
     @group = current_user.memberships.find_by_group_id(params[:id]).group
     @members = @group.memberships
-    # gon.find_user = find_user
-
     render layout: false
   end
 

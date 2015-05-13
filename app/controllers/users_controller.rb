@@ -67,15 +67,24 @@ class UsersController < ApplicationController
     group_id = params[:groupId]
     members = params[:members]
     admins = params[:admins]
-    members.each do |id|
-      user = User.find(id)
-      user.memberships.find_by_group_id(group_id).update(admin: false)
-      user.save
-    end
-    admins.each do |id|
-      user = User.find(id)
-      user.memberships.find_by_group_id(group_id).update(admin:true)
-      user.save
+    deletions = params[:deletions]
+    if members
+      members.each do |id|
+        user = User.find(id)
+        user.memberships.find_by_group_id(group_id).update(admin: false)
+        user.save
+      end
+    elsif admins
+      admins.each do |id|
+        user = User.find(id)
+        user.memberships.find_by_group_id(group_id).update(admin:true)
+        user.save
+      end
+    elsif deletions
+      deletions.each do |id|
+        user = User.find(id)
+        Group.find(group_id).memberships.find_by_user_id(user.id).delete
+      end
     end
     render :json => params
 
