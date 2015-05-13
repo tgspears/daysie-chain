@@ -56,21 +56,30 @@ respond_to :html, :xml, :json
       @client.account.messages.create({
       :from => '+12073583459',
       :to => number,
-      :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes' or 'no'"
+      :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes #{@event.id}' or 'no #{@event.id}'"
       })
     end
     redirect_to user_groups_path
   end
 
   def textmessage
+      response_array = params["body"].split(" ")
+      body = response_array[0]
+      event = response_array[1].to_i
       number = params["From"].to_i
       user = User.find_by_tel(number)
+      if user.attendances.find_by_event_id(event)[:invited] == true
+        if body.downcase == 'yes'
+          attendance = user.attendances.find_by_event_id(event)
+        elsif body.downcase == 'no'
+          attendance = user.attendances.find_by_event_id(event)
+        else
+
+        end
+      else
+
+      end
       reply = params["Body"]
-      p params["From"]
-      p params["From"].to_i
-      p params["From"].to_f
-      p user
-      p reply
       p "testing"
   end
 
