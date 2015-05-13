@@ -15,7 +15,7 @@ User.create(firstname: 'Lauren', lastname: 'Go', email: 'lauren@go.com', tel: '0
 
 User.create(firstname: 'Dave', lastname: 'Raskin', email: 'dave@raskin.com', tel: '00000001', password: 'daveraskin', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/554.jpg')
 
-User.create(firstname: 'Alex', lastname: 'Nguyen', email: 'alex@nguyen.com', tel: '0000004', password: 'alexnguyen', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/549.jpg')
+User.create(firstname: 'Alex', lastname: 'Nguyen', email: 'alex@nguyen.com', tel: '12065567444', password: 'alexnguyen', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/549.jpg')
 
 User.create(firstname: 'Mark', lastname: 'Bradford', email: 'mark@bradford.com', tel: '0000005', password: 'markbradford', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/550.jpg')
 

@@ -43,7 +43,10 @@ respond_to :html, :xml, :json
     @event.time = params[:event][:time]
     @event.active = true;
     if @event.save
-      user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
+      Membership.where(:group_id => @event[:group_id]).each do |member|
+        this_member = User.find(member[:user_id])
+        this_member.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
+      end
     else
       flash[:danger] = "Please fill in all required fields"
     end
