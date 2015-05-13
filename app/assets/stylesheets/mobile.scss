@@ -1,72 +1,58 @@
-@media screen and (max-width: 767px) {
-
-  .circle_div{
-    text-align:center;
-    border: 1px solid black;
-    border-radius: 50%;
-  }
-  .circle_div > li {
-   list-style-type: none;
-  }
+@media screen and (max-width: 991px) {
 
   #buttoncontainer {
-    width: 150px;
+    width: 20%;
   }
 
   .group_image {
-    width: 30%;
-    height: auto;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    box-shadow: 0 0 2% #222;
   }
 
   .submenus {
-    height: 50px !important;
-    width: 50px !important;
+    height: 75px !important;
+    width:  75px !important;
     border-radius: 50% !important;
   }
 
   .sidebar {
+    padding-top: 10px;
     left: 0%;
-    overflow-y: scroll;
-    width: 160px;
-    height: 100%;
-  }
-
-  #daysie {
+    bottom: 0px;
     position: fixed;
-    top: 40%;
-    left: 32.5%;
-    width: 35%;
-    z-index: 1;
-    height: auto;
+    padding-left: 10px;
+    overflow: auto;
+    width: 100%;
+    height: 60px;
+    word-wrap: normal;
+  }
+
+  .daysie_image {
+    position: absolute;
     border-radius: 50%;
+    z-index: 3;
+    top: 0px;
+    left: 0px;
+    height: 150px;
+    width: 150px;
   }
 
-
-  #countdown {
-    background-color: rgb(255, 241, 187);
-    color: rgb(252, 196, 196);
-    font-size: 120px;
-    font-family: arial;
-    text-align: center;
-    width: 960px;
-  }
 
 
   @import "compass/css3";
 
-  $sub-menus :  12;
+  $sub-menus :  13;
 
   .radmenu {
-    height: auto;
-    width: 35%;
     position: fixed;
     list-style: none;
     z-index: 2;
     align-items: center;
     justify-content: center;
-    top: 50%;
-    left: 35%;
+    top: 300px;
+    left: 135px;
     
     > a {
       top: calc(50% - 60px);
@@ -84,8 +70,8 @@
     }
     a {
       position: absolute;
-      width: 145px;
-      height: 145px;
+      width: 150px;
+      height: 150px;
       background: rgba(white, 0.9);
       text-align: center;
       align-items: center;
@@ -108,6 +94,8 @@
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
+        -webkit-transform: translate(82px, 152px);
+        transform: translate(-4px, 18px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;

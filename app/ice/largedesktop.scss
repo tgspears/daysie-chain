@@ -1,56 +1,49 @@
-@media screen and (min-width:768px){
+@media screen and (min-width:1200px){
 
 
-  .circle_div{
-    text-align:center;
-    border: 1px solid black;
-    border-radius: 50%;
-  }
-  .circle_div > li {
-   list-style-type: none;
-  }
-
-  #buttoncontainer {
-    width: 150px;
+	  #buttoncontainer {
+  	width: 20%;
   }
 
   .group_image {
-    width: 30%;
-    height: auto;
-    border-radius: 50%;
+  	width: 250%;
+  	height: auto;
+  	border-radius: 50%;
+    box-shadow: 0 0 2% #222;
   }
 
   .submenus {
-    height: 50px !important;
-    width: 50px !important;
+    height: 25% !important;
+    width:  auto;
     border-radius: 50% !important;
   }
 
   .sidebar {
-    left: 0%;
-    overflow-y: scroll;
-    width: 160px;
-    height: 100%;
+    padding-top: 10px;
+  	left: 0%;
+    top: 250px;
+    position: fixed;
+    padding-left: 10px;
+  	overflow-y: scroll;
+  	width: 25%;
+    height: 50%;
+    word-wrap: normal;
   }
 
   #daysie {
-    position: fixed;
-    top: 40%;
-    left: 32.5%;
-    width: 35%;
-    z-index: 1;
+  	position: fixed;
+  	top: 50%;
+  	left: 37.5%;
+  	width: 30%;
     height: auto;
     border-radius: 50%;
+  	z-index: 1;
   }
 
-
-  #countdown {
-    background-color: rgb(255, 241, 187);
-    color: rgb(252, 196, 196);
-    font-size: 120px;
-    font-family: arial;
-    text-align: center;
-    width: 960px;
+  .daysie_image {
+    border-radius: 50%;
+    width: 70%;
+    height: auto;
   }
 
 
@@ -59,34 +52,35 @@
   $sub-menus :  12;
 
   .radmenu {
-    height: auto;
-    width: 35%;
-    position: fixed;
-    list-style: none;
-    z-index: 2;
-    align-items: center;
-    justify-content: center;
-    top: 50%;
-    left: 35%;
+  	height: auto;
+  	width: 35%;
+  	position: fixed;
+  	list-style: none;
+  	z-index: 2;
+  	align-items: center;
+  	justify-content: center;
+  	top: 29.5% !important;
+  	left: 24.25% !important;
     
     > a {
-      top: calc(50% - 60px);
-      left: calc(50% - 60px);
+      top: 30% !important;
+      left: 37.5% !important;
       &.show {
       display: flex !important;
       visibility: hidden;
+
       }
     }
     li {
-      list-style: none;
+    	list-style: none;
       -webkit-transform: translate3d(0,0,0);
-      transform: translate3d(0,0,0);
+      transform: translate3d(50,50,50);
       transition: all 1s ease; 
     }
     a {
       position: absolute;
-      width: 145px;
-      height: 145px;
+      width: 300px;
+      height: 300px;
       background: rgba(white, 0.9);
       text-align: center;
       align-items: center;
@@ -102,18 +96,21 @@
       font-size: 16px;
     }
     .selected {
-      background: rgba(#333, 0.9);
+      background: #58AD34;
       display: flex;
-      top: calc(50% - 60px);
-      left: calc(50% - 60px);
+      top: 30%;
+      left: 37.5%;
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
+        -webkit-transform: translate(82px, 152px);
+        transform: translate(73px, 152px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;
-            -webkit-transform: rotate($angle) translateX(250px);
-            transform: rotate($angle) translateX(250%);
+
+            -webkit-transform: rotate($angle) translateX(300px);
+            transform: rotate($angle) translateX(350px);
             > a {
               -webkit-transform: rotate(0 - $angle);
               transform: rotate(0 - $angle);
@@ -126,4 +123,6 @@
       }
     }
   }
+
+
 }
