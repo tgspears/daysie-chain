@@ -11,6 +11,9 @@ namespace :invite do
       actual_time = event_date + event_time
 
       if (current_time - actual_time) > 0
+         p "*" * 20
+         p "At least I know this is running"
+         p "*"
         event[:date] = nil
         event[:time] = nil
         event[:min] = 1
