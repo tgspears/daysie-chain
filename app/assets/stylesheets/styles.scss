@@ -121,15 +121,28 @@ $sub-menus :  11;
 
 }
 
+.main-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 60px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 200;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
 .btn-signup{
   display: inline-block;
-  width: 200px;
+  width: 250px;
+  height: 50px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
   text-decoration: none;
+  background-color: rgba(0,0,0,0.3);
+  margin-top: 5%;
 }
 
 .btn-signup:hover, .btn-signup:active {
@@ -139,13 +152,16 @@ $sub-menus :  11;
 
 .btn-signin{
   display: inline-block;
-  width: 200px;
+  width: 250px;
+  height: 50px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
   text-decoration: none;
+  background-color: rgba(0,0,0,0.3);
+  margin-top: 5%;
 }
 
 .btn-signin:hover, .btn-signin:active {
@@ -155,16 +171,24 @@ $sub-menus :  11;
 
 .btn-fb{
   display: inline-block;
-  width: 200px;
+  width: 250px;
+  height: 50px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
+  background-color: rgba(0,0,0,0.3);
   text-decoration: none;
+  margin-top: 5%;
 }
 
 .btn-fb:hover, .btn-fb:active {
   background-color: #fff;
   color: #000;
+}
+
+body {
+  background-image: url('daysie-background-small.jpg');
+  background-size: cover;
 }
