@@ -133,16 +133,17 @@ $sub-menus :  11;
 
 .btn-signup{
   display: inline-block;
-  width: 250px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
   text-decoration: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0);
   margin-top: 5%;
+  border-radius: 100%;
 }
 
 .btn-signup:hover, .btn-signup:active {
@@ -152,16 +153,17 @@ $sub-menus :  11;
 
 .btn-signin{
   display: inline-block;
-  width: 250px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
   text-decoration: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0);
   margin-top: 5%;
+  border-radius: 100%;
 }
 
 .btn-signin:hover, .btn-signin:active {
@@ -171,15 +173,16 @@ $sub-menus :  11;
 
 .btn-fb{
   display: inline-block;
-  width: 250px;
-  height: 50px;
+  width: 85px;
+  height: 85px;
   padding: 8px;
   color: #fff;
   border: 1px solid #fff;
   text-align: center;
   outline: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0);
   text-decoration: none;
+  border-radius: 100%;
   margin-top: 5%;
 }
 
@@ -189,6 +192,77 @@ $sub-menus :  11;
 }
 
 body {
-  background-image: url('daysie-background-small.jpg');
+  background-image: url('daysie-background.jpg');
   background-size: cover;
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  border-radius: 0 !important;
+}
+.navbar-default .navbar-toggle {
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-variant: small-caps;
+  color: #EBF0EB;
+}
+
+.container-fluid .view {
+  margin: none !important;
+  padding-right: none !important;
+  padding-left: none !important;
+
+}
+
+div.row .scene-container {
+  width: 100%;
+  height: 100%;
+  margin: none;
+  padding: none;
+}
+
+#scene {
+  width: 100%;
+  height: 100%;
+  display: inline;
+  list-style-type: none;
+  margin: none;
+  padding: none;
+}
+
+.layer {
+  text-decoration: none;
+}
+
+.foreground {
+  position: absolute;
+  max-width: 100%;
+}
+
+@for $i from 0 through 3 {
+.grass_#{i} {
+  position: absolute;
+  height: 100*#{i}px;
+}
+}
+.bush {
+
+}
+
+.tree {
+
+}
+
+#logo {
+
 }

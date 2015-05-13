@@ -41,10 +41,12 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_groups_path(@user.id)
         else
-        render :plain => "Something went wrong when trying to sign you up.  Perhaps your password was lame.  Perhaps your e-mail wasn'nt an e-mail.  Figure it out."
+        flash[:danger] = "Something went wrong when trying to sign you up.  Perhaps your password was lame.  Perhaps your e-mail wasnn't an e-mail.  Figure it out."
+        redirect_to root_path
         end
       else
-        render :plain => 'Deja Vu: That e-mail address looks familiar.'
+        flash[:danger] = 'Deja Vu: That e-mail address looks familiar.'
+        redirect_to root_path
       end
     end
     # render :json => @user

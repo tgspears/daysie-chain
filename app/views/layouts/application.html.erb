@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <html>
 <head>
-  <title>DaysieChain</title>
+  <title>Daysie Chain</title>
   <%= Gon::Base.render_data({}) %>
  <!--  I've added 'https:' to the front of the href's on these sheets,
    but once we stop hosting on localhost:3000, they should be removed. -->
@@ -19,7 +19,9 @@
 
 </head>
 <body>
-<div class="container">
+<%= render "layouts/nav" %>
+<%= render "layouts/flash" %>
+<div class="container-fluid view">
 
 <%= yield %>
 

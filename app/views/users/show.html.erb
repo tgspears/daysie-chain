@@ -1,4 +1,3 @@
-<%= render "layouts/nav" %>
 <div class="jumbotron">
 	<div class="container">
 		<h1><%= @user.firstname %> <%= @user.lastname %></h1>
@@ -22,7 +21,7 @@
 			<% end %>
 		<% end %>
 	</div>
-	
+
 	<div class="col-md-6">
 		<% @user.groups.each do |x| %>
 			<% if x.user_id == @current_user.id %>
