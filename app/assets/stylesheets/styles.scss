@@ -248,21 +248,3 @@ div.row .scene-container {
   position: absolute;
   max-width: 100%;
 }
-
-@for $i from 0 through 3 {
-.grass_#{i} {
-  position: absolute;
-  height: 100*#{i}px;
-}
-}
-.bush {
-
-}
-
-.tree {
-
-}
-
-#logo {
-
-}
