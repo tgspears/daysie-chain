@@ -4,11 +4,13 @@ namespace :invite do
 
   task :update_invitations => :environment do
 
-    current_date = (Time.new.strftime('%s').to_i) * 1000
+    current_time = Time.now.to_i
     Event.where(:active => true).each do |event|
-      event_date = Date.parse(event[:date]).strftime('%Q').to_i
+      event_date = Date.parse(event[:date]).strftime('%s').to_i
+      event_time = Time.parse(event[:time]).to_i
+      actual_time = event_date + event_time
 
-      if (current_date - event_date) > 0
+      if (current_time - actual_time) > 0
         event[:date] = nil
         event[:time] = nil
         event[:min] = 1
