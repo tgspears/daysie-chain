@@ -39,7 +39,7 @@ respond_to :html, :xml, :json
     @event.time = params[:event][:time]
     @event.save
     @event.group.memberships.each do |member|
-      member.user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
+      member.user.attendances << @event.attendances.create(yes: false, no: false, maybe: true, invited: true)
     end
 
 
@@ -63,7 +63,7 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
-      response_array = params["body"].split(" ")
+      response_array = params["Body"].split(" ")
       body = response_array[0]
       event = response_array[1].to_i
       number = params["From"].to_i
@@ -71,15 +71,26 @@ respond_to :html, :xml, :json
       if user.attendances.find_by_event_id(event)[:invited] == true
         if body.downcase == 'yes'
           attendance = user.attendances.find_by_event_id(event)
+          attendance[:yes] = true
+          attendance[:maybe] = false
+          attendance[:no] = false
+          attendance.save
+          p attendance
+          p attendance[:yes]
         elsif body.downcase == 'no'
           attendance = user.attendances.find_by_event_id(event)
+          attendance[:yes] = false
+          attendance[:maybe] = false
+          attendance[:no] = true
+          attendance.save
+          p attendance
+          p attendance[:yes]
         else
-
+          render :json => params
         end
       else
 
       end
-      reply = params["Body"]
       p "testing"
   end
 
