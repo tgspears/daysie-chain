@@ -1,8 +1,4 @@
 
-
-
-
-
 <img src="http://fc08.deviantart.net/fs22/i/2008/021/5/e/Happy_Daisy_by_venkman_project.jpg" id="daysie">
 
 <div class="row">
@@ -25,13 +21,9 @@
       <% @current_user.memberships.each do |i| %>
         <% @idx = i.id %>
         <div class="radial_button" id="<%= @idx %>">
-          <div class="row">
-            <div class="col-md-12">
-              <img src="<%= i.group.image %>" class="group_image">
-            </div>
-            <div class="col-md-12">
-              <a><%= i.group.name %></a>
-            </div>
+          <div id="sidebar">
+            <img src="<%= i.group.image %>" class="group_image">
+            <a><%= i.group.name %></a>
           </div>
         </div>
       <% end %>
@@ -46,18 +38,23 @@
         <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
         <ul>
           <li>
-            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "not group_user_add"><i class="fa fa-user-plus"></i> </a>
+            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus"></i> </a>
             <ul>
             </ul>
           </li>
           <li>
-            <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="not event_add">Add an Event</a>
+            <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="event_add">Add an Event</a>
+            <ul>
+            </ul>
+          </li>
+          <li>
+            <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" id="<%= @idx %>" data-target="#group_users_show">View Members</a>
             <ul>
             </ul>
           </li>
           <% i.group.events.each do |j| %>
           <li>
-            <a class="submenus" data-toggle="modal" class="not event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+            <a class="submenus" data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
             <ul>
             </ul>
           </li>
@@ -67,9 +64,7 @@
   <% end %>
 <% end %>
 
-
  <!-- Below here be the realm of modals, ya hear? -->
-
 
  <div class="modal fade" id="create_group">
   <div class="modal-dialog">
@@ -86,8 +81,6 @@
         <%= f.radio_button :status, false, label: "Public", checked: true %>
         <%= f.radio_button :status, true, label: "Private" %>
         <%end %>
-
-
 
         <hr>
         <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
@@ -107,7 +100,6 @@
           <%end %>
         </span>
         <% end %>
-
 
         <% end %>
       </div>
@@ -135,7 +127,6 @@
   </div><!-- /.modal -->
 <% end %>
 
-
 <div class="fade modal" id="create_event">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -144,7 +135,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
 <div class="modal fade" id="add_user">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -152,5 +142,3 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal  -->
-
-
