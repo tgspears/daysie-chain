@@ -3,17 +3,17 @@ class Event < ActiveRecord::Base
 
   has_many :attendances
 
-  validates :name, :desc, :loc,
-    :on => :create,
-    :presence => true
+  # validates :name, :desc, :loc,
+  #   :on => :create,
+  #   :presence => true
 
-  validates :max, :min,
-    :on => :update,
-    numericality: true
+  # validates :max, :min,
+  #   :on => :update,
+  #   numericality: true
 
 
-  validates :date, :time,
-  :on => :update, :presence => true
+  # validates :date, :time,
+  # :on => :update, :presence => true
 
 
 end

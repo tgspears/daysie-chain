@@ -42,7 +42,7 @@ respond_to :html, :xml, :json
     @event.day = params[:event][:day]
     @event.time = params[:event][:time]
     if @event.save
-      user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
+      user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
     else
       flash[:danger] = "Please fill in all required fields"
     end
