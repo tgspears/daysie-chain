@@ -63,12 +63,11 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
+      user = User.find_by_tel(params["From"].to_i)
       reply = params["Body"]
-      p "*" * 20
-      p params
-      p "*" * 20
+      p user
       p reply
-      render :json => params
+      p "testing"
   end
 
   private
