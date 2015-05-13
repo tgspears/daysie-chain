@@ -1,8 +1,5 @@
 @media screen and (min-width:1200px){
-	
 
-
-@media screen and (min-width: 992px) {
 
   body {
     background: #E5DCFE;
@@ -84,7 +81,7 @@
   	justify-content: center;
   	top: 29.5% !important;
   	left: 24.25% !important;
-    
+
     > a {
       top: 30% !important;
       left: 37.5% !important;
@@ -98,7 +95,7 @@
     	list-style: none;
       -webkit-transform: translate3d(0,0,0);
       transform: translate3d(50,50,50);
-      transition: all 1s ease; 
+      transition: all 1s ease;
     }
     a {
       position: absolute;
@@ -145,10 +142,9 @@
         }
       }
     }
-    
+
   }
 }
 
 
-	
-}
+

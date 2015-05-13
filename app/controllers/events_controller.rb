@@ -41,6 +41,7 @@ respond_to :html, :xml, :json
     @event.date = params[:event][:date]
     @event.day = params[:event][:day]
     @event.time = params[:event][:time]
+    @event.active = true;
     if @event.save
       user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, invited: true)
     else
