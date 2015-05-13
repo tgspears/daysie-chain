@@ -70,6 +70,7 @@ respond_to :html, :xml, :json
     redirect_to user_groups_path
   end
 
+
   def textmessage
       response_array = params["Body"].split(" ")
       body = response_array[0]

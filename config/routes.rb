@@ -31,7 +31,11 @@ Rails.application.routes.draw do
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
 
+<<<<<<< HEAD
+  # get 'textresponse' => 'events#response'
+=======
   get 'textresponse' => 'events#textmessage'
+>>>>>>> 209b6afe62f7023fcf34ce4af3fd20e6b780d858
 
   get '*unmatched_route' => 'errors#not_found'
   get '/404' => 'errors#not_found', via: :all
