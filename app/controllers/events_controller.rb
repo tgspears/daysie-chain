@@ -63,11 +63,12 @@ respond_to :html, :xml, :json
   end
 
   def textmessage
-      user = User.find_by_tel(params["From"].to_i)
+      number = params["From"].to_i
+      user = User.find_by_tel(number)
       reply = params["Body"]
       p params["From"]
       p params["From"].to_i
-      p params["from"].to_f
+      p params["From"].to_f
       p user
       p reply
       p "testing"
