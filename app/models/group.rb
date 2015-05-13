@@ -3,7 +3,7 @@ class Group < ActiveRecord::Base
   has_many :events
   has_many :memberships
 
-  validates :name, :status,
+  validates :name,
   :on => :create,
   :presence => true
 

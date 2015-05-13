@@ -29,7 +29,7 @@ Group.create(name: "Trevor's Group", size: 10, status: true, user_id: 1, image: 
 
 Group.create(name: "Lauren's Group", size: 12, status: true, user_id: 2, image: 'https://www.bewelcome.org/groups/realimg/451')
 
-Group.create(name: "Dave's Group", size: nil, status: false, user_id: 3, image: 'http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/a8/c0/a8c04b45b3a7282b874b2473e77c32a9.jpg?itok=UTaG1AAP')
+Group.create(name: "Dave's Group", size: 5, status: false, user_id: 3, image: 'http://cdn2-b.examiner.com/sites/default/files/styles/image_content_width/hash/a8/c0/a8c04b45b3a7282b874b2473e77c32a9.jpg?itok=UTaG1AAP')
 
 Group.create(name: "Alex's Group", size: 420, status: false, user_id: 4, image: 'http://usercontent1.hubimg.com/2213864_f496.jpg')
 

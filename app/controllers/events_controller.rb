@@ -51,13 +51,12 @@ respond_to :html, :xml, :json
     account_sid = ENV['TWILIO_KEY']
     auth_token = ENV['TWILIO_SECRET']
 
-    p "I can access the account key: #{account_sid}"
-    p "I can access the secret: #{auth_token}"
+
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
-      p "i've gotten this far: 1"
+
     @event.group.memberships.each do |member|
-      p "i've gotten this far: 2"
+
       date = @event.date.split("-")
       number = member.user.tel
       name = member.user.firstname
@@ -84,7 +83,7 @@ respond_to :html, :xml, :json
           attendance[:maybe] = false
           attendance[:no] = false
           attendance.save
-          p "this is the attendance #{attendance}"
+          p "this is the attendance #{attendance.inspect}"
           p "attendance, yes: #{attendance[:yes]}"
         elsif body.downcase == 'no'
           attendance = user.attendances.find_by_event_id(event)
