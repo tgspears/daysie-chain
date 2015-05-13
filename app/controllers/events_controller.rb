@@ -15,8 +15,12 @@ respond_to :html, :xml, :json
     # render :json => params
     @user = User.find(params[:user_id])
     group = Group.find(params[:group_id])
-    group.events << Event.create(event_params)
-    redirect_to user_groups_path
+    if group.events << Event.create(event_params)
+      redirect_to user_groups_path
+    else
+      flash[:danger] = "Please fill in all fields"
+      redirect_to user_groups_path
+    end
   end
 
   def edit
@@ -39,8 +43,11 @@ respond_to :html, :xml, :json
     @event.date = params[:event][:date]
     @event.day = params[:event][:day]
     @event.time = params[:event][:time]
-    @event.save
-    user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
+    if @event.save
+      user.attendances << @event.attendances.create(yes: false, no: false, maybe: false, count:0)
+    else
+      flash[:danger] = "Please fill in all required fields"
+    end
 
     # put your own credentials here
     account_sid = ENV['TWILIO_KEY']

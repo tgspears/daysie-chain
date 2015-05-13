@@ -33,6 +33,10 @@ Rails.application.routes.draw do
 
   get 'textresponse' => 'events#textmessage'
 
+  get '*unmatched_route' => 'errors#not_found'
+  get '/404' => 'errors#not_found', via: :all
+  get '/422' => 'errors#not_acceptable', via: :all
+  get '/500' => 'errors#internal_server_error', via: :all
 
   # Example resource route with options:
   #   resources :products do

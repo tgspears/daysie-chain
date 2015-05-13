@@ -16,11 +16,19 @@ class GroupsController < ApplicationController
 
   def create
     user = current_user
-    group = Group.create(:name => params[:group][:name], :size => params[:group][:size], :status => params[:group][:status])
-    user.groups << group
-    event = Event.create(:name => params[:event][:name], :desc => params[:event][:desc], :max => params[:event][:max], :loc => params[:event][:loc], :date => params[:event][:date], :time => params[:event][:time])
-    user.groups.find(group.id).events << event
-    user.memberships << group.memberships.create(admin:true)
+    if params[:group][:size].is_a? Integer
+      group = Group.create(:name => params[:group][:name], :size => params[:group][:size], :status => params[:group][:status])
+      if group
+        user.groups << group
+        event = Event.create(:name => params[:event][:name], :desc => params[:event][:desc], :max => params[:event][:max], :loc => params[:event][:loc], :date => params[:event][:date], :time => params[:event][:time])
+        user.groups.find(group.id).events << event
+        user.memberships << group.memberships.create(admin:true)
+      else
+        flash[:danger] = "please fill in all fields"
+      end
+    else
+      flash[:danger] = "please enter a valid size"
+    end
     redirect_to user_groups_path(@current_user.id)
   end
 
