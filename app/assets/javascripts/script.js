@@ -35,6 +35,7 @@ $(function(){
   buttonlistener.addEventListener('click', radialClick, false);
 
   function radialClick(e){
+    $('.selected').trigger('click');
     var clickedItem = e.target.closest(".radial_button").id;
     $('#menu'+clickedItem).click();
     e.stopPropagation();
