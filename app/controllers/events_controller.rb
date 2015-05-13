@@ -45,6 +45,9 @@ respond_to :html, :xml, :json
     # put your own credentials here
     account_sid = ENV['TWILIO_KEY']
     auth_token = ENV['TWILIO_SECRET']
+
+    p "I can access the account key: #{account_sid}"
+    p "I can access the secret: #{auth_token}"
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
       p "i've gotten this far: 1"
