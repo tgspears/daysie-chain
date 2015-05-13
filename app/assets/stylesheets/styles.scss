@@ -12,3 +12,322 @@ body {
   }
 
 
+  #buttoncontainer {
+  	width: 20%;
+  }
+
+  .group_image {
+  	width: 117.5px;
+  	height: 117.5px;
+  	border-radius: 50%;
+    box-shadow: 0 0 15px #222;
+  }
+
+  .submenus {
+    height: 117.5px !important;
+    width: 117.5px !important;
+    border-radius: 50% !important;
+  }
+
+  .sidebar {
+  	left: 0%;
+    top: 250px;
+    position: fixed;
+    padding-left: 10px;
+  	overflow-y: scroll;
+  	width: 250px;
+    height: 300px;
+  }
+  #daysie {
+  	position: fixed;
+  	top: 30%;
+  	left: 37.5%;
+  	width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  	z-index: 1;
+  }
+
+  .daysie_image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  #countdown {
+    background-color: rgb(255, 241, 187);
+    color: rgb(252, 196, 196);
+    font-size: 120px;
+    font-family: arial;
+    text-align: center;
+    width: 960px;
+  }
+
+
+  @import "compass/css3";
+
+  $sub-menus :  12;
+
+  .radmenu {
+  	height: auto;
+  	width: 35%;
+  	position: fixed;
+  	list-style: none;
+  	z-index: 2;
+  	align-items: center;
+  	justify-content: center;
+  	top: 29.5% !important;
+  	left: 24.25% !important;
+
+    > a {
+      top: 30% !important;
+      left: 37.5% !important;
+      &.show {
+      display: flex !important;
+      visibility: hidden;
+
+      }
+    }
+    li {
+    	list-style: none;
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(50,50,50);
+      transition: all 1s ease;
+    }
+    a {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(white, 0.9);
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      display: none;
+      text-decoration: none;
+      color: #333;
+      transition: all 1s ease;
+      box-shadow: 0 0 15px #222;
+      font-family: "segoe ui";
+      font-weight: 200;
+      font-size: 16px;
+    }
+    .selected {
+      background: #58AD34;
+      display: flex;
+      top: 30%;
+      left: 37.5%;
+      color: #f1f1f1;
+      box-shadow: 0 0 10px #f1f1f1;
+      + ul {
+        -webkit-transform: translate(82px, 152px);
+        transform: translate(73px, 152px);
+        @for $i from 1 through $sub-menus {
+          > li:nth-child(#{$i}) {
+            $angle: 360deg / $sub-menus * $i;
+
+            -webkit-transform: rotate($angle) translateX(300px);
+            transform: rotate($angle) translateX(350px);
+            > a {
+              -webkit-transform: rotate(0 - $angle);
+              transform: rotate(0 - $angle);
+            }
+          }
+        }
+        > li > a {
+          display: flex
+        }
+      }
+    }
+  }
+}
+
+.main-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 60px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 200;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.btn-signup{
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0);
+  margin-top: 5%;
+  border-radius: 100%;
+}
+
+.btn-signup:hover, .btn-signup:active {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-signin{
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0);
+  margin-top: 5%;
+  border-radius: 100%;
+}
+
+.btn-signin:hover, .btn-signin:active {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-fb{
+  display: inline-block;
+  width: 85px;
+  height: 85px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  background-color: rgba(0,0,0,0);
+  text-decoration: none;
+  border-radius: 100%;
+  margin-top: 5%;
+}
+
+.btn-fb:hover, .btn-fb:active {
+  background-color: #fff;
+  color: #000;
+}
+
+body {
+  background-image: url('daysie-background.jpg');
+  background-size: cover;
+}
+
+.navbar {
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  border-radius: 0 !important;
+}
+.navbar-default .navbar-toggle {
+  border: none;
+  background-color: rgba(0,0,0,0);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: small-caps;
+  color: #EBF0EB;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.logo {
+  height: 2.1em;
+  width: 2.1em;
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+.container-fluid .view {
+  margin: none !important;
+  padding-right: none !important;
+  padding-left: none !important;
+
+}
+
+div.row .scene-container {
+  width: 100%;
+  height: 100%;
+  margin: none;
+  padding: none;
+}
+
+#scene {
+  width: 100%;
+  height: 100%;
+  display: inline;
+  list-style-type: none;
+  margin: none;
+  padding: none;
+}
+
+.layer {
+  text-decoration: none;
+}
+
+.foreground {
+  position: absolute;
+  max-width: 100%;
+}
+
+#group_members {
+  height: 50px
+}
+
+#group_admins {
+  height: 50px
+}
+
+#group_member_delete {
+  height: 50px;
+  border: 1px solid;
+}
+
+@media screen and (min-width: 768px) {
+  .collapse.navbar-collapse.navbar-ex1-collapse.mobile-collapse {
+    display: none !important;
+    visibility: hidden;
+  }
+  .navbar-nav>li>a {
+     padding-top: 0;
+     padding-bottom: 0;
+  }
+}
+
+.mobile-user-avi {
+  text-decoration: none;
+  display: inline;
+}
+
+.navbar-toggle {
+  padding: 2px 2px 2px 5px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar-default .navbar-collapse {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.user_picture {
+  border: 1px;
+  border-radius: 2px;
+}
+
+.user-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  color: #EBF0EB;
+}
