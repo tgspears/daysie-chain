@@ -48,7 +48,7 @@
             </ul>
           </li>
           <li>
-            <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i) %>" id="<%= @idx %>" data-target="#group_users_show">View Members</a>
+            <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" id="<%= i.group.id %>" data-target="#group_users_show">View Members</a>
             <ul>
             </ul>
           </li>

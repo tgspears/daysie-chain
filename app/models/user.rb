@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
     active == true;
   end
 
+  before_validation :tel_format
+
+  def tel_format
+    self[:tel] = self[:tel].to_s.gsub(/[^0-9]/, "").prepend('1').to_i
+  end
+
   has_secure_password :validations => false
 
   has_many :groups
