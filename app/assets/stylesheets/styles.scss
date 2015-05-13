@@ -233,10 +233,19 @@ body {
 
 .navbar-default .navbar-brand {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   font-variant: small-caps;
   color: #EBF0EB;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.logo {
+  height: 2.1em;
+  width: 2.1em;
+  padding-top: .1em;
+  padding-bottom: .1em;
 }
 
 .container-fluid .view {
@@ -282,4 +291,44 @@ div.row .scene-container {
 #group_member_delete {
   height: 50px;
   border: 1px solid;
+}
+
+@media screen and (min-width: 768px) {
+  .collapse.navbar-collapse.navbar-ex1-collapse.mobile-collapse {
+    display: none !important;
+    visibility: hidden;
+  }
+  .navbar-nav>li>a {
+     padding-top: 0;
+     padding-bottom: 0;
+  }
+}
+
+.mobile-user-avi {
+  text-decoration: none;
+  display: inline;
+}
+
+.navbar-toggle {
+  padding: 2px 2px 2px 5px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.navbar-default .navbar-collapse {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.user_picture {
+  border: 1px;
+  border-radius: 2px;
+}
+
+.user-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  color: #EBF0EB;
 }
