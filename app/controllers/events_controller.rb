@@ -83,8 +83,8 @@ respond_to :html, :xml, :json
           attendance[:maybe] = false
           attendance[:no] = false
           attendance.save
-          p attendance
-          p attendance[:yes]
+          p "this is the attendance #{attendance}"
+          p "attendance, yes: #{attendance[:yes]}"
         elsif body.downcase == 'no'
           attendance = user.attendances.find_by_event_id(event)
           attendance[:yes] = false
