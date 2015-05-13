@@ -3,26 +3,37 @@
   <h4 class="modal-title"><%= @group.name %></h4>
 </div>
 <div class="modal-body event-modal" id="0">
-  <div class="admins">
-  <h5> Admins </h5>
-  <ul id="group_admins" class="group">
-    <% @members.each_with_index do |j, idx| %>
-      <% if j.admin %>
-        <li class="member" id="<%=j.user.id%>"> <%= j.user.firstname %> </li>
-      <% end %>
-    <% end %>
-    </ul>
-  </div>
-    <hr>
-  <div class="members">
-    <h5> Members </h5>
-    <ul id="group_members" class="group">
-    <% @members.each_with_index do |i, idx| %>
-      <% if i.admin == false %>
-      <li class="member" id="<%=i.user.id%>"> <%= i.user.firstname %> </li>
-      <% end %>
-    <% end %>
-    </ul>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="admins">
+      <h5> Admins </h5>
+      <ul id="group_admins" class="group">
+        <% @members.each_with_index do |j, idx| %>
+          <% if j.admin %>
+            <li class="member" id="<%=j.user.id%>"> <%= j.user.firstname %> </li>
+          <% end %>
+        <% end %>
+        </ul>
+      </div>
+      <hr>
+      <div class="members">
+        <h5> Members </h5>
+        <ul id="group_members" class="group">
+        <% @members.each_with_index do |i, idx| %>
+          <% if i.admin == false %>
+          <li class="member" id="<%=i.user.id%>"> <%= i.user.firstname %> </li>
+          <% end %>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6 col-md-offset-6">
+      <div class="trash">
+        <i class="fa fa-trash fa-4x"></i>
+        <ul id="group_member_delete" class="group">
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 <div class="modal-footer">
@@ -31,8 +42,8 @@
 
 <script>
 <% membership = @current_user.memberships.find_by_group_id(params[:id]) %>
-<% if membership.admin == true %>
-  $("#group_members, #group_admins").sortable({
+<% if @current_user.id == membership.group.user_id %>
+  $("#group_members, #group_admins, #group_member_delete").sortable({
     connectWith: ".group",
     receive: function(event, ui) {
       var groupId = <%=@group.id %>
@@ -44,11 +55,12 @@
         data: {
           members:$("#group_members").sortable('toArray'),
           admins:$("#group_admins").sortable('toArray'),
+          deletions:$("#group_member_delete").sortable('toArray'),
           groupId: groupId
         },
         url: "/users/"+id
       }).done(function(data){
-
+        $("#group_member_delete").children().fadeOut(400)
         console.log(data)
       })
     }
@@ -56,11 +68,3 @@
 <% end %>
 </script>
 
-
-<!--
-if (ui.item.parent().attr("id") == "group_member"){
-  id =  "members_" + id.slice(-1)
-}else {
-  id = "admins_" + id.slice(-1)
-}
-         -->
