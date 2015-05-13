@@ -1,3 +1,4 @@
+
 <div class="jumbotron">
 	<div class="container">
 		<h1><%= @user.firstname %> <%= @user.lastname %></h1>
@@ -5,54 +6,28 @@
 </div>
 
 <div class="row">
-	<
-</div>
+	<div class="col-sm-4 col-sm-offset-2">
+	<ul class="list-group">
+	<% @user.attendances.where(:invited => true).each do |event| %>
+	 <% if event[:yes] == true %>
+			<% rsvp = "Your are attending this event" %>
+	 <% elsif event[:no] == true %>
+			<% rsvp = "You can't make it. Bummer." %>
+	 <% else %>
+			<% rsvp = "You need to rsvp for this event" %>
+	 <% end %>
 
+		<li class="list-group-item"><%= link_to @events.find(event[:event_id]).name, user_group_event_path(@user.id, Event.find(event[:event_id])[:group_id], event[:event_id])%> </a> - <%= rsvp %> </li>
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-	<div class="col-md-6">
-		<% @user.memberships.each do |x| %>
-			<tr>Group: <%= x.group.name %> </tr>
-			<% x.group.events.each do |y| %>
-				<ul>
-				<li>Event: <%= y.name %></li>
-				<li>Time: <%= y.desc %> </li>
-				<li>Max: <%= y.max %></li>
-				<li>Location: <%= y.loc %></li>
-				<li>Date: <%= y.date %></li>
-				<li>Time: <%= y.time %></li>
-				</ul>
-			<% end %>
-		<% end %>
-	</div>
-
-	<div class="col-md-6">
-		<% @user.groups.each do |x| %>
-			<% if x.user_id == @current_user.id %>
-				<tr>Group: <%= x.name %> </tr>
-				<tr>Founder: <%= x.user %></tr>
-				<% x.events.each do |y| %>
-					<ul>
-					<li>Event: <%= y.name %></li>
-					<li>Time: <%= y.desc %> </li>
-					<li>Max: <%= y.max %></li>
-					<li>Location: <%= y.loc %></li>
-					<li>Date: <%= y.date %></li>
-					<li>Time: <%= y.time %></li>
-					</ul>
-				<% end %>
-			<% end %>
-		<% end %>
+	<% end %>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+

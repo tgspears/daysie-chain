@@ -61,6 +61,8 @@ class UsersController < ApplicationController
 
   def show
     @user = @current_user
+    @events = Event.all
+    @groups = Group.all
   end
 
   def update
