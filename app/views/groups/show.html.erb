@@ -30,6 +30,8 @@
 </div>
 
 <script>
+<% membership = @current_user.memberships.find_by_group_id(params[:id]) %>
+<% if membership.admin == true %>
   $("#group_members, #group_admins").sortable({
     connectWith: ".group",
     receive: function(event, ui) {
@@ -44,13 +46,14 @@
           admins:$("#group_admins").sortable('toArray'),
           groupId: groupId
         },
-        url: "/users/"+id.slice(-1)
+        url: "/users/"+id
       }).done(function(data){
 
         console.log(data)
       })
     }
   }).disableSelection();
+<% end %>
 </script>
 
 

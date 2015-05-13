@@ -57,8 +57,7 @@ respond_to :html, :xml, :json
       :from => '+12073583459',
       :to => number,
       :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes' or 'no'"
-
-})
+      })
     end
     redirect_to user_groups_path
   end
@@ -71,8 +70,6 @@ respond_to :html, :xml, :json
       p reply
       render :json => params
   end
-
-
 
   private
 
