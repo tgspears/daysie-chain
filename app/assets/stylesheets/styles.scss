@@ -10,6 +10,24 @@ body {
   color: #EBF0EB;
   text-align: center;
 }
+.modal-content{
+  text-align:left;
+  background-color: rgb(235,240,235);
+}
+.btn{
+   background-color:rgba(1,1,1,0);
+  border: 1px solid #6d313c;
+  color: #6d313c;
+  border-radius:25px;
+   /*#4f7b67*/
+}
+.btn-primary{
+  background-color:rgba(1,1,1,0);
+  border: 1px solid #4f7b67;
+  color: #4f7b67;
+  border-radius:25px;
+}
+
   .circle_div{
     text-align:center;
     border: 1px solid black;
