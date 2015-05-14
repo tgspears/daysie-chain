@@ -20,11 +20,7 @@ namespace :invite do
         event.save
 
         Attendance.where(:event_id => event[:id]).each do |user|
-          user[:yes] = false
-          user[:no] = false
-          user[:maybe] = false
-          user[:invited] = false
-          user.save
+          user.destroy
         end
       end
     end
