@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
 
   get 'textresponse' => 'events#textmessage'
+  get 'nudge' => 'events#nudge'
+  get 'shade' => 'events#shade'
 
 
   get '*unmatched_route' => 'errors#not_found'

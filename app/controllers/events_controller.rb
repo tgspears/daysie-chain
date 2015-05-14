@@ -82,6 +82,13 @@ respond_to :html, :xml, :json
     redirect_to user_groups_path
   end
 
+  def nudge
+
+  end
+
+  def shade
+
+  end
 
   def textmessage
       response_array = params["Body"].split(" ")
