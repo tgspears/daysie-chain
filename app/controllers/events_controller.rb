@@ -83,12 +83,24 @@ respond_to :html, :xml, :json
   end
 
   def nudge
+    render :json => params
+    # account_sid = ENV['TWILIO_KEY']
+    # auth_token = ENV['TWILIO_SECRET']
+    # @client = Twilio::REST::Client.new account_sid, auth_token
+    # @event.group.memberships.each do |member|
 
+    #   date = @event.date.split("-")
+    #   number = member.user.tel
+    #   name = member.user.firstname
+    #   @client.account.messages.create({
+    #   :from => '+12073583459',
+    #   :to => number,
+    #   :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes #{@event.id}' or 'no #{@event.id}'"
+    #   })
+    # end
   end
 
-  def shade
 
-  end
 
   def textmessage
       response_array = params["Body"].split(" ")
