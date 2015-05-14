@@ -13,7 +13,6 @@ class AuthController < ApplicationController
   def callback
 
     provider_user = request.env['omniauth.auth']
-    # render :json => provider_user
 
     user = User.find_or_create_by(provider_id:provider_user['uid'], provider: provider_user[:provider] ) do |user|
       user.email = provider_user['info']['email']
@@ -22,6 +21,7 @@ class AuthController < ApplicationController
       user.provider_hash = provider_user['credentials']['token']
       user.password = "123456789"
       user.tel = "0000000000"
+      user.image = provider_user['info']['image']
     end
     @user = user
     session[:user_id] = user.id

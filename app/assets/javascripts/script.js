@@ -51,6 +51,10 @@ $(function(){
     $(this).removeData('bs.modal');
   });
 
+  $('#event_show').on('hidden.bs.modal', function() {
+    $(this).removeData('bs.modal');
+  });
+
   $('#group_users_show').on('hidden.bs.modal', function() {
     $(this).removeData('bs.modal');
   });
