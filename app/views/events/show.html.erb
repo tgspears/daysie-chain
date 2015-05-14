@@ -13,8 +13,11 @@
 
 
 <div class="row">
-  <ul class="list-group brown-list">
-    <% @attendances.where(:event_id => @event.id).each do |user| %>
+
+  <table class="table table-hover">
+    <tbody>
+
+ <% @attendances.where(:event_id => @event.id).each do |user| %>
     <% if user[:yes] == true %>
       <% rsvp = "Attending" %>
    <% elsif user[:no] == true %>
@@ -22,20 +25,42 @@
    <% else %>
       <% rsvp = "No RSVP" %>
    <% end %>
-    <li class="list-group-item brown-back"><%=@users.find(user[:user_id]).firstname%> | <span class="<%=rsvp%>"><%= rsvp %></span>
-        <span class="pull-right">
-          <% if rsvp == "Not Attending" %>
-          <a href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Throw Shade</a>
+
+      <tr>
+        <td
+           <% if user == @attendances.where(:event_id => @event.id).last %>
+            class="last_row"
+          <% end %>
+        ><%=@users.find(user[:user_id]).firstname%></td>
+        <td
+           <% if user == @attendances.where(:event_id => @event.id).last %>
+            class="last_row"
+          <% end %>
+          ><%= rsvp %></td>
+        <td
+           <% if user == @attendances.where(:event_id => @event.id).last %>
+            class="last_row"
+          <% end %>
+        >
+           <% if rsvp == "Not Attending" %>
+          <a href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"> | Throw Shade</a>
           <% elsif rsvp == "No RSVP" %>
-          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Nudge</a>
+          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"> | Nudge</a>
           <% else %>
           Checkmark
           <% end %>
-        </span>
-    </li>
+        </td>
+      </tr>
     <% end %>
-  </ul>
+
+ </tbody>
+  </table>
 </div>
+
+
+
+
+
 
 
 <script>

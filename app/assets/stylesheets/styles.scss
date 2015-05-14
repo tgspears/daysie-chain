@@ -188,7 +188,19 @@ div.row .scene-container {
   padding-bottom: 0;
 }
 
-.attending{
-  color: green;
+
+
+.table>tbody>tr>td{
+  line-height: 2.428571;
+  color: #FFEB69;
+  background-color: rgba(15,15,15,.1);
+  border-radius:3px;
+  border-top: none;
+  border-bottom: 1px solid #ddd;
 }
+
+.table>tbody>tr>td.last_row{
+  border-bottom: none !important;
+}
+
 
