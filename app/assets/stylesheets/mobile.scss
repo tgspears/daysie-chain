@@ -221,7 +221,7 @@
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;
-            -webkit-transform: rotate($angle) translateX(250px);
+            -webkit-transform: rotate($angle) translateX(250%);
             transform: rotate($angle) translateX(250%);
             > a {
               -webkit-transform: rotate(0 - $angle);
