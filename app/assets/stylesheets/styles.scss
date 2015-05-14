@@ -176,9 +176,9 @@ div.row .scene-container {
 }
 
 .brown-back{
-  background-color: #B69289;
-
-  border: 1px solid #EBF0EB;
+  background-color: rgba(235,240,235,.9);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: 1px solid rgb(205,210,205);
 }
 
 .brown-list{
@@ -186,5 +186,9 @@ div.row .scene-container {
 }
 #event_show_jumbotron{
   padding-bottom: 0;
+}
+
+.attending{
+  color: green;
 }
 
