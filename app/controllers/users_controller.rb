@@ -72,6 +72,11 @@ class UsersController < ApplicationController
     deletions = params[:deletions]
     edit_user = params[:user]
     user_id = params[:id]
+    if members.nil?
+      members = []
+    elsif admins.nil?
+      admins = []
+    end
     if members && admins
       members.each do |id|
         member = User.find(id)
