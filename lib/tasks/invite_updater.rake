@@ -5,7 +5,6 @@ namespace :invite do
   task :update_invitations => :environment do
     current_time = DateTime.now.to_f
     Event.where(:active => true).each do |event|
-      p "this event is : #{event.inspect}"
       event_date = DateTime.parse(event[:date]).strftime('%s').to_f
       event_time = DateTime.parse(event[:time]).to_f - (DateTime.parse(event[:time]).beginning_of_day.to_f)
       actual_time = event_date + event_time
