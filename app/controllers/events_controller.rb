@@ -31,6 +31,7 @@ respond_to :html, :xml, :json
     @user = User.find(params[:user_id])
     @group = Group.find(params[:group_id])
     @event = Event.find(params[:id])
+    @attendances = Attendance.all
     render layout: false
   end
 
