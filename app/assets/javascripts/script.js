@@ -18,6 +18,8 @@ $(function(){
           this.parentNode.parentNode.parentNode.querySelector("a").classList.add("selected")
         } else {
           // $("#center_pic").style.visibility = 'visible';
+          console.log($(this))
+          $(this).children().fadeOut(800);
           this.style.visibility = 'hidden';
         }
       } else {
@@ -25,7 +27,9 @@ $(function(){
         if (!this.parentNode.classList.contains("radmenu")) {
           this.parentNode.parentNode.parentNode.querySelector("a").classList.remove("selected")
         } else {
-          this.style.visibility = 'visible'
+          $(this).children().fadeIn(800);
+          this.style.visibility =  'visible';
+
           // $("#center_pic").style.visibility = 'hidden';
         }
       }

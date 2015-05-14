@@ -5,6 +5,10 @@
     background-size: cover;
   }
 
+  .logo-main {
+    display: none;
+  }
+
     .btn-signup{
     display: inline-block;
     width: 75px;
@@ -209,7 +213,7 @@
       transition: all 1s ease;
     }
     .selected {
-      background: #58AD34;
+      background: rgba(0,0,0,0);
       display: flex;
       top: calc(50% - 60px);
       left: calc(50% - 60px);
