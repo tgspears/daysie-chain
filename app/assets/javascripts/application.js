@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/sortable
+//= require jquery.ui.touch-punch.min
 //= require bootstrap.min
 //= require script
 //= require d3.js

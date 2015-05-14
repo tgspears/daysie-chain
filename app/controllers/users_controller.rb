@@ -70,6 +70,8 @@ class UsersController < ApplicationController
     members = params[:members]
     admins = params[:admins]
     deletions = params[:deletions]
+    user = params[:user]
+    user_id = params[:id]
     if members
       members.each do |id|
         user = User.find(id)
@@ -87,9 +89,22 @@ class UsersController < ApplicationController
         user = User.find(id)
         Group.find(group_id).memberships.find_by_user_id(user.id).delete
       end
+    elsif user
+      @user = User.find(user_id)
+      @user.firstname = user[:firstname]
+      @user.lastname = user[:lastname]
+      @user.email = user[:email]
+      @user.tel = user[:tel]
+      @user.save
+      redirect_to user_groups_path(@user)
+      return
     end
     render :json => params
 
+  end
+
+  def edit
+    render layout: false
   end
 
   private
