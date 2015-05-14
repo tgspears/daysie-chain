@@ -47,15 +47,15 @@
           <% i.group.events.each do |j| %>
 
           <% if Attendance.find_by_event_id(j.id) %>
-            <% href = user_group_event_path(@current_user,i.group,j) %>
-          <% else %>
-            <% href = edit_user_group_event_path(@current_user,i.group,j)%>
-          <% end %>
-          <li class="subli">
-            <a class="submenus" data-toggle="modal" class="event_invite" href="<%=href%>" data-target='#event_invite'><%= j.name %></a>
-            <ul>
-            </ul>
+            <li class="subli">
+            <a class="submenus" data-toggle="modal" class="event_invite" href="<%= user_group_event_path(@current_user,i.group,j)%>" data-target='#event_show'><%= j.name %></a>
           </li>
+          <% else %>
+            <li class="subli">
+            <a class="submenus" data-toggle="modal" class="event_invite" href="<%= edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+          </li>
+          <% end %>
+
           <% end %>
         </ul>
       </div>
@@ -116,6 +116,13 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+
+  <div class="fade modal" id="event_show">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
 
   <div class="fade modal" id="group_users_show">
     <div class="modal-dialog">

@@ -13,7 +13,7 @@
 
 
 <div class="row">
-  <ul class="list-group">
+  <ul class="list-group brown-list">
     <% @attendances.where(:event_id => @event.id).each do |user| %>
     <% if user[:yes] == true %>
       <% rsvp = "Attending" %>
@@ -22,7 +22,7 @@
    <% else %>
       <% rsvp = "No RSVP" %>
    <% end %>
-    <li class="list-group-item"><%=@users.find(user[:user_id]).firstname%> | <%= rsvp %> <span class="pull-right">Nudge | Throw Shade</span> </li>
+    <li class="list-group-item brown-back"><%=@users.find(user[:user_id]).firstname%> | <%= rsvp %> <span class="pull-right">Nudge | Throw Shade</span> </li>
     <% end %>
   </ul>
 </div>

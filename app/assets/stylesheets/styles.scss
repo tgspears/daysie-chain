@@ -136,5 +136,25 @@ div.row .scene-container {
   color: #EBF0EB;
 }
 
+#event_show > .modal-dialog > .modal-content{
+  -webkit-box-shadow: none;
+  background-color: rgba(1,1,1,0);
+  border-color: rgba(1,1,1,0);
+}
 
+#event_show > .modal-dialog > .modal-content > .jumbotron{
+  color: #FFEB69;
+  background-color: rgba(1,1,1,0);
+  margin: 0;
+}
+
+.brown-back{
+  background-color: #B69289;
+  border: 1px solid ;
+}
+
+.brown-list{
+  border: 3px solid #B4BF09;
+  border-radius:10px;
+}
 
