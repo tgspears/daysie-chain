@@ -70,31 +70,30 @@ class UsersController < ApplicationController
     members = params[:members]
     admins = params[:admins]
     deletions = params[:deletions]
-    user = params[:user]
+    edit_user = params[:user]
     user_id = params[:id]
-    if members
+    if members && admins
       members.each do |id|
-        user = User.find(id)
-        user.memberships.find_by_group_id(group_id).update(admin: false)
-        user.save
+        member = User.find(id)
+        member.memberships.find_by_group_id(group_id).update(admin: false)
+        member.save
       end
-    elsif admins
       admins.each do |id|
-        user = User.find(id)
-        user.memberships.find_by_group_id(group_id).update(admin:true)
-        user.save
+        admin = User.find(id)
+        admin.memberships.find_by_group_id(group_id).update(admin:true)
+        admin.save
       end
     elsif deletions
       deletions.each do |id|
-        user = User.find(id)
-        Group.find(group_id).memberships.find_by_user_id(user.id).delete
+        deleted_user = User.find(id)
+        Group.find(group_id).memberships.find_by_user_id(deleted_user.id).delete
       end
-    elsif user
+    elsif edit_user
       @user = User.find(user_id)
-      @user.firstname = user[:firstname]
-      @user.lastname = user[:lastname]
-      @user.email = user[:email]
-      @user.tel = user[:tel]
+      @user.firstname = edit_user[:firstname]
+      @user.lastname = edit_user[:lastname]
+      @user.email = edit_user[:email]
+      @user.tel = edit_user[:tel]
       @user.save
       redirect_to user_groups_path(@user)
       return

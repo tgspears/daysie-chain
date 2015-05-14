@@ -39,11 +39,5 @@ class GroupsController < ApplicationController
     render layout: false
   end
 
-  def find_user(id)
-    User.find(id)
-  end
-
-  helper_method :find_user
-
 end
 
