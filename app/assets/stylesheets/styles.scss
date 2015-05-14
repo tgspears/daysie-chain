@@ -4,8 +4,10 @@ body {
 
 }
 #countdown {
-  font: 35px Menlo;
-  color: #B4BF09;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:35px;
+  font-weight: 200;
+  color: #EBF0EB;
   text-align: center;
 }
   .circle_div{
@@ -141,6 +143,12 @@ div.row .scene-container {
   -webkit-box-shadow: none;
   background-color: rgba(1,1,1,0);
   border-color: rgba(1,1,1,0);
+}
+
+#event_show_jumbotron > .container > h1{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size:75px;
+  font-weight: 100;
 }
 
 #event_show > .modal-dialog > .modal-content > .jumbotron{

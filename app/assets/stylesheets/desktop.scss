@@ -93,7 +93,7 @@
   }
 
   #buttoncontainer {
-    background: #94B29D;
+    background: rgba(130,165,139,.7);
     position: fixed;
     width: 20%;
     height: 80%;
@@ -101,6 +101,8 @@
     overflow-x: hidden;
     bottom: 5%;
     left: 0px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
   }
 
   #create_group_button {
@@ -218,7 +220,6 @@
       display: none;
       text-decoration: none;
       transition: all 1s ease;
-      box-shadow: 0 0 15px #222;
     }
 
     .daysie_image {
