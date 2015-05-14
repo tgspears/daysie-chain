@@ -17,7 +17,8 @@ $(function(){
         if (!this.parentNode.classList.contains("radmenu")) {
           this.parentNode.parentNode.parentNode.querySelector("a").classList.add("selected")
         } else {
-          this.style.visibility = 'hidden'
+          // $("#center_pic").style.visibility = 'visible';
+          this.style.visibility = 'hidden';
         }
       } else {
         this.classList.add("selected");
@@ -25,6 +26,7 @@ $(function(){
           this.parentNode.parentNode.parentNode.querySelector("a").classList.remove("selected")
         } else {
           this.style.visibility = 'visible'
+          // $("#center_pic").style.visibility = 'hidden';
         }
       }
       return false;

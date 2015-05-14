@@ -9,7 +9,7 @@
 
 #################### USERS ######################
 
-User.create(firstname: 'Trevor', lastname: 'Spears', email: 'trevor@spears.com', tel: '14252050766', password: 'trevorspears', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/556.jpg')
+User.create(firstname: 'Trevor', lastname: 'Spears', email: 'trevor@spears.com', tel: '14252050766', password: 'trevorspears', image: 'http://static9.cdn.ubi.com/en-GB/images/LARP_2012_2tcm2158734.png')
 
 User.create(firstname: 'Lauren', lastname: 'Go', email: 'lauren@go.com', tel: '0000002', password: 'laurengo', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/553.jpg')
 
@@ -25,7 +25,7 @@ User.create(firstname: 'Nick', lastname: 'Cronquist', email: 'nick@cronquist.com
 
 ################### GROUPS #####################
 
-Group.create(name: "Trevor's Group", size: 10, status: true, user_id: 1, image: 'http://upload.wikimedia.org/wikipedia/commons/d/d9/Test.png')
+Group.create(name: "Trevor's Group", size: 10, status: true, user_id: 1, image: 'http://static9.cdn.ubi.com/en-GB/images/LARP_2012_2tcm2158734.png')
 
 Group.create(name: "Lauren's Group", size: 12, status: true, user_id: 2, image: 'https://www.bewelcome.org/groups/realimg/451')
 

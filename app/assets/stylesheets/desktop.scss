@@ -1,35 +1,82 @@
 @media screen and (min-width: 992px){
 
+/*  #center_pic {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1;
+    top: 25%;
+    left: 45%;
+    height: 300px;
+    width: 300px;
+  }*/
 
   #buttoncontainer {
+    background: #94B29D;
     position: fixed;
-    width: 15%;
+    width: 20%;
     height: 80%;
     overflow-y: scroll;
+    overflow-x: hidden;
     bottom: 5%;
     left: 0px;
   }
 
-	.radial_button {
-		text-align: center;
-    max-width: 100%;
-    margin: 3px;
-    border-radius: 5px;
-    background: rgba(0,0,0,.4);
+  #create_group_button {
+    background: #EBF0EB;
+    left: 55px;
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    margin: 5px;
+    border-radius: 3px;
+    width: 95%;    
   }
 
-	.radial_button a {
-		background: white;
-		color: red;
+  .jackie_chan {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .radial_button {
+    text-align: center;
+    height: 55px;
+    max-width: 100%;
+    margin: 3px;
+    padding: 5px;
+    border-radius: 5px;
+    background: #EBF0EB;
+  }
+
+  .radial_button:hover {
+    background: #BDC1BD;
+  }
+
+	.radial_button p {
+    position: absolute;
+    left: 55px;
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
 		margin-bottom: 1px;
 		border-radius: 2px;
 		width: 100%;
 	}
 
   .group_image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
     box-shadow: 0 0 2% #222;
     margin-bottom: 15px;
   }
@@ -38,6 +85,13 @@
     height: 110px !important;
     width:  110px !important;
     border-radius: 50% !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    background: #EBF0EB;
   }
 
   .daysie_image {
@@ -46,9 +100,10 @@
     z-index: 3;
     top: 0px;
     left: 0px;
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
   }
+
   @import "compass/css3";
 
   $sub-menus :  13;
@@ -61,8 +116,8 @@
   	z-index: 2;
   	align-items: center;
   	justify-content: center;
-	  top: 38% !important;
-	  left: 36% !important;
+    top: 28% !important;
+    left: 38% !important;
     
     > a {
       top: 30% !important;
@@ -70,7 +125,7 @@
       &.show {
       display: flex !important;
       visibility: hidden;
-
+      
       }
     }
     li {
@@ -80,26 +135,22 @@
       transition: all 1s ease; 
     }
     a {
+
       position: absolute;
-      width: 200px;
-      height: 200px;
-      background: rgba(white, 0.9);
+      width: 300px;
+      height: 300px;
       text-align: center;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       display: none;
       text-decoration: none;
-      color: #333;
       transition: all 1s ease;
       box-shadow: 0 0 15px #222;
-      font-family: "segoe ui";
-      font-weight: 200;
-      font-size: 16px;
     }
     .selected {
-    	width: 200px;
-    	height: 200px;
+    	width: 300px;
+    	height: 300px;
       background: #58AD34;
       display: flex;
       top: 30%;
@@ -107,8 +158,8 @@
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
-        -webkit-transform: translate(82px, 152px);
-        transform: translate(70px, 110px);
+        -webkit-transform: translate(82px, 175px);
+        transform: translate(110px, 153px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;

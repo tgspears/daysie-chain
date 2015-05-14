@@ -1,4 +1,4 @@
-
+<!-- <img id="center_pic" src="http://perceptualunderstanding.files.wordpress.com/2012/02/scan-e1328633637316.jpg?w=413&h=418"> -->
 
 <div class="row">
   <div class="col-md-4">
@@ -10,13 +10,13 @@
   </div>
 
   <div id="buttoncontainer">
-  <a class="btn btn-primary" data-toggle="modal" href='#create_group'>Create a new Group</a>
+  <a class="btn" id="create_group_button" data-toggle="modal" href='#create_group'><span class="glyphicon glyphicon-plus"></span>   <strong>Create a new Group</strong></a>
     <% if @current_user.memberships %>
       <% @current_user.memberships.each do |i| %>
         <% @idx = i.id %>
         <div class="radial_button" id="<%= @idx %>">
             <img src="<%= i.group.image %>" class="group_image">
-            <a><%= i.group.name %></a>
+            <p><%= i.group.name %></p>
         </div>
       <% end %>
     <% end %>
@@ -29,7 +29,7 @@
         <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
         <ul>
           <li class="subli">
-            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus"></i> </a>
+            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><img class="jackie_chan" src="https://mlpforums.com/uploads/monthly_03_2012/post-2103-0-68261500-1332210132.png"></a>
             <ul>
             </ul>
           </li>
@@ -60,7 +60,7 @@
 
  <div class="modal fade my_modal_class" id="create_group">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content my_modal_content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">Create a Group</h4>
@@ -96,22 +96,22 @@
         <% end %>
       </div>
       <div class="modal-footer">
+      </div>
         <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
 
 <% if @groups %>
-  <div class="fade modal" id="event_invite">
+  <div class="fade modal my_modal_class" id="event_invite">
     <div class="modal-dialog">
       <div class="modal-content">
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  <div class="fade modal" id="group_users_show">
+  <div class="fade modal my_modal_class" id="group_users_show">
     <div class="modal-dialog">
       <div class="modal-content">
       </div><!-- /.modal-content -->
@@ -119,7 +119,7 @@
   </div><!-- /.modal -->
 <% end %>
 
-<div class="fade modal" id="create_event">
+<div class="fade modal my_modal_class" id="create_event">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -127,7 +127,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="modal fade" id="add_user">
+<div class="modal fade my_modal_class" id="add_user">
   <div class="modal-dialog">
     <div class="modal-content">
 

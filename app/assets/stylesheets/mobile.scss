@@ -4,16 +4,65 @@
     background: rgba(50,100,50,0.8);
     position: fixed;
     min-width: 100%;
-    height: 150px;
-    overflow-x: scroll;
+    height: 175px;
+    overflow-y: scroll;
     bottom: 0px;
     left: 0px;
   }
 
-  .group_image {
-    width: 50px;
-    height: 50px;
+  #create_group_button {
+    background: #EBF0EB;
+    left: 55px;
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    margin: 5px;
+    border-radius: 3px;
+    width: 95%;    
+  }
+
+  .jackie_chan {
+    width: 100%;
+    height: auto;
     border-radius: 50%;
+  }
+
+  .radial_button {
+    max-width: 95%;
+    height: 50px;
+    margin: 3px;
+    border-radius: 5px;
+    background: #EBF0EB;
+    text-align: center;
+    margin-left: 5px;
+  }
+
+  .radial_button a {
+    left: 55px;
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    margin-bottom: 1px;
+    border-radius: 2px;
+    width: 100%;
+  }
+
+
+  .group_image {
+    position: absolute;
+    left: 8px;
+    margin-top: 2px;
+    width: 45px;
+    height: 45px;
+    border-radius: 5%;
     box-shadow: 0 0 2% #222;
   }
 
@@ -21,6 +70,13 @@
     height: 75px !important;
     width:  75px !important;
     border-radius: 50% !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    background: #EBF0EB;
   }
 
   .daysie_image {
@@ -33,13 +89,6 @@
     width: 150px;
   }
 
-  .radial_button {
-    float: right;
-    max-width: 50%;
-    margin: 3px;
-    border-radius: 5px;
-    background: rgba(200,255,200,.5);
-  }
 
 
   @import "compass/css3";
@@ -73,29 +122,24 @@
       position: absolute;
       width: 150px;
       height: 150px;
-      background: rgba(white, 0.9);
       text-align: center;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       display: none;
       text-decoration: none;
-      color: #333;
       transition: all 1s ease;
       box-shadow: 0 0 15px #222;
-      font-family: "segoe ui";
-      font-weight: 200;
-      font-size: 16px;
     }
     .selected {
-      background: rgba(#333, 0.9);
+      background: #58AD34;
       display: flex;
       top: calc(50% - 60px);
       left: calc(50% - 60px);
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
-        -webkit-transform: translate(82px, 152px);
+        -webkit-transform: translate(82px, 155px);
         transform: translate(-4px, 18px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
