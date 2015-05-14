@@ -3,6 +3,8 @@
   <h4 class="modal-title">Send out invitations to  "<%= @event.name %>"</h4>
   <hr>
   <h5 class="modal-desc"><%= @event.desc %> | <%= @event.loc %> </h5>
+  <hr>
+  <h5 class="delete-event"><%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), user_group_event_path(@current_user, @group, @event), :method => :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger" %> </h5>
 </div>
 <div class="modal-body event-modal" id="0">
   <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_send_form" } do |f| %>

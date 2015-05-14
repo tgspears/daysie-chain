@@ -74,6 +74,12 @@ respond_to :html, :xml, :json
     redirect_to user_groups_path
   end
 
+  def destroy
+    event = Event.find(params[:id])
+    event.destroy
+    redirect_to user_groups_path
+  end
+
 
   def textmessage
       response_array = params["Body"].split(" ")
