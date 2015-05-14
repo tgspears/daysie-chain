@@ -29,6 +29,7 @@ respond_to :html, :xml, :json
 
   def show
     @user = User.find(params[:user_id])
+    @users = User.all
     @group = Group.find(params[:group_id])
     @event = Event.find(params[:id])
     @attendances = Attendance.all
