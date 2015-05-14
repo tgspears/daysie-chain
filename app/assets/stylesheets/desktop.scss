@@ -1,33 +1,43 @@
 @media screen and (min-width: 992px){
 
 
-    #buttoncontainer {
-    width: 20%;
+  #buttoncontainer {
+    position: fixed;
+    width: 15%;
+    height: 80%;
+    overflow-y: scroll;
+    bottom: 5%;
+    left: 0px;
   }
+
+	.radial_button {
+		text-align: center;
+    max-width: 100%;
+    margin: 3px;
+    border-radius: 5px;
+    background: rgba(0,0,0,.4);
+  }
+
+	.radial_button a {
+		background: white;
+		color: red;
+		margin-bottom: 1px;
+		border-radius: 2px;
+		width: 100%;
+	}
 
   .group_image {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     box-shadow: 0 0 2% #222;
+    margin-bottom: 15px;
   }
 
   .submenus {
     height: 110px !important;
     width:  110px !important;
     border-radius: 50% !important;
-  }
-
-  .sidebar {
-    padding-top: 10px;
-    left: 0%;
-    top: 250px;
-    position: fixed;
-    padding-left: 10px;
-    overflow-y: scroll;
-    width: 200px;
-    height: 50%;
-    word-wrap: normal;
   }
 
   .daysie_image {
