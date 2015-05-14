@@ -43,9 +43,9 @@
           <% end %>
         >
            <% if rsvp == "Not Attending" %>
-          <span><i class="glyphicon glyphicon-sunglasses sunglasses"></i> | <a id="shade" href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Throw Shade</a></span>
+          <a  href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-sunglasses sunglasses"></i> | <span id="shade">Throw Shade</a></span>
           <% elsif rsvp == "No RSVP" %>
-          <span><i class="glyphicon glyphicon-hand-left hand"></i> | <a id="nudge" href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Nudge</a>
+          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-hand-left hand"></i> | <span id="nudge">Nudge</a>
           <% else %>
           <i class="fa fa-check checkmark"></i>
           <% end %>
