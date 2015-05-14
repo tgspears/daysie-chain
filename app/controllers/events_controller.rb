@@ -70,7 +70,7 @@ respond_to :html, :xml, :json
       @client.account.messages.create({
       :from => '+12073583459',
       :to => number,
-      :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes #{@event.id}' or 'no #{@event.id}'"
+      :body => "A Message From Daysie-Chain: \n #{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes #{@event.id}' or 'no #{@event.id}'"
       })
     end
     redirect_to user_groups_path
@@ -95,7 +95,7 @@ respond_to :html, :xml, :json
     @client.account.messages.create({
       :from => '+12073583459',
       :to => number,
-      :body => "#{name}, you were invited to #{event_name} on #{event[:date]}, and #{current_user} thinks it's hella lame that you haven't RSVP'd. Get on your game, homie! Reply 'yes #{params[:event_id]}' or 'no #{params[:event_id]}'"
+      :body => "A Message From Daysie-Chain: \n #{name}, you were invited to #{event_name} on #{event[:date]}, and #{current_user} thinks it's hella lame that you haven't RSVP'd. Get on your game, homie! Reply 'yes #{params[:event_id]}' or 'no #{params[:event_id]}'"
     })
     redirect_to user_groups_path
   end
@@ -113,7 +113,7 @@ respond_to :html, :xml, :json
     @client.account.messages.create({
       :from => '+12073583459',
       :to => number,
-      :body => "#{name}, #{current_user} knows that you're not going to #{event_name}. #{current_user} knows, and thinks it's whack.  In fact, #{current_user} thinks YOU'RE whack.  Fear not, reply 'yes #{params[:event_id]}' at any time to change your RSVP."
+      :body => "A Message From Daysie-Chain: \n #{name}, #{current_user} knows that you're not going to #{event_name}. #{current_user} knows, and thinks it's whack.  In fact, #{current_user} thinks YOU'RE whack.  Fear not, reply 'yes #{params[:event_id]}' at any time to change your RSVP."
     })
     redirect_to user_groups_path
   end
