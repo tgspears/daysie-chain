@@ -4,6 +4,9 @@ namespace :invite do
 
   task :update_invitations => :environment do
 
+     p "*" * 20
+     p "At least I know this is running 0"
+     p "*"
     current_time = Time.now.to_i
     Event.where(:active => true).each do |event|
       event_date = Date.parse(event[:date]).strftime('%s').to_i
