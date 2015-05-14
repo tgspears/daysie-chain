@@ -1,10 +1,11 @@
 @media screen and (max-width: 991px) {
 
   #buttoncontainer {
-    width: 100%;
-    height: 60px;
+    background: rgba(50,100,50,0.8);
+    position: fixed;
+    min-width: 100%;
+    height: 150px;
     overflow-x: scroll;
-    overflow-y: hidden;
     bottom: 0px;
     left: 0px;
   }
@@ -34,6 +35,10 @@
 
   .radial_button {
     float: right;
+    max-width: 50%;
+    margin: 3px;
+    border-radius: 5px;
+    background: rgba(200,255,200,.5);
   }
 
 

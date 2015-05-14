@@ -1,4 +1,8 @@
-
+body {
+  margin: 0px;
+  padding: 0px;
+  
+}
   .circle_div{
     text-align:center;
     border: 1px solid black;
@@ -9,7 +13,10 @@
 
   }
 
-
+.my_modal_class {
+  max-height: calc(100% - 155px);
+  overflow: auto;
+}
 
 .main-title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
