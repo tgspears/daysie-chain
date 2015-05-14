@@ -80,7 +80,9 @@ respond_to :html, :xml, :json
       event = response_array[1].to_i
       number = params["From"].to_i
       user = User.find_by_tel(number)
+      p "right above the first if statement"
       if user.attendances.find_by_event_id(event)[:invited] == true
+        p "Made it past the first if statement"
         if body.downcase == 'yes'
           attendance = user.attendances.find_by_event_id(event)
           attendance[:yes] = true
