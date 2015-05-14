@@ -1,5 +1,83 @@
 @media screen and (max-width: 991px) {
 
+  body {
+    background-image: image-url('daysie-background.jpg');
+    background-size: cover;
+  }
+
+    .btn-signup{
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    padding: 8px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    background-color: rgba(0,0,0,0);
+    margin-top: 5%;
+    border-radius: 100%;
+    margin-right: 5%;
+  }
+  .btn-signin{
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    padding: 8px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    background-color: rgba(0,0,0,0);
+    margin-top: 5%;
+    border-radius: 100%;
+    margin-left: 10%;
+  }
+  .btn-fb{
+    display: inline-block;
+    width: 85px;
+    height: 85px;
+    padding: 8px;
+    color: #fff;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    text-decoration: none;
+    border-radius: 100%;
+    margin-top: 5%;
+  }
+
+  .main-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 56px;
+  font-style: normal;
+  font-variant: small-caps;
+  font-weight: 100;
+  padding-top: 15%;
+  padding-bottom: 15%;
+  }
+
+  .navbar-default .navbar-brand {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-variant: small-caps;
+    color: #EBF0EB;
+    padding-top: 3%;
+    padding-left: 1%;
+    vertical-align: middle;
+  }
+
+  .logo {
+    height: 1.6em;
+    width: 1.6em;
+    padding-top: .1em;
+    padding-bottom: .1em;
+  }
+
   #buttoncontainer {
     background: rgba(50,100,50,0.8);
     position: fixed;

@@ -18,49 +18,9 @@ body {
   overflow: auto;
 }
 
-.main-title {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 60px;
-  font-style: normal;
-  font-variant: small-caps;
-  font-weight: 200;
-  padding-top: 15%;
-  padding-bottom: 15%;
-}
-
-.btn-signup{
-  display: inline-block;
-  width: 75px;
-  height: 75px;
-  padding: 8px;
-  color: #fff;
-  border: 1px solid #fff;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  background-color: rgba(0,0,0,0);
-  margin-top: 5%;
-  border-radius: 100%;
-}
-
 .btn-signup:hover, .btn-signup:active {
   background-color: #fff;
   color: #000;
-}
-
-.btn-signin{
-  display: inline-block;
-  width: 75px;
-  height: 75px;
-  padding: 8px;
-  color: #fff;
-  border: 1px solid #fff;
-  text-align: center;
-  outline: none;
-  text-decoration: none;
-  background-color: rgba(0,0,0,0);
-  margin-top: 5%;
-  border-radius: 100%;
 }
 
 .btn-signin:hover, .btn-signin:active {
@@ -68,29 +28,9 @@ body {
   color: #000;
 }
 
-.btn-fb{
-  display: inline-block;
-  width: 85px;
-  height: 85px;
-  padding: 8px;
-  color: #fff;
-  border: 1px solid #fff;
-  text-align: center;
-  outline: none;
-  background-color: rgba(0,0,0,0);
-  text-decoration: none;
-  border-radius: 100%;
-  margin-top: 5%;
-}
-
 .btn-fb:hover, .btn-fb:active {
   background-color: #fff;
   color: #000;
-}
-
-body {
-  background-image: image-url('daysie-background.jpg');
-  background-size: cover;
 }
 
 .navbar {
@@ -104,23 +44,6 @@ body {
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
   background-color: rgba(0,0,0,0);
-}
-
-.navbar-default .navbar-brand {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 24px;
-  font-style: normal;
-  font-variant: small-caps;
-  color: #EBF0EB;
-  padding: 0;
-  vertical-align: middle;
-}
-
-.logo {
-  height: 2.1em;
-  width: 2.1em;
-  padding-top: .1em;
-  padding-bottom: .1em;
 }
 
 .container-fluid .view {
@@ -156,15 +79,15 @@ div.row .scene-container {
 }
 
 #group_members {
-  height: 50px
+  min-height: 30px
 }
 
 #group_admins {
-  height: 50px
+  min-height: 30px
 }
 
 #group_member_delete {
-  height: 50px;
+  min-height: 30px;
   border: 1px solid;
 }
 

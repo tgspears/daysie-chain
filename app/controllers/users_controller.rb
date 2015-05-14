@@ -67,12 +67,17 @@ class UsersController < ApplicationController
 
   def update
     group_id = params[:groupId]
-    members = params[:members]
-    admins = params[:admins]
+    members = params[:members] ? params[:members] : []
+    admins = params[:admins] ? params[:admins] : []
     deletions = params[:deletions]
     edit_user = params[:user]
     user_id = params[:id]
-    if members && admins
+    if deletions
+      deletions.each do |id|
+        deleted_user = User.find(id)
+        Group.find(group_id).memberships.find_by_user_id(deleted_user.id).delete
+      end
+    elsif members && admins
       members.each do |id|
         member = User.find(id)
         member.memberships.find_by_group_id(group_id).update(admin: false)
@@ -82,11 +87,6 @@ class UsersController < ApplicationController
         admin = User.find(id)
         admin.memberships.find_by_group_id(group_id).update(admin:true)
         admin.save
-      end
-    elsif deletions
-      deletions.each do |id|
-        deleted_user = User.find(id)
-        Group.find(group_id).memberships.find_by_user_id(deleted_user.id).delete
       end
     elsif edit_user
       @user = User.find(user_id)
