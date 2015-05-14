@@ -8,16 +8,21 @@
 </div>
 
 <% time = @event.time.split(":") %>
-<%= time %>
-<% total_time = (time[0].to_i*60) + (time[1].to_i) + (12 * 60) %>
-<%= total_time %>
 
-<%= @event.date %>
+<% total_time = (time[0].to_i*60) + (time[1].to_i) + (12 * 60) %>
+
 
 <div class="row">
   <ul class="list-group">
     <% @attendances.where(:event_id => @event.id).each do |user| %>
-    <li class="list-group-item"><%=@users.find(user[:user_id]).firstname%> </li>
+    <% if user[:yes] == true %>
+      <% rsvp = "Attending" %>
+   <% elsif user[:no] == true %>
+      <% rsvp = "Not Attending" %>
+   <% else %>
+      <% rsvp = "No RSVP" %>
+   <% end %>
+    <li class="list-group-item"><%=@users.find(user[:user_id]).firstname%> | <%= rsvp %> <span class="pull-right">Nudge | Throw Shade</span> </li>
     <% end %>
   </ul>
 </div>
@@ -29,8 +34,12 @@ var countdown = d3.select("#countdown"),
     today = d3.time.day(new Date),
     format = d3.time.format("%Y-%m-%d"),
     date = format.parse("<%= @event.date %>"),
-    num_days = Math.floor((+date - +today)/ 86400000),
-    formatTime = d3.time.format(num_days + "days-" + "%X")
+    num_days = Math.floor((+date - +today)/ 86400000)
+    if(num_days > 1){
+
+    }
+
+var formatTime = d3.time.format(num_days + " Days, " + "%X")
 
 
 // 9 AM tomorrow
