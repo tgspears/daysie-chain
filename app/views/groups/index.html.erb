@@ -45,8 +45,14 @@
             </ul>
           </li>
           <% i.group.events.each do |j| %>
+
+          <% if Attendance.find_by_event_id(j.id) %>
+            <% href = user_group_event_path(@current_user,i.group,j) %>
+          <% else %>
+            <% href = edit_user_group_event_path(@current_user,i.group,j)%>
+          <% end %>
           <li class="subli">
-            <a class="submenus" data-toggle="modal" class="event_invite" href="<%=edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+            <a class="submenus" data-toggle="modal" class="event_invite" href="<%=href%>" data-target='#event_invite'><%= j.name %></a>
             <ul>
             </ul>
           </li>
