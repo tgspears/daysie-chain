@@ -93,9 +93,8 @@ respond_to :html, :xml, :json
           attendance[:maybe] = false
           attendance[:no] = true
           attendance.save
-          p attendance
-          p attendance[:yes]
         else
+          p "the params are #{params}. Also, this fucking failed."
           render :json => params
         end
       else
