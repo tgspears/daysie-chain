@@ -82,10 +82,10 @@
 
         <hr>
         <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
-          <%= f.text_field :name, "Event Title", placeholder: "Something simple and recognizable." %>
-          <%= f.text_field :desc, "Event Description", placeholder: "Short and sweet works best." %>
-          <%= f.text_field :max, "Maximum number of attendees", placeholder: "Optional" %>
-          <%= f.text_field :loc, placeholder: "Enter the location" %>
+        <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
+        <%= f.text_field :desc, placeholder: "Enter a description" %>
+        <%= f.text_field :max, placeholder: "Enter the max size" %>
+        <%= f.text_field :loc, placeholder: "Enter the location" %>
         <% end %>
 
         <% end %>
