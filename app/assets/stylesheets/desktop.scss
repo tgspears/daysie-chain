@@ -290,8 +290,8 @@
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
-        -webkit-transform: translate3d(0,0,0) translate(82px, 152px);
-        transform: translate(70px, 110px);
+        -webkit-transform: translate3d(0,0,0) translate(110px, 153px);
+        transform: translate3d(0,0,0) translate(110px, 153px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;
