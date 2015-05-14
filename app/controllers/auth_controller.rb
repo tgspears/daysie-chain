@@ -11,8 +11,9 @@ class AuthController < ApplicationController
   end
 
   def callback
-    provider_user = request.env['omniauth.auth']
 
+    provider_user = request.env['omniauth.auth']
+    # render :json => provider_user
 
     user = User.find_or_create_by(provider_id:provider_user['uid'], provider: provider_user[:provider] ) do |user|
       user.email = provider_user['info']['email']
@@ -20,13 +21,15 @@ class AuthController < ApplicationController
       user.lastname = provider_user['info']['last_name']
       user.provider_hash = provider_user['credentials']['token']
       user.password = "123456789"
+      user.save
+
     end
-    @user = user
-    session[:user_id] = user.id
-    flash[:success] = 'logged in with facebook!'
+    render :json => user
+    # @user = user
+    # session[:user_id] = user.id
+    # flash[:success] = 'logged in with facebook!'
 
-    redirect_to user_groups_path(@user.id)
-
+    # redirect_to user_groups_path(user.id)
   end
 
 end
