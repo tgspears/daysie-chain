@@ -5,7 +5,7 @@
 <div class="modal-body">
  <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_add_form" } do |f| %>
   <%= f.text_field :name, "Event Title", placeholder: "Something simple and recognizable." %>
-  <%= f.text_field :desc, "Event Description" placeholder: "Short and sweet works best." %>
+  <%= f.text_field :desc, "Event Description", placeholder: "Short and sweet works best." %>
   <%= f.text_field :max, "Maximum number of attendees", placeholder: "Optional" %>
   <%= f.text_field :loc, placeholder: "Enter the location" %>
   <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
