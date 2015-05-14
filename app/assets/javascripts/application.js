@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/sortable
-//= require jquery.ui.touch-punch.min
+//= require jquery-ui
 //= require bootstrap.min
+//= require jquery.ui.touch-punch.min
 //= require script
 //= require d3.js
 //= require_tree .

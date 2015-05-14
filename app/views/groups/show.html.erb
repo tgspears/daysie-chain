@@ -40,6 +40,7 @@
 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 
+
 <script>
 <% membership = @current_user.memberships.find_by_group_id(params[:id]) %>
 <% if @current_user.id == membership.group.user_id %>
