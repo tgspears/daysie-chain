@@ -9,9 +9,14 @@ namespace :invite do
      p "*"
     current_time = Time.now.to_i
     Event.where(:active => true).each do |event|
+      p "this event is : #{event.inspect}"
       event_date = Date.parse(event[:date]).strftime('%s').to_i
-      event_time = Time.parse(event[:time]).to_i
+      event_time = Time.parse(event[:time]).to_i - Time.parse(event[:time]).beginning_of_day.to_i
       actual_time = event_date + event_time
+
+      p "event_date = #{event_date}"
+      p "event_time = #{event_time}"
+      p "actual_time = #{actual_time}"
 
       if (current_time - actual_time) > 0
          p "*" * 20
