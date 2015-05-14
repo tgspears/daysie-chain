@@ -6,7 +6,6 @@
  <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_add_form" } do |f| %>
   <%= f.text_field :name, placeholder: "Something simple and recognizable." %>
   <%= f.text_field :desc, placeholder: "Short and sweet works best." %>
-  <%= f.text_field :max, placeholder: "Optional" %>
   <%= f.text_field :loc, placeholder: "Enter the location" %>
 
 </div>

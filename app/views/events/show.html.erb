@@ -43,11 +43,11 @@
           <% end %>
         >
            <% if rsvp == "Not Attending" %>
-          <a href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"> | Throw Shade</a>
+          <span><i class="glyphicon glyphicon-sunglasses sunglasses"></i> | <a id="shade" href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Throw Shade</a></span>
           <% elsif rsvp == "No RSVP" %>
-          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"> | Nudge</a>
+          <span><i class="glyphicon glyphicon-hand-left hand"></i> | <a id="nudge" href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Nudge</a>
           <% else %>
-          Checkmark
+          <i class="fa fa-check checkmark"></i>
           <% end %>
         </td>
       </tr>

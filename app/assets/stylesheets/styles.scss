@@ -188,19 +188,60 @@ div.row .scene-container {
   padding-bottom: 0;
 }
 
-
+.table>tbody>tr{
+  border-radius:3px;
+}
 
 .table>tbody>tr>td{
   line-height: 2.428571;
   color: #FFEB69;
-  background-color: rgba(15,15,15,.1);
-  border-radius:3px;
+  background-color: rgba(15,15,15,.4);
+  font-size:16px;
+  font-weight:100;
   border-top: none;
   border-bottom: 1px solid #ddd;
+}
+
+.table>tbody>tr:hover{
+
+  >td{
+  line-height: 2.428571;
+  color: #FFEB69;
+  background-color: rgba(15,15,15,.6);
+  border-top: none;
+  border-bottom: 1px solid #ddd;
+  }
 }
 
 .table>tbody>tr>td.last_row{
   border-bottom: none !important;
 }
 
+#shade{
+  color:#B69269;
+  padding-left:15px;
+}
+
+#nudge{
+  color: #B4BF09;
+  padding-left:15px;
+}
+
+.hand{
+font-size: 18px;
+  color: #B4BF09;
+   padding-right:15px;
+}
+
+.checkmark{
+  color:#32CD32;
+  font-size: 20px;
+
+}
+
+.sunglasses{
+  font-size: 18px;
+  color:#B69269;
+   padding-right:15px;
+}
 
