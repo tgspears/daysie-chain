@@ -11,6 +11,7 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -20,7 +21,6 @@
 </head>
 <body>
 <%= render "layouts/nav" %>
-<%= render "layouts/flash" %>
 <div class="container-fluid view">
 
 <%= yield %>
