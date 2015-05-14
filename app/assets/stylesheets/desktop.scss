@@ -176,16 +176,6 @@
     background: #EBF0EB;
   }
 
-  .daysie_image {
-    position: absolute;
-    border-radius: 50%;
-    z-index: 3;
-    top: 0px;
-    left: 0px;
-    height: 300px;
-    width: 300px;
-  }
-
   @import "compass/css3";
 
   $sub-menus :  13;
@@ -230,6 +220,17 @@
       transition: all 1s ease;
       box-shadow: 0 0 15px #222;
     }
+
+    .daysie_image {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 3;
+      top: 0px;
+      left: 0px;
+      height: 300px;
+      width: 300px;
+    }
+
     .selected {
     	width: 300px;
     	height: 300px;
