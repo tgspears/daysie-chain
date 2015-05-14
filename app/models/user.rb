@@ -45,7 +45,10 @@ class User < ActiveRecord::Base
   private
 
   def format_tel
-    self[:tel] = self[:tel].to_s.gsub(/[^0-9]/, "").prepend('1').to_i
+    formatted_tel = self[:tel].to_s.gsub(/[^0-9]/, "")
+    if formatted_tel.length == 10
+      self[:tel] = formatted_tel.prepend('1').to_i
+    end
   end
 
 end
