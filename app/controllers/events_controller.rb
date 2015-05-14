@@ -83,21 +83,39 @@ respond_to :html, :xml, :json
   end
 
   def nudge
-    render :json => params
-    # account_sid = ENV['TWILIO_KEY']
-    # auth_token = ENV['TWILIO_SECRET']
-    # @client = Twilio::REST::Client.new account_sid, auth_token
-    # @event.group.memberships.each do |member|
+    current_user = User.find(params[:current_user_id])[:firstname]
+    user = User.find(params[:user_id])
+    name = user[:firstname]
+    event = Event.find(params[:event_id])
+    event_name = event[:name]
+    number = user[:tel]
+    account_sid = ENV['TWILIO_KEY']
+    auth_token = ENV['TWILIO_SECRET']
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @client.account.messages.create({
+      :from => '+12073583459',
+      :to => number,
+      :body => "#{name}, you were invited to #{event_name} on #{event[:date]}, and #{current_user} thinks it's hella lame that you haven't RSVP'd. Get on your game, homie! Reply 'yes #{params[:event_id]}' or 'no #{params[:event_id]}'"
+    })
+    redirect_to user_groups_path
+  end
 
-    #   date = @event.date.split("-")
-    #   number = member.user.tel
-    #   name = member.user.firstname
-    #   @client.account.messages.create({
-    #   :from => '+12073583459',
-    #   :to => number,
-    #   :body => "#{name}, you've been invited to #{@event.name} on #{@event.date}, #{@event.time}.  You down?  Reply 'yes #{@event.id}' or 'no #{@event.id}'"
-    #   })
-    # end
+  def shade
+    current_user = User.find(params[:current_user_id])[:firstname]
+    user = User.find(params[:user_id])
+    name = user[:firstname]
+    event = Event.find(params[:event_id])
+    event_name = event[:name]
+    number = user[:tel]
+    account_sid = ENV['TWILIO_KEY']
+    auth_token = ENV['TWILIO_SECRET']
+    @client = Twilio::REST::Client.new account_sid, auth_token
+    @client.account.messages.create({
+      :from => '+12073583459',
+      :to => number,
+      :body => "#{name}, #{current_user} knows that you're not going to #{event_name}. #{current_user} knows, and thinks it's whack.  In fact, #{current_user} thinks YOU'RE whack.  Fear not, reply 'yes #{params[:event_id]}' at any time to change your RSVP."
+    })
+    redirect_to user_groups_path
   end
 
 

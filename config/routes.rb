@@ -33,7 +33,8 @@ Rails.application.routes.draw do
 
 
   get 'textresponse' => 'events#textmessage'
-  get 'rsvpresponse/:user_id/:event_id' => 'events#nudge'
+  get 'nudge/:current_user_id/:user_id/:event_id' => 'events#nudge'
+  get 'shade/:current_user_id/:user_id/:event_id' => 'events#shade'
 
 
   get '*unmatched_route' => 'errors#not_found'

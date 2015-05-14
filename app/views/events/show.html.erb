@@ -25,9 +25,9 @@
     <li class="list-group-item brown-back"><%=@users.find(user[:user_id]).firstname%> | <%= rsvp %>
         <span class="pull-right">
           <% if rsvp == "Not Attending" %>
-          <a href="/rsvpresponse/<%=user[:user_id]%>/<%=@event.id%>">Throw Shade</a>
+          <a href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Throw Shade</a>
           <% elsif rsvp == "No RSVP" %>
-          <a href="/rsvpresponse/<%=user[:user_id]%>/<%=@event.id%>">Nudge</a>
+          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>">Nudge</a>
           <% else %>
           Checkmark
           <% end %>
