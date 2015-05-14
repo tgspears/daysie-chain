@@ -2,6 +2,8 @@
 
 
   body {
+      background-color: #BFE6CB;
+      background-repeat: none;
       background-image: image-url('daysie-background-large.jpg');
       background-size: cover;
     }
@@ -11,7 +13,7 @@
     width: 125px;
     height: 125px;
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     text-align: center;
     outline: none;
     text-decoration: none;
@@ -24,14 +26,23 @@
     font-variant: normal;
     font-weight: 200;
     margin-right: 10%;
-
   }
+
+  .btn-signup {
+    cursor: pointer;
+    display: inline-block;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+  }
+
   .btn-signin{
     display: inline-block;
     width: 125px;
     height: 125px;
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     text-align: center;
     outline: none;
     text-decoration: none;
@@ -45,24 +56,52 @@
     font-weight: 200;
     margin-left: 10%;
   }
+
+  .btn-signin {
+  cursor: pointer;
+  display: inline-block;
+  -moz-transition: all 0.15s ease;
+  -o-transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  }
+
   .btn-fb{
     display: inline-block;
     width: 145px;
     height: 145px;
     padding: 8px;
     color: #fff;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     text-align: center;
     outline: none;
     background-color: rgba(0,0,0,0);
     text-decoration: none;
     border-radius: 100%;
     margin-top: 5%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 25px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 200;
+    clear: both;
+    margin: 0.5em 0;
+
+  }
+
+  .btn-fb:hover {
+  color: rgba(106,129,112,0.9) !important;
+  background-color: #fff !important;
+  }
+
+  .btn-fb i {
+    cursor: pointer;
+    display: inline-block;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+  }
+
+  .fb-ico {
+  padding-top: 15%;
+  text-shadow: 1px 1px 0 white;
   }
 
   .main-title {
@@ -90,6 +129,15 @@
     width: 2.1em;
     padding-top: .1em;
     padding-bottom: .1em;
+  }
+
+  .logo-main {
+  position: absolute;
+  height: 20%;
+  text-align: center;
+  margin-left: -5.15%;
+  margin-top: -18%;
+  z-index: -1;
   }
 
   #buttoncontainer {
@@ -242,16 +290,16 @@
       color: #f1f1f1;
       box-shadow: 0 0 10px #f1f1f1;
       + ul {
-        -webkit-transform: translate(82px, 175px);
-        transform: translate(110px, 153px);
+        -webkit-transform: translate3d(0,0,0) translate(82px, 152px);
+        transform: translate(70px, 110px);
         @for $i from 1 through $sub-menus {
           > li:nth-child(#{$i}) {
             $angle: 360deg / $sub-menus * $i;
 
-            -webkit-transform: rotate($angle) translateX(200px);
+            -webkit-transform: translate3d(0,0,0) rotate($angle) translateX(200px);
             transform: rotate($angle) translateX(200px);
             > a {
-              -webkit-transform: rotate(0 - $angle);
+              -webkit-transform: translate3d(0,0,0) rotate(0 - $angle);
               transform: rotate(0 - $angle);
             }
           }

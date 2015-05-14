@@ -21,15 +21,26 @@ class AuthController < ApplicationController
       user.lastname = provider_user['info']['last_name']
       user.provider_hash = provider_user['credentials']['token']
       user.password = "123456789"
-      user.save
-
+      user.tel = "0000000000"
     end
-    render :json => user
-    # @user = user
-    # session[:user_id] = user.id
-    # flash[:success] = 'logged in with facebook!'
+    @user = user
+    session[:user_id] = user.id
+    flash[:success] = 'Please enter your phone number'
 
-    # redirect_to user_groups_path(user.id)
+    if @user.tel != "10000000000" || !@user.image.nil?
+      redirect_to user_groups_path(@user)
+    else
+      redirect_to auth_signup_path
+    end
+  end
+
+  def signup
+    # render :json => params
+    @user = current_user
+    if @user.tel == "10000000000"
+      @user.tel = nil
+      @user.save
+    end
   end
 
 end

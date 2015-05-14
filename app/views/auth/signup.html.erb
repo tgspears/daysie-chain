@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <%= bootstrap_form_for @current_user, :html => {:id => "edit_user_form"} do |f| %>
+              <%= f.text_field :firstname, placeholder: 'e.g. Barack' %>
+              <%= f.text_field :lastname, placeholder: 'e.g. DiCaprio' %>
+              <%= f.text_field :tel, placeholder: 'e.g. (305) 867 - 5309' %>
+              <%= f.file_field :picture %>
+              <%= f.hidden_field :logged_in?, value: 'yes' %>
+              <%= f.hidden_field :active, value: 'false' %>
+              <%= f.hidden_field :group_id, value: "", id: "group_id_field" %>
+      <%= f.primary "Submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

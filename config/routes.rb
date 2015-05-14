@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'auth/logout' => 'auth#logout'
   get 'auth/failure' => 'auth#failure'
   get 'auth/:provider/callback' => 'auth#callback'
+  get 'auth/signup' => 'auth#signup'
 
 
   get 'textresponse' => 'events#textmessage'

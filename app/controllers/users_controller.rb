@@ -88,18 +88,28 @@ class UsersController < ApplicationController
         admin.memberships.find_by_group_id(group_id).update(admin:true)
         admin.save
       end
-    elsif edit_user
+    end
+    if edit_user
       @user = User.find(user_id)
-      @user.firstname = edit_user[:firstname]
-      @user.lastname = edit_user[:lastname]
-      @user.email = edit_user[:email]
-      @user.tel = edit_user[:tel]
-      @user.save
-      redirect_to user_groups_path(@user)
+      unless edit_user[:picture] == nil
+        # p "unless ******************"
+        uploaded_file = edit_user[:picture].path
+        cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+        cloudinary_file = cloudinary_file["public_id"];
+        @user.update(firstname: edit_user[:firstname], lastname: edit_user[:lastname], tel: edit_user[:tel], image: cloudinary_file)
+        redirect_to user_groups_path(@user)
+      else
+        cloudinary_file = User.default_picture
+        @user.update(firstname: edit_user[:firstname], lastname: edit_user[:lastname], tel: edit_user[:tel], image: cloudinary_file)
+        @user.tel = edit_user[:tel]
+        @user.active = edit_user[:active]
+        @user.image = cloudinary_file
+        @user.save
+        redirect_to user_groups_path(@user)
+      end
       return
     end
-    render :json => params
-
+    render :plain => params
   end
 
   def edit
