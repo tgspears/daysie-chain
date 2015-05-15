@@ -23,6 +23,89 @@
   }
 
 
+
+  #accordion {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    margin: 0 0 0 -15px;
+    clear: both;
+  }
+
+  .panel-group {
+    margin-bottom: 0;
+  }
+
+  .panel-default > .panel-heading{
+    background: transparent;
+  }
+
+  .panel-heading {
+      padding: 0;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      background: transparent;
+  }
+
+  .panel-group .panel {
+      border-radius: 0;
+      background: transparent;
+  }
+
+  .panel-default {
+    border: none;
+  }
+
+  .panel-title a {
+    color: #EBF0EB;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 10px 15px;
+    font-size: 35px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    outline: none;
+  }
+
+  .panel-title a:hover, .panel-title a:focus, .panel-title a:active {
+      text-decoration: none;
+      outline: none;
+  }
+
+  .panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #EBF0EB;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    padding: none;
+    margin-left: -5%;
+  }
+
+  .people>h4{
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+  }
+
+  .people-image {
+    height: 75px;
+    width: 75px;
+  }
+
+  .section-heading{
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+  }
+
+
   body {
     background-image: image-url('daysie-background.jpg');
     background-repeat: no-repeat;

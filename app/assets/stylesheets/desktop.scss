@@ -22,11 +22,91 @@
     }
   }
 
+  #accordion {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    margin: 0 0 0 -15px;
+    clear: both;
+  }
+
+  .panel-group {
+    margin-bottom: 0;
+  }
+
+  .panel-default > .panel-heading{
+    background: transparent;
+  }
+
+  .panel-heading {
+      padding: 0;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      background: transparent;
+  }
+
+  .panel-group .panel {
+      border-radius: 0;
+      background: transparent;
+  }
+
+  .panel-default {
+    border: none;
+  }
+
+  .panel-title a {
+    color: #EBF0EB;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 10px 15px;
+    font-size: 45px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    outline: none;
+  }
+
+  .panel-title a:hover, .panel-title a:focus, .panel-title a:active {
+      text-decoration: none;
+      outline: none;
+  }
+
+  .panel-default>.panel-heading+.panel-collapse>.panel-body {
+    border-top-color: #EBF0EB;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    padding: none;
+  }
+
+  .people>h4{
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+  }
+
+  .people-image {
+    height: 100px;
+    width: 100px;
+  }
+
+  .section-heading{
+    color: #fff;
+    font-size: 36px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+  }
+
   body {
     background-color: #BFE6CB;
     background-repeat: no-repeat;
     background-image: image-url('daysie-background-large.jpg');
-    background-size: contain;
+    background-size: cover;
     @include scrollbars(10px, rgba(106,129,112,0.8), rgba(106,129,112,0.4))
     }
 
