@@ -135,6 +135,19 @@ respond_to :html, :xml, :json
           attendance[:maybe] = false
           attendance[:no] = false
           attendance.save
+          Events.each do |event|
+            if event[:min] != nil
+              if event.attendances.length >= event[:min]
+                event.attendances.each do |attendance|
+                   @client.account.messages.create({
+                    :from => '+12073583459',
+                    :to => attendance.user[:tel],
+                    :body => "A Message From Daysie-Chain: \n #{attendance.user[:firstname]}, enough of your friends have RSVP'ed 'Yes' to #{event[:name]}, and it's on!  Be there (#{event[:loc]}, #{event[:date]} : #{event[:time]}) or be square."
+                   })
+                end
+              end
+            end
+          end
         elsif body.downcase == 'no'
           attendance = user.attendances.find_by_event_id(event)
           attendance[:yes] = false
@@ -148,6 +161,9 @@ respond_to :html, :xml, :json
       else
         render :json => params
       end
+
+
+
   end
 
   private
