@@ -103,11 +103,19 @@
   }
 
   body {
-    background-color: #BFE6CB;
-    background-repeat: no-repeat;
-    background-image: image-url('daysie-background-large.jpg');
-    background-size: cover;
-    @include scrollbars(10px, rgba(106,129,112,0.8), rgba(106,129,112,0.4))
+
+      text-align: left;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-variant: small-caps;
+      font-weight: 200;
+      color: #B69289;
+      background-color: #BFE6CB;
+      background-repeat: none;
+      background-image: image-url('daysie-background-large.jpg');
+      background-size: cover;
+      @include scrollbars(10px, rgba(106,129,112,0.8), rgba(106,129,112,0.4))
     }
 
   .btn-signup{
@@ -204,6 +212,20 @@
   .fb-ico {
   padding-top: 15%;
   text-shadow: 1px 1px 0 white;
+  }
+
+  .dropdown_menu {
+    background: #EBF0EB;
+    color: #B68289;
+  }
+
+  .nav_menu {
+    background: white !important;
+    border-radius: 2px !important;
+  }
+
+  .nav_buttons {
+    color: #B68289 !important;
   }
 
   .main-title {
@@ -311,12 +333,13 @@
 	}
 
   .group_image {
+    background: #5D866A;
     position: absolute;
     left: 5px;
     width: 45px;
     height: 45px;
     border-radius: 5px;
-    box-shadow: 0 0 2% #222;
+    border: 2px solid #B69289;
     margin-bottom: 15px;
   }
 
@@ -349,12 +372,11 @@
     left: 38% !important;
 
     > a {
-      top: 30% !important;
-      left: 37.5% !important;
-      &.show {
-      display: flex !important;
-      visibility: hidden;
-
+        top: 30% !important;
+        left: 37.5% !important;
+        &.show {
+        display: flex !important;
+        visibility: hidden;
       }
     }
     li {
@@ -378,7 +400,9 @@
     }
 
     .daysie_image {
+      background: #5D866A;
       position: absolute;
+      border: 2px solid #B69289;
       border-radius: 50%;
       z-index: 3;
       top: 0px;

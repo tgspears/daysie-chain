@@ -16,7 +16,7 @@
         <% @idx = i.id %>
         <div class="radial_button" id="<%= @idx %>">
             <%= cl_image_tag(i.group[:image], :class => "group_image") %>
-            <p><%= i.group.name %></p>
+            <p><strong><%= i.group.name %></strong></p>
         </div>
       <% end %>
     <% end %>
