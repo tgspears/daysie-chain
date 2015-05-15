@@ -135,7 +135,7 @@ respond_to :html, :xml, :json
           attendance[:maybe] = false
           attendance[:no] = false
           attendance.save
-          Events.each do |event|
+          Event.each do |event|
             if event[:min] != nil
               if event.attendances.where(:yes => true).length == event[:min]
                 event.attendances.each do |attendance|
