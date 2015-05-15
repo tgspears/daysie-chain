@@ -48,6 +48,8 @@ gem 'rabl-rails'
 
 gem 'compass-rails', '~> 2.0.2'
 
+gem 'seed_dump'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
