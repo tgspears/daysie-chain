@@ -1,11 +1,33 @@
 @media screen and (min-width: 992px){
 
+  @mixin scrollbars($size, $foreground-color, $background-color) {
+
+    ::-webkit-scrollbar {
+        width:  $size;
+        height: $size;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // For Internet Explorer
+    body {
+      scrollbar-face-color: $foreground-color;
+      scrollbar-track-color: $background-color;
+    }
+  }
 
   body {
       background-color: #BFE6CB;
       background-repeat: none;
       background-image: image-url('daysie-background-large.jpg');
       background-size: cover;
+      @include scrollbars(10px, rgba(106,129,112,0.8), rgba(106,129,112,0.4))
     }
 
   .btn-signup{
@@ -124,11 +146,16 @@
     vertical-align: middle;
   }
 
+  .navbar-brand>img {
+  display: inline;
+  }
+
   .logo {
     height: 2.1em;
     width: 2.1em;
     padding-top: .1em;
     padding-bottom: .1em;
+    display: inline;
   }
 
   .logo-main {
