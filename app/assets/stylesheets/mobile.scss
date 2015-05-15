@@ -99,6 +99,34 @@
     vertical-align: middle;
   }
 
+  .nav_menu {
+    background: white !important;
+    border-radius: 5px !important;
+  }
+
+  .nav_pipe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-variant: normal;
+    color: #B68289;
+  }
+
+
+  .dropdown_pipe {
+    height: 25px;
+  }
+
+  .nav_buttons {
+    color: #B68289 !important;
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+  }
+
   .logo {
     height: 1.6em;
     width: 1.6em;
@@ -145,6 +173,16 @@
   }
 
   .radial_button {
+    text-align: left;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 200;
+    color: #B69289;
+    display: flex;
+    justify-content:center;
+    align-content:center;
     max-width: 95%;
     height: 50px;
     margin: 3px;
@@ -170,13 +208,14 @@
 
 
   .group_image {
+    border: 2px solid #B69289;
+    background: #5D866A;
     position: absolute;
     left: 8px;
     margin-top: 2px;
     width: 45px;
     height: 45px;
     border-radius: 5%;
-    box-shadow: 0 0 2% #222;
   }
 
   .submenus {
@@ -193,7 +232,9 @@
   }
 
   .daysie_image {
+    border: 2px solid #B69289;
     position: absolute;
+    background: #5D866A;
     border-radius: 50%;
     z-index: 3;
     top: 0px;
