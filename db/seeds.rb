@@ -23,13 +23,13 @@ User.create!([
 ])
 
 Group.create!([
-  {name: "WDI-SEA-02", size: 25, status: nil, user_id: 1, image: "emvorewykhyskqh1jzmm"}
+  {name: "WDI-SEA-02", size: 25, status: nil, user_id: 20, image: "emvorewykhyskqh1jzmm"}
 ])
 Event.create!([
   {name: "Demo Day!", desc: "Time to show off our hard work!", max: 25, loc: "Classroom 1", date: nil, time: nil, group_id: 1, min: nil, day: nil, active: nil}
 ])
 Membership.create!([
-  {group_id: 1, user_id: 1, admin: true, block: nil},
+  {group_id: 1, user_id: 20, admin: true, block: nil},
   {group_id: 1, user_id: 2, admin: false, block: nil},
   {group_id: 1, user_id: 3, admin: true, block: nil},
   {group_id: 1, user_id: 4, admin: false, block: nil},
@@ -48,7 +48,7 @@ Membership.create!([
   {group_id: 1, user_id: 18, admin: false, block: nil},
   {group_id: 1, user_id: 19, admin: false, block: nil},
   {group_id: 1, user_id: 10, admin: true, block: nil},
-  {group_id: 1, user_id: 20, admin: false, block: nil}
+  {group_id: 1, user_id: 1, admin: false, block: nil}
 
 ])
 
