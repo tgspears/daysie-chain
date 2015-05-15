@@ -27,7 +27,7 @@ class AuthController < ApplicationController
     session[:user_id] = user.id
     flash[:success] = 'Please enter your phone number'
 
-    if @user.tel != "10000000000" || !@user.image.nil?
+    if @user.tel != "10000000000" && !@user.image.nil?
       redirect_to user_groups_path(@user)
     else
       redirect_to auth_signup_path
