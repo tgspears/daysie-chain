@@ -11,7 +11,7 @@
   <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_send_form" } do |f| %>
   <%= f.date_field :date, id: "datepicker", placeholder: "e.g. Thursday" %>
   <%= f.time_field :time, placeholder: "e.g. 10pm" %>
-  <small> Optional: </small>
+  <small> Optional fields: </small>
   <%= f.text_field :min, :label => "Minimum attendance",  placeholder: "e.g. 1" %>
   <%= f.text_field :max, :label => "Maximum attendance", placeholder: "e.g. somethin" %>
 
