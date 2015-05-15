@@ -7,12 +7,14 @@
   <%= f.text_field :name, placeholder: "Something simple and recognizable." %>
   <%= f.text_field :desc, placeholder: "Short and sweet works best." %>
   <%= f.text_field :loc, placeholder: "Enter the location" %>
-
-</div>
-<div class="modal-footer">
- <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
+  <span class="pull-right">
+  <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
   <%= f.primary "Submit" %>
   <% end %>
+  </span>
+</div>
+<div class="modal-footer">
+
 
 
 </div>

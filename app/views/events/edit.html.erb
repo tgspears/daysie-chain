@@ -14,13 +14,15 @@
   <small> Optional fields: </small>
   <%= f.text_field :min, :label => "Minimum attendance",  placeholder: "e.g. 1" %>
   <%= f.text_field :max, :label => "Maximum attendance", placeholder: "e.g. somethin" %>
-
-</div>
-<div class="modal-footer"><span>
-<%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), user_group_event_path(@current_user, @group, @event), :method => :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger" %>
+  <span class="pull-right">
+  <%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), user_group_event_path(@current_user, @group, @event), :method => :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger" %>
   <button type="button" class="btn btn-default" id="close_btn" data-dismiss="modal">Close</button>
   <%= f.primary "Send out the invites!", :class => "btn btn-primary group_event_send_button"  %>
 <% end %>
+</span>
+</div>
+<div class="modal-footer"><span>
+
 
 </span>
 </div>
