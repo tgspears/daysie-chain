@@ -69,28 +69,31 @@
     <div class="modal-content my_modal_content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Create a Group</h4>
+        <h1 class="modal-title">Create a Group</h4>
       </div>
       <div class="modal-body">
         <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
         <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
-        <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
+        <%= f.text_field :size, placeholder: "The fewer the merrier!" %>
         <%= f.file_field :image %>
-
         <hr>
+        <h4> What is it that you lovely people do together? </h4>
+        <small> Don't stress yourself out: you can add more events to this group at any time. </small>
         <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
         <%= f.text_field :name, placeholder: "Enter a name for the event your group will be initialised with" %>
         <%= f.text_field :desc, placeholder: "Enter a description" %>
         <%= f.text_field :max, placeholder: "Enter the max size" %>
         <%= f.text_field :loc, placeholder: "Enter the location" %>
-        <% end %>
-
-        <% end %>
+        <span class="pull-right">
+          <% end %>
+          <% end %>
+          <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
+        </span>
       </div>
       <div class="modal-footer">
       </div>
-        <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
+
     </div>
   </div>
 </div>
