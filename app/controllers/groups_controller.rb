@@ -15,9 +15,17 @@ class GroupsController < ApplicationController
   end
 
   def create
+      # render :plain => params
     user = current_user
     if params[:group][:size].to_i.is_a? Integer
-      group = Group.create(:name => params[:group][:name], :size => params[:group][:size].to_i, :status => params[:group][:status])
+        unless params[:group][:image] == nil
+        uploaded_file = params[:group][:image].path
+        cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
+        cloudinary_file = cloudinary_file["public_id"];
+        else
+        cloudinary_file = "esgbr7f19tu86yiugtor"
+        end
+      group = Group.create(:name => params[:group][:name], :size => params[:group][:size].to_i, :status => params[:group][:status], :image => cloudinary_file)
       if group
         user.groups << group
         event = Event.create(:name => params[:event][:name], :desc => params[:event][:desc], :max => params[:event][:max], :loc => params[:event][:loc], :date => params[:event][:date], :time => params[:event][:time])

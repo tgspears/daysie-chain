@@ -15,7 +15,7 @@
       <% @current_user.memberships.each do |i| %>
         <% @idx = i.id %>
         <div class="radial_button" id="<%= @idx %>">
-            <img src="<%= i.group.image %>" class="group_image">
+            <%= cl_image_tag(i.group[:image], :class => "group_image") %>
             <p><%= i.group.name %></p>
         </div>
       <% end %>
@@ -26,7 +26,7 @@
   <% @current_user.memberships.each do |i| %>
     <% @idx = i.id %>
       <div class="radmenu">
-        <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><img class="daysie_image" src="<%= i.group.image %>"></a>
+        <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><%= cl_image_tag(i.group[:image], :class=>"daysie_image") %></a>
         <ul>
           <li class="subli">
             <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><img class="jackie_chan" src="https://mlpforums.com/uploads/monthly_03_2012/post-2103-0-68261500-1332210132.png"></a>
@@ -75,10 +75,7 @@
         <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
         <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
         <%= f.text_field :size, placeholder: "If you want to set a limit to the number of people in your group, now's the time to do it." %>
-        <%= f.form_group :status, label: { text: "Status" }, help: "Do you want this to be public or private" do %>
-        <%= f.radio_button :status, false, label: "Public", checked: true %>
-        <%= f.radio_button :status, true, label: "Private" %>
-        <%end %>
+        <%= f.file_field :image %>
 
         <hr>
         <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
