@@ -1,21 +1,95 @@
 <%= render "layouts/flash" %>
-<div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
       <h1 class="main-title">Daysie Chain</h1>
       <%= image_tag("daysie-chain-logo.png", :class=> "logo-main") %>
-    <div class="col-md-12 text-center">
-      <button class="btn-signup" data-toggle="modal" href='#sign_up'>Sign Up</button>
-      <button class="btn-signin" data-toggle="modal" href='#sign_in'>Sign In</button>
+      <div class="col-md-12 text-center">
+        <button class="btn-signup" data-toggle="modal" href='#sign_up'>Sign Up</button>
+        <button class="btn-signin" data-toggle="modal" href='#sign_in'>Sign In</button>
+      </div>
+      <div class="col-md-12 text-center">
+        <a data-toggle="tooltip" animation="true" title="Log in using Facebook" class="btn-fb text-center" data-placement="top" href="/auth/facebook"><i class="fa fa-facebook fa-4x fb-ico"></i></a>
+      </div>
+
     </div>
-    <div class="col-md-12 text-center">
-      <a data-toggle="tooltip" animation="true" title="Log in using Facebook" class="btn btn-fb text-center" data-placement="top" href="/auth/facebook"><i class="fa fa-facebook fa-4x fb-ico"></a></i>
-    </div>
+    <div class="col-md-12">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-title" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                What is Daysie Chain?
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">The Development Team</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="people">
+                            <%= image_tag("daysie-chain-logo.png", class: "img-responsive img-circle people-image", alt: "")%>
+                            <h4>Alexander Nguyen</h4>
+                            <p class="text-muted">Fullstack development and graphic design</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="people">
+                            <%= image_tag("daysie-chain-logo.png", class: "img-responsive img-circle people-image", alt: "")%>
+                            <h4>Dave Raskin</h4>
+                            <p class="text-muted">Git/Game Master</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="people">
+                            <%= image_tag("daysie-chain-logo.png", class: "img-responsive img-circle people-image", alt: "")%>
+                            <h4>Trevor Spears</h4>
+                            <p class="text-muted">Product manager</p>
+                            <ul class="list-inline social-buttons">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-
 <!-- Modals!!!!!!! -->
 
 
