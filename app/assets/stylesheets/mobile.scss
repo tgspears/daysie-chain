@@ -80,7 +80,14 @@
     width: 1.6em;
     padding-top: .1em;
     padding-bottom: .1em;
+    display: inline;
+
   }
+
+  .navbar-brand>img {
+  display: inline;
+  }
+
 
   #buttoncontainer {
     background: rgba(50,100,50,0.8);
