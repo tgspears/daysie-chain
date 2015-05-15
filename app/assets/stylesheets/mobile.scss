@@ -25,6 +25,7 @@
 
   body {
     background-image: image-url('daysie-background.jpg');
+    background-repeat: no-repeat;
     background-size: cover;
     @include scrollbars(10px, rgba(106,129,112,0.8), rgba(106,129,112,0.4))
   }
