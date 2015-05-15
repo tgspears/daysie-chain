@@ -43,7 +43,6 @@ $(function(){
   }
 
   var buttonlistener = document.querySelector('#buttoncontainer');
-  buttonlistener.addEventListener('click', radialClick, false);
 
   function radialClick(e){
     $('.selected').trigger('click');
@@ -153,17 +152,21 @@ $(function(){
 
 $('#collapseOne').on('show.bs.collapse', function () {
     $('.panel-heading').animate({
-        backgroundColor: "#515151"
+        backgroundColor: "rgba(0,0,0,0.5)"
     }, 500);
 })
 
 $('#collapseOne').on('hide.bs.collapse', function () {
     $('.panel-heading').animate({
-        backgroundColor: "#00B4FF"
+        backgroundColor: "rgba(0,0,0,0)"
     }, 500);
 })
 
+  buttonlistener.addEventListener('click', radialClick, false);
+
 })
+
+
 
 
 
