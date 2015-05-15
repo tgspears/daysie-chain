@@ -91,12 +91,17 @@ class UsersController < ApplicationController
     end
     if edit_user
       @user = User.find(user_id)
-      unless edit_user[:picture] == nil
+
+
+      if edit_user[:picture] != nil
         # p "unless ******************"
         uploaded_file = edit_user[:picture].path
         cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
         cloudinary_file = cloudinary_file["public_id"];
         @user.update(firstname: edit_user[:firstname], lastname: edit_user[:lastname], tel: edit_user[:tel], image: cloudinary_file)
+        redirect_to user_groups_path(@user)
+      elsif @user.image != nil
+        @user.update(firstname: edit_user[:firstname], lastname: edit_user[:lastname], tel: edit_user[:tel])
         redirect_to user_groups_path(@user)
       else
         cloudinary_file = User.default_picture
