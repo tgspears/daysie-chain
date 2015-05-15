@@ -171,6 +171,11 @@
     font-variant: normal;
   }
 
+  .my_modal_class {
+    max-height: calc(100% - 155px);
+    overflow: auto;
+  }
+
   .fa-facebook {
     padding-top: 10%;
   }
@@ -183,14 +188,6 @@
   font-weight: 100;
   padding-top: 15%;
   padding-bottom: 15%;
-  }
-
-  .nav_pipe {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-style: normal;
-    font-variant: normal;
-    color: #EBF0EB;
   }
 
   .navbar-default .navbar-brand {
@@ -257,7 +254,7 @@
     background: rgba(50,100,50,0.8);
     position: fixed;
     min-width: 100%;
-    height: 175px;
+    height: 20%;
     overflow-y: scroll;
     bottom: 0px;
     left: 0px;

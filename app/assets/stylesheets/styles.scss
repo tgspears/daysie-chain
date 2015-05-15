@@ -70,6 +70,10 @@ body {
   opacity: 1;
 }
 
+.form_title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
   .circle_div{
     text-align:center;
     border: 1px solid black;
@@ -79,11 +83,6 @@ body {
    list-style-type: none;
 
   }
-
-.my_modal_class {
-  max-height: calc(100% - 155px);
-  overflow: auto;
-}
 
 .btn-signup:hover, .btn-signup:active {
   background-color: #fff;
