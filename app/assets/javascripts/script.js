@@ -1,11 +1,16 @@
 $(function(){
 
+
+
   var buttons = document.querySelectorAll(".radmenu a");
 
   for (var i=0, b=buttons.length; i<b; i++) {
     var button = buttons[i];
     button.onclick = setSelected;
   }
+
+
+
 
   function setSelected(e) {
     if (this.classList.contains("submenus")){
@@ -121,6 +126,8 @@ $(function(){
   });
 
 
+
+
   $("#add_user").on('click', function(e){
       console.log("some other text, or")
       $("#group_id_field").attr("value", group_id )
@@ -141,6 +148,10 @@ $(function(){
     originX: 0.0,
     originY: 0.5
   });
+
+  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+
 })
 
 

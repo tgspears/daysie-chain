@@ -43,9 +43,9 @@
           <% end %>
         >
            <% if rsvp == "Not Attending" %>
-          <a  href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-sunglasses sunglasses"></i> | <span id="shade">Throw Shade</a></span>
+          <a data-toggle="tooltip" id="shade" animation="true" title="Throw shade at <%= @users.find(user[:user_id]).firstname %>" href="/shade/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-sunglasses sunglasses"></i></a>
           <% elsif rsvp == "No RSVP" %>
-          <a href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-hand-left hand"></i> | <span id="nudge">Nudge</a>
+          <a data-toggle="tooltip" id="nudge" animation="true" title="Nudge <%= @users.find(user[:user_id]).firstname %> to RSVP!" href="/nudge/<%=@current_user.id%>/<%=user[:user_id]%>/<%=@event.id%>"><i class="glyphicon glyphicon-hand-left hand"></i></a>
           <% else %>
           <i class="fa fa-check checkmark"></i>
           <% end %>
