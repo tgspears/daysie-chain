@@ -7,6 +7,12 @@ body {
   padding: 0px;
 }
 
+.flasher {
+  border: 1px solid black;
+  text-align: center;
+  background: rgba(235,240,235,0.5);
+}
+
 #countdown {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size:35px;

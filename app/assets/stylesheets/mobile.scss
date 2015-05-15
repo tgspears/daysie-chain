@@ -127,7 +127,7 @@
     text-align: center;
     outline: none;
     text-decoration: none;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.1);
     margin-top: 5%;
     border-radius: 100%;
     margin-right: 5%;
@@ -145,7 +145,7 @@
     text-align: center;
     outline: none;
     text-decoration: none;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.1);
     margin-top: 5%;
     border-radius: 100%;
     margin-left: 10%;
@@ -162,7 +162,7 @@
     border: 1px solid #fff;
     text-align: center;
     outline: none;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.1);
     text-decoration: none;
     border-radius: 100%;
     margin-top: 5%;
@@ -183,6 +183,14 @@
   font-weight: 100;
   padding-top: 15%;
   padding-bottom: 15%;
+  }
+
+  .nav_pipe {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    color: #EBF0EB;
   }
 
   .navbar-default .navbar-brand {
