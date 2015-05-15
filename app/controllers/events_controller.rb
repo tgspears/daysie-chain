@@ -109,7 +109,7 @@ respond_to :html, :xml, :json
     @client.account.messages.create({
       :from => '+12073583459',
       :to => number,
-      :body => "A Message From Daysie-Chain: \n #{name}, #{current_user} knows that you're not going to #{event_name}. #{current_user} knows, and thinks it's whack.  In fact, #{current_user} thinks YOU'RE whack.  Fear not, reply 'yes #{params[:event_id]}' at any time to change your RSVP."
+      :body => "A Message From Daysie-Chain: \n#{name}, #{current_user} knows that you're not going to #{event_name}. #{current_user} knows, and thinks it's whack.  In fact, #{current_user} thinks YOU'RE whack.  Fear not, reply 'yes #{params[:event_id]}' at any time to change your RSVP."
     })
     redirect_to user_groups_path
   end
@@ -136,6 +136,7 @@ respond_to :html, :xml, :json
           attendance[:no] = false
           attendance.save
           Event.each do |event|
+            p "**************************************"
             if event[:min] != nil
               if event.attendances.where(:yes => true).length == event[:min]
                 event.attendances.each do |attendance|
