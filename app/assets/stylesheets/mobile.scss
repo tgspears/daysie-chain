@@ -114,7 +114,12 @@
   }
 
   .logo-main {
-    display: none;
+  position: absolute;
+  height: 25%;
+  text-align: center;
+  margin-left: -12%;
+  margin-top: -16%;
+  z-index: -1;
   }
 
     .btn-signup{
