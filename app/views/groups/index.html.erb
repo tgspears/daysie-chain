@@ -29,7 +29,7 @@
         <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><%= cl_image_tag(i.group[:image], :class=>"daysie_image") %></a>
         <ul>
           <li class="subli">
-            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><img class="jackie_chan" src="https://mlpforums.com/uploads/monthly_03_2012/post-2103-0-68261500-1332210132.png"></a>
+            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus fa-3x"></i></a>
             <ul>
             </ul>
           </li>

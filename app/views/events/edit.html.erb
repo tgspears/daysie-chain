@@ -1,21 +1,26 @@
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title">Send out invitations to  "<%= @event.name %>"</h4>
-  <hr>
-  <h5 class="modal-desc"><%= @event.desc %> | <%= @event.loc %> </h5>
-  <hr>
-  <h5 class="delete-event"><%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), user_group_event_path(@current_user, @group, @event), :method => :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger" %> </h5>
+
+  <h1> <%= @event.name %> </h1>
+
+  <h4 class="modal-desc"><%= @event.desc %> | <%= @event.loc %> </h5>
+
 </div>
 <div class="modal-body event-modal" id="0">
+
   <%= bootstrap_form_for [@current_user, @group, @event], :html => { :class => "group_event_send_form" } do |f| %>
-  <%= f.text_field :min, placeholder: "e.g. 1" %>
-  <%= f.text_field :max, placeholder: "e.g. somethin" %>
   <%= f.date_field :date, id: "datepicker", placeholder: "e.g. Thursday" %>
   <%= f.time_field :time, placeholder: "e.g. 10pm" %>
+  <small> Optional: </small>
+  <%= f.text_field :min, :label => "Minimum attendance",  placeholder: "e.g. 1" %>
+  <%= f.text_field :max, :label => "Maximum attendance", placeholder: "e.g. somethin" %>
+
+</div>
+<div class="modal-footer"><span>
+<%= link_to raw("<i class=\"glyphicon glyphicon-trash\"></i>"), user_group_event_path(@current_user, @group, @event), :method => :delete, data:{confirm: "Are you sure?"}, :class=>"btn btn-danger" %>
   <button type="button" class="btn btn-default" id="close_btn" data-dismiss="modal">Close</button>
   <%= f.primary "Send out the invites!", :class => "btn btn-primary group_event_send_button"  %>
 <% end %>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+</span>
 </div>

@@ -7,10 +7,10 @@
     <div class="col-md-12">
       <div class="admins">
       <h5> Admins </h5>
-      <ul id="group_admins" class="group">
+      <ul id="group_admins" class="group list-group">
         <% @members.each_with_index do |j, idx| %>
           <% if j.admin %>
-            <li class="member" id="<%=j.user.id%>"> <%= j.user.firstname %> </li>
+            <li class="member list-group-item" id="<%=j.user.id%>"> <%= j.user.firstname %> </li>
           <% end %>
         <% end %>
         </ul>
@@ -18,10 +18,10 @@
       <hr>
       <div class="members">
         <h5> Members </h5>
-        <ul id="group_members" class="group">
+        <ul id="group_members" class="group list-group">
         <% @members.each_with_index do |i, idx| %>
           <% if i.admin == false %>
-          <li class="member" id="<%=i.user.id%>"> <%= i.user.firstname %> </li>
+          <li class="member list-group-item" id="<%=i.user.id%>"> <%= i.user.firstname %> </li>
           <% end %>
         <% end %>
         </ul>

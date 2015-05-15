@@ -163,6 +163,54 @@ div.row .scene-container {
   border-color: rgba(1,1,1,0);
 }
 
+#event_invite > .modal-dialog > .modal-content{
+   -webkit-box-shadow: none;
+  background-color: rgba(1,1,1,0);
+  border-color: rgba(1,1,1,0);
+}
+
+#event_invite > .modal-dialog > .modal-content > .modal-body{
+
+  background-color: #EBF0EB;
+  border: none;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#event_invite > .modal-dialog > .modal-content > .modal-header{
+  >h1{
+    font-size:70px;
+    border: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #FFEB69;
+  }
+
+
+  >h4{
+    border: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #FFEB69;
+  }
+
+  >h5{
+    border: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    color: #FFEB69;
+  }
+
+  border:none;
+}
+#event_invite > .modal-dialog > .modal-content > .modal-footer{
+  background-color: #EBF0EB;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: none;
+}
+
+
 #event_show_jumbotron > .container > h1{
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size:75px;
@@ -242,5 +290,9 @@ font-size: 18px;
   font-size: 18px;
   color:#B69269;
 
+}
+
+.fa-user-plus{
+  padding-left: 7%;
 }
 
