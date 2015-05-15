@@ -32,10 +32,10 @@ class GroupsController < ApplicationController
         user.groups.find(group.id).events << event
         user.memberships << group.memberships.create(admin:true)
       else
-        flash[:danger] = "please fill in all fields"
+        flash[:danger] = "Please complete fill out all required fields"
       end
     else
-      flash[:danger] = "please enter a valid size"
+      flash[:danger] = "Please enter a valid size"
     end
     redirect_to user_groups_path(@current_user.id)
   end
