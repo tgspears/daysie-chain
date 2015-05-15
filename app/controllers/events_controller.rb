@@ -57,13 +57,9 @@ respond_to :html, :xml, :json
     # put your own credentials here
     account_sid = ENV['TWILIO_KEY']
     auth_token = ENV['TWILIO_SECRET']
-
-
     # set up a client to talk to the Twilio REST API
     @client = Twilio::REST::Client.new account_sid, auth_token
-
     @event.group.memberships.each do |member|
-
       date = @event.date.split("-")
       number = member.user.tel
       name = member.user.firstname
