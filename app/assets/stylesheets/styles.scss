@@ -511,6 +511,41 @@ div.row .scene-container {
 }
 
 
+#add_user > .modal-dialog > .modal-content{
+  background-color: transparent;
+  border-color: transparent;
+
+  >.modal-body{
+  padding-top: 28px;
+  background-color: #EBF0EB;
+  border: none;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+    >h4{
+         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-weight: 100;
+    }
+  }
+
+  >.modal-header{
+    border:none;
+
+     >h1{
+         font-size:70px;
+          font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-weight: 100;
+          color: #FFEB69;
+     }
+  }
+
+  >.modal-footer{
+    border:none;
+   background-color: #EBF0EB;
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius: 20px;
+  }
+
+}
 
 
 #create_event > .modal-dialog > .modal-content{

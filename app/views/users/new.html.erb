@@ -1,9 +1,9 @@
 <div class="modal-header">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h4 class="modal-title">Modal title</h4>
+  <h1 class="modal-title">Add Members</h4>
 </div>
 <div class="modal-body">
-
+  <h4> At present, we need you to supply us with all this information.  Even if you know the user is already a Daysie Chain member. </h4>
    <%= bootstrap_form_for @user, :html => {:id => "new_user_form"} do |f| %>
           <%= f.text_field :firstname, placeholder: 'e.g. Barack' %>
           <%= f.text_field :lastname, placeholder: 'e.g. DiCaprio' %>
@@ -16,12 +16,13 @@
 
 
   </span>
+  <span class="pull-right">
   <button type="button" class="btn btn-default" id="other_close_btn" data-dismiss="modal">Close</button>
   <%= f.primary "Submit" %>
   <% end %>
-
+  </span>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default close_btn" data-dismiss="modal">Close</button>
+
 
 </div>
