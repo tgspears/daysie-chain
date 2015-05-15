@@ -1,5 +1,7 @@
 @media screen and (max-width: 991px) {
 
+  @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,400);
+
   @mixin scrollbars($size, $foreground-color, $background-color) {
 
     ::-webkit-scrollbar {
@@ -65,7 +67,7 @@
     display: block;
     padding: 10px 15px;
     font-size: 35px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
     outline: none;
   }
@@ -80,7 +82,7 @@
     background-color: rgba(0,0,0,0.8);
     color: #fff;
     font-size: 16px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
     padding: none;
     margin-left: -5%;
@@ -89,7 +91,7 @@
   .people>h4{
     color: #fff;
     font-size: 22px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
   }
 
@@ -101,7 +103,7 @@
   .section-heading{
     color: #fff;
     font-size: 26px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
   }
 
@@ -136,7 +138,7 @@
     margin-top: 5%;
     border-radius: 100%;
     margin-right: 5%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-variant: normal;
   }
@@ -154,7 +156,7 @@
     margin-top: 5%;
     border-radius: 100%;
     margin-left: 10%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-variant: normal;
   }
@@ -171,7 +173,7 @@
     text-decoration: none;
     border-radius: 100%;
     margin-top: 5%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-style: normal;
     font-variant: normal;
   }
@@ -181,7 +183,7 @@
   }
 
   .main-title {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 56px;
   font-style: normal;
   font-variant: small-caps;
@@ -191,7 +193,7 @@
   }
 
   .nav_pipe {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-variant: normal;
@@ -199,7 +201,7 @@
   }
 
   .navbar-default .navbar-brand {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-variant: small-caps;
@@ -216,7 +218,7 @@
   }
 
   .nav_pipe {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;
     font-style: normal;
     font-variant: normal;
@@ -231,7 +233,7 @@
   .nav_buttons {
     color: #B68289 !important;
     text-align: left;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-variant: small-caps;
@@ -272,7 +274,7 @@
     background: #EBF0EB;
     left: 55px;
     text-align: left;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 15px;
     font-style: normal;
     font-variant: small-caps;
@@ -291,7 +293,7 @@
 
   .radial_button {
     text-align: left;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-variant: small-caps;
@@ -312,7 +314,7 @@
   .radial_button a {
     left: 55px;
     text-align: left;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-variant: small-caps;
@@ -339,7 +341,7 @@
     height: 75px !important;
     width:  75px !important;
     border-radius: 50% !important;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-style: normal;
     font-variant: small-caps;
