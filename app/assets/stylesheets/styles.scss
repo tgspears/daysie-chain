@@ -92,6 +92,12 @@ body {
   border-radius: 0 !important;
 }
 
+strong{
+  color: rgb(109,127,110);
+}
+#create_group_button > strong{
+ color: #B69289;
+}
 .navbar-default .navbar-toggle {
   border: none;
   background-color: rgba(0,0,0,0);
