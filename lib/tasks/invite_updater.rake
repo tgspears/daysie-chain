@@ -23,20 +23,9 @@ namespace :invite do
         end
       end
     end
-    count = 0
-    Events.each do |event|
-      if event[:min] != nil
-        if event.attendances.length >= event[:min]
-          event.attendances.each do |attendance|
-            @client.account.messages.create({
-              :from => '+12073583459',
-              :to => attendance.user[:tel],
-              :body => "A Message From Daysie-Chain: \n #{attendance.user[:firstname]}, enough of your friends have RSVP'ed 'Yes' to #{event[:name]}, and it's on!  Be there (#{event[:loc]}, #{event[:date]} : #{event[:time]}) or be square."
-            })
-          end
-        end
-      end
-    end
+  end
+
+
 
 
 end
