@@ -137,7 +137,7 @@ respond_to :html, :xml, :json
           attendance.save
           Events.each do |event|
             if event[:min] != nil
-              if event.attendances.length >= event[:min]
+              if event.attendances.where(:yes => true).length == event[:min]
                 event.attendances.each do |attendance|
                    @client.account.messages.create({
                     :from => '+12073583459',
