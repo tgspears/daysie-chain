@@ -140,6 +140,11 @@
     margin-right: 10%;
   }
 
+  .my_modal_class {
+    max-height: 100%;
+    overflow: auto;
+  }
+
   .btn-signup {
     cursor: pointer;
     display: inline-block;
