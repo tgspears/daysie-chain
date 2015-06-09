@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
     def create
     user = User.find_by_email(params[:user][:email])
     unless params[:user][:password].empty?
-      @user = user.authenticate(params[:user][:password])
-      if @user
+      if user
+        @user = user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         flash[:success] = "Login successful!"
         redirect_to user_groups_path(@user.id)

@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     length: {maximum: 25}
 
   validates :tel,
+    uniqueness: {case_sensitive: false},
     presence: true
 
   private
