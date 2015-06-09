@@ -126,7 +126,7 @@ respond_to :html, :xml, :json
       p "I found the user: #{user}"
       p "the event number is : #{event}"
       p "the phone number i got the message from is #{number}"
-      p "this is user.attendances.find_by_event_id(event)[:invited]:"
+      p "this is user.attendances.find_by_event_id(event)[:invited]: #{user.attendances.find_by_event_id(event)[:invited]}"
       if user.attendances.find_by_event_id(event)[:invited] == true
         p "Made it past the first if statement"
         if body.downcase == 'yes'
