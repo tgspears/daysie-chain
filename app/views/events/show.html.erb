@@ -86,7 +86,6 @@ deadline.setMinutes(<%= total_time %>);
   var now = new Date;
   countdown.text(formatTime(new Date(+today + +deadline - d3.time.second(now))));
   setTimeout(tick, 1000 - now % 1000);
-  console.log(d3.time.second(now))
 })();
 
 
