@@ -1,7 +1,6 @@
 
 User.create!([
   {firstname: "Aida", lastname: "Mengistu", email: "aida@mengistu.com", tel: "12063711202", password_digest: nil, provider_id: nil, provider: nil, provider_hash: nil, image: nil, active: nil},
-  {firstname: "Alex", lastname: "Nguyen", email: "alex@nguyen.com", tel: "12065567444", password_digest: "$2a$10$/PXMAWZmuuX8hJTIO5SIFurEdu9Y4HuHtBxT/nGRVIBI5A1/8HNR2", provider_id: nil, provider: nil, provider_hash: nil, image: nil, active: nil},
   {firstname: "Allie", lastname: "Moses", email: "allie@moses.com", tel: "15305267767", password_digest: nil, provider_id: nil, provider: nil, provider_hash: nil, image: nil, active: nil},
   {firstname: "Ben", lastname: "Piggot", email: "ben@piggot.com", tel: "12062513317", password_digest: nil, provider_id: nil, provider: nil, provider_hash: nil, image: nil, active: nil},
   {firstname: "Bennett", lastname: "Lin", email: "bennett@lin.com", tel: "18183576453", password_digest: nil, provider_id: nil, provider: nil, provider_hash: nil, image: nil, active: nil},
