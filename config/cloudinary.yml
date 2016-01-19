@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: tgspears
+  api_key: '792775738638953'
+  api_secret: HpJCCVkRCNqzUZ9Fdl3HkBy-mZ4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: tgspears
+  api_key: '792775738638953'
+  api_secret: HpJCCVkRCNqzUZ9Fdl3HkBy-mZ4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: tgspears
+  api_key: '792775738638953'
+  api_secret: HpJCCVkRCNqzUZ9Fdl3HkBy-mZ4
+  enhance_image_tag: true
+  static_image_support: false
