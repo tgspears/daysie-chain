@@ -11,17 +11,17 @@
 
 User.create(firstname: 'Trevor', lastname: 'Spears', email: 'trevor@spears.com', tel: '14252050766', password: 'trevorspears', image: 'http://static9.cdn.ubi.com/en-GB/images/LARP_2012_2tcm2158734.png')
 
-User.create(firstname: 'Lauren', lastname: 'Go', email: 'lauren@go.com', tel: '14252050766', password: 'laurengo', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/553.jpg')
+User.create(firstname: 'Lauren', lastname: 'Go', email: 'lauren@go.com', tel: '0000002', password: 'laurengo', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/553.jpg')
 
-User.create(firstname: 'Dave', lastname: 'Raskin', email: 'dave@raskin.com', tel: '14252050766', password: 'daveraskin', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/554.jpg')
+User.create(firstname: 'Dave', lastname: 'Raskin', email: 'dave@raskin.com', tel: '0000003', password: 'daveraskin', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/554.jpg')
 
-User.create(firstname: 'Alex', lastname: 'Nguyen', email: 'alex@nguyen.com', tel: '14252050766', password: 'alexnguyen', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/549.jpg')
+User.create(firstname: 'Alex', lastname: 'Nguyen', email: 'alex@nguyen.com', tel: '0000004', password: 'alexnguyen', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/549.jpg')
 
-User.create(firstname: 'Mark', lastname: 'Bradford', email: 'mark@bradford.com', tel: '14252050766', password: 'markbradford', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/550.jpg')
+User.create(firstname: 'Mark', lastname: 'Bradford', email: 'mark@bradford.com', tel: '0000005', password: 'markbradford', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/550.jpg')
 
-User.create(firstname: 'Timon', lastname: 'Pike', email: 'timon@pike.com', tel: '14252050766', password: 'timonpike', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/545.jpg')
+User.create(firstname: 'Timon', lastname: 'Pike', email: 'timon@pike.com', tel: '0000006', password: 'timonpike', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/545.jpg')
 
-User.create(firstname: 'Nick', lastname: 'Cronquist', email: 'nick@cronquist.com', tel: '14252050766', password: 'nickcronquist', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/546.jpg')
+User.create(firstname: 'Nick', lastname: 'Cronquist', email: 'nick@cronquist.com', tel: '0000007', password: 'nickcronquist', image: 'http://www.peopleofwalmart.com/wp-content/uploads/2015/05/546.jpg')
 
 ################### GROUPS #####################
 

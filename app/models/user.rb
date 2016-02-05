@@ -1,16 +1,9 @@
 
 class User < ActiveRecord::Base
 
-  @@default_picture = 'xgv0flbmmozhi3anjyd2'
-
-
   attr_accessor :active
 
   before_save :format_tel
-
-  def self.default_picture
-    @@default_picture
-  end
 
   def is_active?
     puts active

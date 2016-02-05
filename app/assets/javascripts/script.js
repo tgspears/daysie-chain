@@ -120,7 +120,6 @@ $(function(){
 
   var group_id;
   $('.show').on('click', function(e){
-    console.log("some text")
    group_id = $(this).attr('group-id');
   });
 
@@ -150,23 +149,20 @@ $(function(){
 
   $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 
-$('#collapseOne').on('show.bs.collapse', function () {
-    $('.panel-heading').animate({
-        backgroundColor: "rgba(0,0,0,0.5)"
-    }, 500);
+  $('#collapseOne').on('show.bs.collapse', function () {
+      $('.panel-heading').animate({
+          backgroundColor: "rgba(0,0,0,0.5)"
+      }, 500);
+  })
+
+  $('#collapseOne').on('hide.bs.collapse', function () {
+      $('.panel-heading').animate({
+          backgroundColor: "rgba(0,0,0,0)"
+      }, 500);
+  })
+
+  if($("#buttoncontainer").length){
+    buttonlistener.addEventListener('click', radialClick, false);
+  }
+
 })
-
-$('#collapseOne').on('hide.bs.collapse', function () {
-    $('.panel-heading').animate({
-        backgroundColor: "rgba(0,0,0,0)"
-    }, 500);
-})
-
-  buttonlistener.addEventListener('click', radialClick, false);
-
-})
-
-
-
-
-

@@ -1,13 +1,6 @@
 <!-- <img id="center_pic" src="http://perceptualunderstanding.files.wordpress.com/2012/02/scan-e1328633637316.jpg?w=413&h=418"> -->
 
 <div class="row">
-  <div class="col-md-4">
-    <% if @current_user.groups %>
-    <%@current_user.groups.each do |i| %>
-    <% @idx = i.id %>
-   <% end %>
-   <% end %>
-  </div>
 
   <div id="buttoncontainer">
   <a class="btn" id="create_group_button" data-toggle="modal" href='#create_group'><span class="glyphicon glyphicon-plus"></span>   <strong>Create a new Group</strong></a>
@@ -22,118 +15,117 @@
     <% end %>
   </div>
 
-<% if @current_user.memberships %>
-  <% @current_user.memberships.each do |i| %>
-    <% @idx = i.id %>
-      <div class="radmenu">
-        <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><%= cl_image_tag(i.group[:image], :class=>"daysie_image") %></a>
-        <ul>
-          <li class="subli">
-            <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus fa-3x"></i></a>
-            <ul>
-            </ul>
-          </li>
-          <li class="subli">
-            <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="event_add">Add an Event</a>
-            <ul>
-            </ul>
-          </li>
-          <li class="subli">
-            <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" id="<%= i.group.id %>" data-target="#group_users_show">View Members</a>
-
-            <ul>
-            </ul>
-          </li>
-          <% i.group.events.each do |j| %>
-
-          <% if Attendance.find_by_event_id(j.id) %>
+  <% if @current_user.memberships %>
+    <% @current_user.memberships.each do |i| %>
+      <% @idx = i.id %>
+        <div class="radmenu">
+          <a href="#" id="menu<%= @idx %>" group-id="<%= i.group_id%>" class="show" ><%= cl_image_tag(i.group[:image], :class=>"daysie_image") %></a>
+          <ul>
             <li class="subli">
-            <a class="submenus" data-toggle="modal" class="event_invite" href="<%= user_group_event_path(@current_user,i.group,j)%>" data-target='#event_show'><%= j.name %></a>
-          </li>
-          <% else %>
+              <a class="submenus" data-toggle="modal" href="<%= new_user_path(i) %>" id="<%= @idx %>" data-target="#add_user" class= "group_user_add"><i class="fa fa-user-plus fa-3x"></i></a>
+              <ul>
+              </ul>
+            </li>
             <li class="subli">
-            <a class="submenus" data-toggle="modal" class="event_invite" href="<%= edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
-          </li>
-          <% end %>
+              <a class="submenus" data-toggle="modal" data-target='#create_event' href="<%=new_user_group_event_path(@current_user,i.group)%>" class="event_add">Add an Event</a>
+              <ul>
+              </ul>
+            </li>
+            <li class="subli">
+              <a class="submenus" data-toggle="modal" href="<%= user_group_path(@current_user, i.group) %>" id="<%= i.group.id %>" data-target="#group_users_show">View Members</a>
+            </li>
 
-          <% end %>
-        </ul>
-      </div>
+            <% i.group.events.each do |j| %>
+
+              <% if Attendance.find_by_event_id(j.id) %>
+                <li class="subli">
+                  <a class="submenus" data-toggle="modal" class="event_invite" href="<%= user_group_event_path(@current_user,i.group,j)%>" data-target='#event_show'><%= j.name %></a>
+                </li>
+              <% else %>
+                <li class="subli">
+                  <a class="submenus" data-toggle="modal" class="event_invite" href="<%= edit_user_group_event_path(@current_user,i.group,j)%>" data-target='#event_invite'><%= j.name %></a>
+                </li>
+              <% end %>
+
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
   <% end %>
-<% end %>
 
- <!-- Below here be the realm of modals, ya hear? -->
+   <!-- Below here be the realm of modals, ya hear? -->
 
- <div class="modal fade my_modal_class" id="create_group">
-  <div class="modal-dialog">
-    <div class="modal-content my_modal_content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h1 class="modal-title">Create a Group</h4>
+   <div class="modal fade my_modal_class" id="create_group">
+    <div class="modal-dialog">
+      <div class="modal-content my_modal_content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Create a Group</h4>
+        </div>
+        <div class="modal-body">
+          <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
+          <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
+          <%= f.text_field :size, label: "Maximum number of group members", placeholder: "The fewer the merrier!" %>
+          <%= f.file_field :image %>
+          <hr>
+          <h4> What is it that you lovely people do together? </h4>
+          <small> Don't stress yourself out: you can add more events to this group at any time. </small>
+          <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
+            <%= f.text_field :name, :label => "Event Name", placeholder: "Something simple and recognizable." %>
+            <%= f.text_field :desc, :label => "Description", placeholder: "Short and sweet works best." %>
+            <%= f.text_field :loc, :label => "Location", placeholder: "Where's it gonna be?" %>
+          <span class="pull-right">
+            <% end %>
+            <% end %>
+
+            <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
+          </span>
+        </div>
+        <div class="modal-footer">
+        </div>
+
       </div>
-      <div class="modal-body">
-        <%= bootstrap_form_for [@user, @group], :html => { :id => "group_form" } do |f| %>
-        <%= f.text_field :name, placeholder: "e.g. Party Girlz" %>
-        <%= f.text_field :size, label: "Maximum number of group members", placeholder: "The fewer the merrier!" %>
-        <%= f.file_field :image %>
-        <hr>
-        <h4> What is it that you lovely people do together? </h4>
-        <small> Don't stress yourself out: you can add more events to this group at any time. </small>
-        <%= bootstrap_form_for :event, :html => { :id => "event_form" } do |f| %>
-          <%= f.text_field :name, :label => "Event Name", placeholder: "Something simple and recognizable." %>
-          <%= f.text_field :desc, :label => "Description", placeholder: "Short and sweet works best." %>
-          <%= f.text_field :loc, :label => "Location", placeholder: "Where's it gonna be?" %>
-        <span class="pull-right">
-          <% end %>
-          <% end %>
-
-          <button type="button"  class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" id="group_submit" class="btn btn-primary">Save changes</button>
-        </span>
-      </div>
-      <div class="modal-footer">
-      </div>
-
     </div>
   </div>
+
+  <% if @groups %>
+    <div class="fade modal my_modal_class" id="event_invite">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <div class="fade modal my_modal_class" id="event_show">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+    <div class="fade modal my_modal_class" id="group_users_show">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  <% end %>
+
+  <div class="fade modal my_modal_class" id="create_event">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+  <div class="modal fade my_modal_class" id="add_user">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal  -->
 </div>
-
-<% if @groups %>
-  <div class="fade modal my_modal_class" id="event_invite">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-
-
-  <div class="fade modal my_modal_class" id="event_show">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div>
-
-  <div class="fade modal my_modal_class" id="group_users_show">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-<% end %>
-
-<div class="fade modal my_modal_class" id="create_event">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade my_modal_class" id="add_user">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal  -->

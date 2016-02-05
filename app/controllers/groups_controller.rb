@@ -19,12 +19,12 @@ class GroupsController < ApplicationController
     user = current_user
     if params[:group][:size].to_i.is_a? Integer
         unless params[:group][:image] == nil
-        uploaded_file = params[:group][:image].path
+          uploaded_file = params[:group][:image].path
+        else
+          uploaded_file = "#{Rails.root}/app/assets/images/daysie-chain-logo.png"
+        end
         cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
         cloudinary_file = cloudinary_file["public_id"];
-        else
-        cloudinary_file = "esgbr7f19tu86yiugtor"
-        end
       group = Group.create(:name => params[:group][:name], :size => params[:group][:size].to_i, :status => params[:group][:status], :image => cloudinary_file)
       if group
         user.groups << group
